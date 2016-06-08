@@ -46,6 +46,11 @@
     <%= f.text_field :location %>
   </div>
 
+  <div class="field">
+    <%= f.label :campaign_ids %>
+    <%= f.collection_select :campaign_ids, Campaign.all, :id, :name , {}, :multiple => true %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

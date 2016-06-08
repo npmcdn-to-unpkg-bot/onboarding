@@ -38,16 +38,27 @@
 
   <div class="field">
     <%= f.label :status %>
-    <%= f.text_field :status %>
+    <%= f.select :status, Campaign.status.invert %>
   </div>
 
   <div class="field">
     <%= f.label :order_sequence %>
     <%= f.text_field :order_sequence %>
   </div>
+
   <div class="field">
     <%= f.label :start_date %>
     <%= f.date_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.collection_select :user_id, User.all, :id, :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :task_ids %>
+    <%= f.collection_select :task_ids, Task.all, :id, :name , {}, :multiple => true %>
   </div>
 
   <div class="actions">
