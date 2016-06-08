@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: campaigns
+#
+#  id               :integer          not null, primary key
+#  name             :string
+#  htag             :string
+#  description      :text
+#  background_image :string
+#  url              :string
+#  status           :integer
+#  order_sequence   :string
+#  start_date       :date
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  htag: MyString
+  description: MyText
+  background_image: 
+  url: MyString
+  status: 
+  order_sequence: MyString
+  start_date: 2016-06-08
+
+two:
+  name: MyString
+  htag: MyString
+  description: MyText
+  background_image: 
+  url: MyString
+  status: 
+  order_sequence: MyString
+  start_date: 2016-06-08
