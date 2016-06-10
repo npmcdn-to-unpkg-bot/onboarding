@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     resources :events
     resources :campaigns
     resources :users
+
+    root 'static#admin'
   end
 end

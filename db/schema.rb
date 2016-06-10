@@ -16,13 +16,6 @@ ActiveRecord::Schema.define(version: 20160608134807) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "campaign_task", force: :cascade do |t|
-    t.integer "campaign_id"
-    t.integer "task_id"
-    t.index ["campaign_id"], name: "index_campaign_task_on_campaign_id", using: :btree
-    t.index ["task_id"], name: "index_campaign_task_on_task_id", using: :btree
-  end
-
   create_table "campaigns", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -36,6 +29,13 @@ ActiveRecord::Schema.define(version: 20160608134807) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.index ["user_id"], name: "index_campaigns_on_user_id", using: :btree
+  end
+
+  create_table "campaigns_tasks", force: :cascade do |t|
+    t.integer "campaign_id"
+    t.integer "task_id"
+    t.index ["campaign_id"], name: "index_campaigns_tasks_on_campaign_id", using: :btree
+    t.index ["task_id"], name: "index_campaigns_tasks_on_task_id", using: :btree
   end
 
   create_table "event_requests", force: :cascade do |t|
