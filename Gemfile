@@ -15,6 +15,7 @@ gem 'eventbrite'
 gem 'dotenv-rails'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'sprockets-rails', '> 2.3.2'
+gem 'paperclip'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
