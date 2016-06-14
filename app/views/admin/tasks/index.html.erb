@@ -19,10 +19,10 @@
       <tr>
         <td><%= task.name %></td>
         <td><%= task.task_manager_url %></td>
-        <td><%= task.task_type %></td>
+        <td><%= task.task_type_humanize %></td>
         <td><%= task.description %></td>
-        <td><%= task.image %></td>
-        <td><%= task.status %></td>
+        <td><%= image_tag task.image.url(:thumb) %></td>
+        <td><%= task.status_humanize %></td>
         <td><%= task.location %></td>
         <td><%= link_to 'Show', admin_task_path(task) %></td>
         <td><%= link_to 'Edit', edit_admin_task_path(task) %></td>

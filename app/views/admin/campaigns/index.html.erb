@@ -21,9 +21,9 @@
         <td><%= campaign.name %></td>
         <td><%= campaign.htag %></td>
         <td><%= campaign.description %></td>
-        <td><%= campaign.background_image %></td>
+        <td><%= image_tag campaign.background_image.url(:thumb) %></td>
         <td><%= campaign.url %></td>
-        <td><%= campaign.status %></td>
+        <td><%= campaign.status_humanize %></td>
         <td><%= campaign.order_sequence %></td>
         <td><%= campaign.start_date %></td>
         <td><%= link_to 'Show', admin_campaign_path(campaign) %></td>

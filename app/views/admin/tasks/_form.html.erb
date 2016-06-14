@@ -23,7 +23,7 @@
 
     <fieldset class="form-group row">
       <%= f.label :task_type, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.text_field :task_type, class: 'form-control' %></div>
+      <div class="col-sm-10"><%= f.select :task_type, TaskTypes.to_a, {}, class: 'form-control' %></div>
     </fieldset>
 
     <fieldset class="form-group row">
@@ -40,7 +40,7 @@
 
     <fieldset class="form-group row">
       <%= f.label :status, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.text_field :status, class: 'form-control' %></div>
+      <div class="col-sm-10"><%= f.select :status, TaskStatus.to_a, {}, {:class => 'form-control'} %></div>
     </fieldset>
 
     <fieldset class="form-group row">
