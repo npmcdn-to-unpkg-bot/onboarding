@@ -20,7 +20,7 @@ class EventRequestsControllerTest < ActionDispatch::IntegrationTest
       post event_requests_url, params: { event_request: { description: @event_request.description, email: @event_request.email, experience_level: @event_request.experience_level, location: @event_request.location, name: @event_request.name, potential_date: @event_request.potential_date } }
     end
 
-    assert_redirected_to event_request_path(EventRequest.last)
+    assert_redirected_to admin_event_request_path(EventRequest.last)
   end
 
   test "should show event_request" do
@@ -35,7 +35,7 @@ class EventRequestsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update event_request" do
     patch event_request_url(@event_request), params: { event_request: { description: @event_request.description, email: @event_request.email, experience_level: @event_request.experience_level, location: @event_request.location, name: @event_request.name, potential_date: @event_request.potential_date } }
-    assert_redirected_to event_request_path(@event_request)
+    assert_redirected_to admin_event_request_path(@event_request)
   end
 
   test "should destroy event_request" do
@@ -43,6 +43,6 @@ class EventRequestsControllerTest < ActionDispatch::IntegrationTest
       delete event_request_url(@event_request)
     end
 
-    assert_redirected_to event_requests_path
+    assert_redirected_to admin_event_requests_path
   end
 end

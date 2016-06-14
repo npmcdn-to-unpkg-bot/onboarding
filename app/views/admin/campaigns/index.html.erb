@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Campaigns</h1>
 
 <table class="table table-bordered">
@@ -28,9 +26,9 @@
         <td><%= campaign.status %></td>
         <td><%= campaign.order_sequence %></td>
         <td><%= campaign.start_date %></td>
-        <td><%= link_to 'Show', campaign %></td>
+        <td><%= link_to 'Show', admin_campaign_path(campaign) %></td>
         <td><%= link_to 'Edit', edit_admin_campaign_path(campaign) %></td>
-        <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', admin_campaign_path(campaign), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

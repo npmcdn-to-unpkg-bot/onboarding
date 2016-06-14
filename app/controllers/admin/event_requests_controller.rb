@@ -28,7 +28,7 @@ class Admin::EventRequestsController < AdminController
 
     respond_to do |format|
       if @event_request.save
-        format.html { redirect_to @event_request, notice: 'Event request was successfully created.' }
+        format.html { redirect_to admin_event_request_path(@event_request), notice: 'Event request was successfully created.' }
         format.json { render :show, status: :created, location: @event_request }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::EventRequestsController < AdminController
   def update
     respond_to do |format|
       if @event_request.update(event_request_params)
-        format.html { redirect_to @event_request, notice: 'Event request was successfully updated.' }
+        format.html { redirect_to admin_event_request_path(@event_request), notice: 'Event request was successfully updated.' }
         format.json { render :show, status: :ok, location: @event_request }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class Admin::EventRequestsController < AdminController
   def destroy
     @event_request.destroy
     respond_to do |format|
-      format.html { redirect_to event_requests_url, notice: 'Event request was successfully destroyed.' }
+      format.html { redirect_to admin_event_requests_url, notice: 'Event request was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

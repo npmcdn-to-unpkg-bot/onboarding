@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Events</h1>
 
 <table class="table table-bordered">
@@ -28,9 +26,9 @@
         <td><%= event.location %></td>
         <td><%= event.instructions %></td>
         <td><%= event.contact %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_event_path(event) %></td>
+        <td><%= link_to 'Edit', edit_admin_event_path(event) %></td>
+        <td><%= link_to 'Destroy', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path, class: 'btn btn-primary' %>
+<%= link_to 'New Event', new_admin_event_path, class: 'btn btn-primary' %>
