@@ -5,7 +5,7 @@
 #  id               :integer          not null, primary key
 #  name             :string
 #  task_manager_url :string
-#  type             :integer
+#  task_type             :integer
 #  description      :text
 #  image            :string
 #  status           :integer

@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20160613135843) do
   create_table "tasks", force: :cascade do |t|
     t.string   "name"
     t.string   "task_manager_url"
-    t.integer  "type"
+    t.integer  "task_type"
     t.text     "description"
     t.string   "image"
     t.integer  "status"

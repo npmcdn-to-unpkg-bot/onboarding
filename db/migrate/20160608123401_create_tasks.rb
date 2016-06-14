@@ -3,7 +3,7 @@ class CreateTasks < ActiveRecord::Migration[5.0]
     create_table :tasks do |t|
       t.string :name
       t.string :task_manager_url
-      t.integer :type
+      t.integer :task_type
       t.text :description
       t.string :image
       t.integer :status
