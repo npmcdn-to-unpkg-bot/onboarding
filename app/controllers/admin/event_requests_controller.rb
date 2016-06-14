@@ -1,4 +1,4 @@
-class EventRequestsController < ApplicationController
+class Admin::EventRequestsController < AdminController
   before_action :set_event_request, only: [:show, :edit, :update, :destroy]
 
   # GET /event_requests

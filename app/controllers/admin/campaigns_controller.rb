@@ -1,4 +1,4 @@
-class CampaignsController < ApplicationController
+class Admin::CampaignsController < AdminController
   before_action :set_campaign, only: [:show, :edit, :update, :destroy]
 
   # GET /campaigns

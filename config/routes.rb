@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  scope(:path => '/admin') do
-    devise_for :users
+  devise_for :users, path: 'admin'
+  namespace :admin do
 
     resources :event_requests
     resources :tasks
