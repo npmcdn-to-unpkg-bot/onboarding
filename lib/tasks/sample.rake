@@ -1,10 +1,6 @@
 namespace :db do
   desc "Create sample development data"
   task :sample => :environment do
-    if Rails.env != 'development'
-      abort("Can only load sample data in development environment, currently in #{Rails.env}")
-    end
-
     users = [
         {
             email: 'admin@example.com',
