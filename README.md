@@ -1,6 +1,6 @@
 # Logging Roads Onboarding website
-Helping people get involved in tagging roads.
 
+Helping people get involved in tagging roads.
 
 ## Dependencies
 
