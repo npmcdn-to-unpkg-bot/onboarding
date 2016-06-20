@@ -1,0 +1,63 @@
+@import'./settings.scss';
+
+.text {
+  font-family: $font-family-1;
+  margin: 0;
+
+  &.-primary {
+    color: $font-color-1;
+  }
+
+  &.-light {
+    color: $font-color-2;
+  }
+
+  &.-dark {
+    color: $font-color-3;
+  }
+
+  &.-darker {
+    color: $font-color-4;
+  }
+}
+
+/* MODULE TITLE */
+// .text-module-title {
+//   font-weight: 700;
+//   /*Important needed to avoid mapbox styles in pop-up;*/
+//   font-size: rem(20);
+
+//   @media screen and (min-width: $screen-m) {
+//     font-size: rem(24);
+//   }
+
+//   @media screen and (min-width: $screen-l) {
+//     font-size: rem(25);
+//   }
+
+//   @media screen and (min-width: $screen-xl) {
+//     font-size: rem(26);
+//   }
+
+//   @media screen and (min-width: $screen-xxl) {
+//     font-size: rem(27);
+//   }
+// }
+
+.text-claim {
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 25px;
+
+  @media screen and (min-width: $screen-m) {
+    font-size: 30px;
+    line-height: 37px;
+  }
+}
+
+.text-button {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 37px;
+  text-transform: uppercase;
+}

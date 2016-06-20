@@ -1,0 +1,26 @@
+@import'./settings.scss';
+
+.wrap-center {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 15px;
+
+  @media screen and (min-width: $screen-s) {
+    padding: 0 40px;
+  }
+
+  @media screen and (min-width: $screen-m) {
+    padding: 0 138px;
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    padding: 0 205px;
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    padding: 0 290px;
+  }
+}
