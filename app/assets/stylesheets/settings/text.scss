@@ -12,37 +12,35 @@
     color: $font-color-2;
   }
 
-  &.-dark {
+  &.-darker {
     color: $font-color-3;
   }
 
-  &.-darker {
+  &.-dark {
     color: $font-color-4;
   }
 }
 
 /* MODULE TITLE */
-// .text-module-title {
-//   font-weight: 700;
-//   /*Important needed to avoid mapbox styles in pop-up;*/
-//   font-size: rem(20);
+.text-module-title {
+  font-weight: 700;
+  font-size: 63px;
+  text-transform: uppercase;
 
-//   @media screen and (min-width: $screen-m) {
-//     font-size: rem(24);
-//   }
+  @media screen and (min-width: $screen-m) {
+    font-size: 73px;
+  }
+}
 
-//   @media screen and (min-width: $screen-l) {
-//     font-size: rem(25);
-//   }
+.text-module-subtitle {
+  font-weight: 700;
+  font-size: 28px;
+  text-transform: uppercase;
 
-//   @media screen and (min-width: $screen-xl) {
-//     font-size: rem(26);
-//   }
-
-//   @media screen and (min-width: $screen-xxl) {
-//     font-size: rem(27);
-//   }
-// }
+  @media screen and (min-width: $screen-m) {
+    font-size: 38px;
+  }
+}
 
 .text-claim {
   font-weight: 200;
