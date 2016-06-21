@@ -16,6 +16,7 @@
 
   @media screen and (min-width: $screen-m) {
     padding: 25px 40px;
+    font-size: 15px;
   }
 
   @media screen and (min-width: $screen-xl) {
@@ -26,7 +27,16 @@
 /* The orange one */
 .btn-primary {
   background-color: $color-1;
-  color: $font-color-2;
+  color: $font-color-3;
+}
+
+.btn-secondary {
+  background-color: $color-2;
+  color: $font-color-3;
+
+  @media screen and (min-width: $screen-m) {
+    padding: 25px 53px;
+  }
 }
 
 
