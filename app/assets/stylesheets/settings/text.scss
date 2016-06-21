@@ -42,6 +42,16 @@
   }
 }
 
+.text-p-title {
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+
+  @media screen and (min-width: $screen-m) {
+    font-size: 26px;
+  }
+}
+
 .text-claim {
   font-weight: 200;
   font-size: 20px;
@@ -50,6 +60,17 @@
   @media screen and (min-width: $screen-m) {
     font-size: 30px;
     line-height: 37px;
+  }
+}
+
+.text-p {
+  font-weight: 200;
+  font-size: 28px;
+  line-height: 35px;
+
+  @media screen and (min-width: $screen-m) {
+    font-size: 32px;
+    line-height: 42px;
   }
 }
 
