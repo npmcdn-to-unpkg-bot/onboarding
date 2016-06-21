@@ -1,0 +1,49 @@
+@import'../settings/settings.scss';
+
+.activity {
+  background-color: $color-3;
+
+  .wrap-full {
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    @media screen and (min-width: $screen-m) {
+     padding-top: 80px;
+     padding-bottom: 80px;
+    }
+
+    @media screen and (min-width: $screen-l) {
+     padding-top: 130px;
+     padding-bottom: 130px;
+    }
+  }
+
+  .text-module-title {
+    margin-bottom: 70px;
+  }
+
+  .activity-data {
+    display: flex;
+    flex-flow: column;
+
+    @media screen and (min-width: $screen-m) {
+      flex-flow: row;
+      justify-content: space-between;
+    }
+  }
+
+  .more-info {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .btn-secondary {
+    margin-bottom: 30px;
+  }
+
+  .text-menu {
+    text-transform: none;
+  }
+}
