@@ -17,5 +17,17 @@
 //= require react
 //= require react_ujs
 //= require_tree ./components
+//= require jquery.slick
 //= require main
+
+
+
+$('.slider-container').ready( function() {
+  $('.slider-container').slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true
+  });
+});
 

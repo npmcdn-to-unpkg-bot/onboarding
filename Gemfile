@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 2.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Slick slider
+gem 'jquery-slick-rails', '~> 1.5', '>= 1.5.9.1'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

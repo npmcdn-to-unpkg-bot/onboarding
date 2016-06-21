@@ -1,0 +1,21 @@
+
+
+.slider {
+
+  .wrap-center {
+    padding-top: 60px;
+    padding-bottom: 180px;
+  }
+
+  .slick-next:before, .slick-prev:before {
+    color: lightgrey;
+  }
+
+  .slick-prev {
+    left: 0;
+  }
+
+  .slick-next {
+    right: 0;
+  }
+}
