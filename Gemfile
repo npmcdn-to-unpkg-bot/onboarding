@@ -11,7 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 # # Use CoffeeScript for .coffee assets and views
 # gem 'coffee-rails', '~> 4.1.0'
 # # Making easy to use React and JSX
-# gem 'react-rails'
+gem 'react-rails'
 # # Support for common js
 gem 'browserify-rails'
 gem 'jquery-rails'
