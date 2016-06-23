@@ -1,0 +1,35 @@
+<h1>Event Requests</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Potential date</th>
+      <th>Experience level</th>
+      <th>Email</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @event_requests.each do |event_request| %>
+      <tr>
+        <td><%= event_request.name %></td>
+        <td><%= event_request.description %></td>
+        <td><%= event_request.location %></td>
+        <td><%= event_request.potential_date %></td>
+        <td><%= event_request.experience_level %></td>
+        <td><%= event_request.email %></td>
+        <td><%= link_to 'Show', admin_event_request_path(event_request) %></td>
+        <td><%= link_to 'Edit', edit_admin_event_request_path(event_request) %></td>
+        <td><%= link_to 'Destroy', admin_event_request_path(event_request), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event Request', new_admin_event_request_path, class: 'btn btn-primary' %>

@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-	root 'welcome#index'
-  get 'welcome/index'
+  devise_for :users, path: 'admin'
+  namespace :admin do
+    resources :event_requests
+    resources :tasks
+    resources :events
+    resources :campaigns
+    resources :users
+  end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/admin', to: 'static#admin'
+  root 'static#home'
 end
