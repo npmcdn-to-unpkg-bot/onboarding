@@ -3,15 +3,12 @@ import { setCommunityData } from '../../actions/static';
 import CommunityData from '../../components/static/CommunityData';
 
 const mapStateToProps = (state) => {
-  console.log('state.container');
   return {
-    communityData: state.communityData
+    communityData: state.staticReducer.communityData
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  console.log('dispatch.container');
-  debugger;
   return {
     setCommunityData: () => dispatch(setCommunityData())
   };
