@@ -9,6 +9,8 @@ import { hashHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
 import * as reducers from './reducers';
 import Routes from './routes';
+import CommunityDataContainer from './containers/static/CommunityDataContainer';
+
 
 /**
  * Reducers
@@ -41,9 +43,12 @@ const store = createStore(
  */
 const history = syncHistoryWithStore(hashHistory, store);
 
-render(
-  <Provider store={store}>
-    <Routes history={history} />
-  </Provider>,
-  document.getElementById('app')
-);
+// $('#app').ready( function() {
+//   ReactDOM.render(
+//     <Provider store={store}>
+//       {Routes(store)}
+//     </Provider>,
+//     document.getElementById('app')
+//   );
+// });
+

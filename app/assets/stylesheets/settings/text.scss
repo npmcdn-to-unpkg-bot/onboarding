@@ -99,3 +99,18 @@
   line-height: 37px;
   text-transform: uppercase;
 }
+
+.text-numeric-m {
+  font-weight: 700;
+  line-height: 35px;
+  font-size: 25px;
+
+  @media screen and (min-width: $screen-s) {
+    font-size: 35px;
+  }
+
+  @media screen and (min-width: $screen-m) {
+    font-size: 41px;
+    line-height: 41px;
+  }
+}

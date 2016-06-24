@@ -15,11 +15,10 @@
 //= require turbolinks
 //= require tether
 //= require bootstrap-sprockets
-//= require_tree .
 //= require react
 //= require react_ujs
-//= require_tree ./components
 //= require jquery.slick
+//= require_tree .
 //= require main
 
 
