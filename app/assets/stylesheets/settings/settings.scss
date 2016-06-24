@@ -1,3 +1,4 @@
+@import'./utils.scss';
 
 /* FONTS */
 $font-family-1: "officina-serif";
@@ -22,6 +23,9 @@ $wrap-padding-desktop-xxl: rem(100);
 $content-width: 80%;
 $content-width-xl: 90%;
 
+// Skewed rectangles
+$skew-angle: 3deg;
+$skew-offset: calc(50vw * tan($skew-angle));
 
 /* COLORS */
 /* $orange-pumpkin: #e77800;

@@ -1,12 +1,15 @@
 @import'../settings/settings.scss';
+@import'../settings/utils.scss';
 
 .intro {
   position: relative;
   background-color: lightgrey;
+  // padding-bottom: calc(2 * #{$skew-offset});
 
   .wrap-center {
     padding-top: 100px;
     padding-bottom: 160px;
+    // height: calc(100% - #{$skew-offset});
   }
 
   .image-title {
