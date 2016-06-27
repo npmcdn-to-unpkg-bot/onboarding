@@ -1,7 +1,7 @@
 
 <div id="parallax">
   <%= render 'header' %>
-  <article class="intro">
+  <article class="intro" id="intro">
     <%= render 'intro' %>
   </article>
   <article class="slider" id="slider">
@@ -9,20 +9,29 @@
     <div class="arrow-left"></div>
     <div class="arrow-right"></div>
   </article>
-  <article class="participate">
+  <article class="participate" id="participate">
     <%= render 'participate' %>
   </article>
-  <article class="events">
+  <article class="events" id="events">
     <%= render 'events' %>
   </article>
-  <article class="community">
+  <article class="community" id="community">
     <%= render 'community' %>
   </article>
-  <article class="activity">
+  <article class="activity" id="activity">
     <%= render 'activity' %>
   </article>
-  <article class="about">
+  <article class="about" id="about">
     <%= render 'about' %>
   </article>
   <%= render 'footer' %>
+  <div class="dots-menu">
+    <div id="intro-dot" class="dot-item"><a href="#intro" title="Logging Roads">&nbsp</a></div>
+    <div id="slider-dot" class="dot-item"><a href="#slider" title="Collaborate">&nbsp</a></div>
+    <div id="participate-dot" class="dot-item"><a href="#participate" title="Participate">&nbsp</a></div>
+    <div id="events-dot" class="dot-item"><a href="#events" title="Events">&nbsp</a></div>
+    <div id="community-dot" class="dot-item"><a href="#community" title="Join the Comunnity">&nbsp</a></div>
+    <div id="activity-dot" class="dot-item"><a href="#activity" title="Users Activity">&nbsp</a></div>
+    <div id="about-dot" class="dot-item"><a href="#about" title="About">&nbsp</a></div>
+  </div>
 </div>
