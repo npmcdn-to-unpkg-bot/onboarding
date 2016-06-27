@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setCommunityData: () => dispatch(setCommunityData())
+    setCommunityData: (data) => dispatch(setCommunityData(data))
   };
 }
 

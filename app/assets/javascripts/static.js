@@ -1,4 +1,4 @@
-
+//= require main
 
 function setSlider() {
   $('.slider-container').ready( function() {

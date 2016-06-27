@@ -43,12 +43,26 @@ const store = createStore(
  */
 const history = syncHistoryWithStore(hashHistory, store);
 
-$('#app').ready( function() {
+$('#parallax').ready( function() {
   ReactDOM.render(
     <Provider store={store}>
-      <CommunityDataContainer />
+      <CommunityDataContainer data="total-roads" />
     </Provider>,
-    document.getElementById('comp')
+    document.getElementById('total-roads')
+  );
+
+  ReactDOM.render(
+    <Provider store={store}>
+      <CommunityDataContainer data="total-tagged" />
+    </Provider>,
+    document.getElementById('total-tagged')
+  );
+
+  ReactDOM.render(
+    <Provider store={store}>
+      <CommunityDataContainer data="user-changes" />
+    </Provider>,
+    document.getElementById('user-changes')
   );
 });
 

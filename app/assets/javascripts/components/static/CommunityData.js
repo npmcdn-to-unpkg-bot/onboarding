@@ -2,11 +2,12 @@
 
 import React from 'react';
 
-window.CommunityData = React.createClass({
+//window.CommunityData = React.createClass({
+class CommunityData extends React.Component {
 
   componentWillMount() {
-    this.props.setCommunityData();
-  },
+    this.props.setCommunityData(this.props.data);
+  }
 
   render() {
     const title = this.props.communityData && this.props.communityData.title;
@@ -20,7 +21,7 @@ window.CommunityData = React.createClass({
       </div>
     );
   }
-});
+}
 
 CommunityData.propTypes = {
   communityData: React.PropTypes.object
