@@ -32,5 +32,7 @@ module Onboarding
     end
 
     config.browserify_rails.commandline_options = "-t babelify"
+    # Fonts added to configuration
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end

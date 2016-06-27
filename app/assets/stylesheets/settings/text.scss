@@ -1,7 +1,6 @@
 @import'./settings.scss';
 
 .text {
-  font-family: $font-family-1;
   margin: 0;
 
   &.-primary {
@@ -23,7 +22,7 @@
 
 /* MODULE TITLE */
 .text-module-title {
-  font-weight: 700;
+  font-family: $font-family-5;
   font-size: 63px;
   text-transform: uppercase;
 
@@ -33,17 +32,17 @@
 }
 
 .text-module-subtitle {
-  font-weight: 700;
+  font-family: $font-family-6;
   font-size: 28px;
   text-transform: uppercase;
 
   @media screen and (min-width: $screen-m) {
-    font-size: 38px;
+    font-size: 37px;
   }
 }
 
 .text-p-title {
-  font-weight: 700;
+  font-family: $font-family-5;
   font-size: 20px;
   text-transform: uppercase;
 
@@ -53,7 +52,7 @@
 }
 
 .text-claim {
-  font-weight: 200;
+  font-family: $font-family-4;
   font-size: 20px;
   line-height: 25px;
 
@@ -64,7 +63,7 @@
 }
 
 .text-p {
-  font-weight: 200;
+  font-family: $font-family-4;
   font-size: 28px;
   line-height: 35px;
 
@@ -75,12 +74,13 @@
 }
 
 .text-legend {
+  font-family: $font-family-3;
   font-size: 18px;
   line-height: 21px;
 }
 
 .text-menu {
-  font-weight: 700;
+  font-family: $font-family-5;
   font-size: 13px;
   text-transform: uppercase;
 
@@ -94,14 +94,14 @@
 }
 
 .text-button {
-  font-weight: 500;
+  font-family: $font-family-2;
   font-size: 15px;
   line-height: 37px;
   text-transform: uppercase;
 }
 
 .text-numeric-m {
-  font-weight: 700;
+  font-family: $font-family-5;
   line-height: 35px;
   font-size: 25px;
 
