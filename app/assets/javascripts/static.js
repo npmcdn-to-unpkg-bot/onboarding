@@ -11,4 +11,8 @@ function setSlider() {
   });
 }
 
-setSlider();
+$(document).ready(setSlider);
+$(document).on('page:change', function () {
+  setSlider();
+});
+
