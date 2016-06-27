@@ -10,6 +10,7 @@ import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-rou
 import reducers from './reducers';
 import Routes from './routes';
 import CommunityDataContainer from './containers/static/CommunityDataContainer';
+import UsersActivityDataContainer from './containers/static/UsersActivityDataContainer';
 
 
 /**
@@ -63,6 +64,20 @@ $('#parallax').ready( function() {
       <CommunityDataContainer data="user-changes" />
     </Provider>,
     document.getElementById('user-changes')
+  );
+
+  ReactDOM.render(
+    <Provider store={store}>
+      <UsersActivityDataContainer data="ranking" />
+    </Provider>,
+    document.getElementById('ranking')
+  );
+
+  ReactDOM.render(
+    <Provider store={store}>
+      <UsersActivityDataContainer data="latest-activity" />
+    </Provider>,
+    document.getElementById('latest-activity')
   );
 });
 
