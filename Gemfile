@@ -24,7 +24,9 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'sprockets-rails', '> 2.3.2'
 gem 'react-rails'
 
-# Front end libraries
+gem 'activerecord-sortable'
+gem 'jquery-ui-rails'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
