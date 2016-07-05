@@ -7,9 +7,10 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { hashHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
-import * as reducers from './reducers';
+import reducers from './reducers';
 import Routes from './routes';
 import CommunityDataContainer from './containers/static/CommunityDataContainer';
+import UsersActivityDataContainer from './containers/static/UsersActivityDataContainer';
 
 
 /**
@@ -43,12 +44,40 @@ const store = createStore(
  */
 const history = syncHistoryWithStore(hashHistory, store);
 
-// $('#app').ready( function() {
-//   ReactDOM.render(
-//     <Provider store={store}>
-//       {Routes(store)}
-//     </Provider>,
-//     document.getElementById('app')
-//   );
-// });
+$('#parallax').ready( function() {
+  ReactDOM.render(
+    <Provider store={store}>
+      <CommunityDataContainer data="total-roads" />
+    </Provider>,
+    document.getElementById('total-roads')
+  );
+
+  ReactDOM.render(
+    <Provider store={store}>
+      <CommunityDataContainer data="total-tagged" />
+    </Provider>,
+    document.getElementById('total-tagged')
+  );
+
+  ReactDOM.render(
+    <Provider store={store}>
+      <CommunityDataContainer data="user-changes" />
+    </Provider>,
+    document.getElementById('user-changes')
+  );
+
+  ReactDOM.render(
+    <Provider store={store}>
+      <UsersActivityDataContainer data="ranking" />
+    </Provider>,
+    document.getElementById('ranking')
+  );
+
+  ReactDOM.render(
+    <Provider store={store}>
+      <UsersActivityDataContainer data="latest-activity" />
+    </Provider>,
+    document.getElementById('latest-activity')
+  );
+});
 

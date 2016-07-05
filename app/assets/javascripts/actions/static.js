@@ -1,19 +1,42 @@
 import React from 'react';
 
 export const SET_COMMUNITY_DATA = 'SET_COMMUNITY_DATA';
+export const SET_USERS_ACTIVITY_DATA = 'SET_USERS_ACTIVITY_DATA';
 
-export function setCommunityData() {
-  console.log('action');
+export function setCommunityData(data) {
   // return function(dispatch) {
-  //   $.get('mi url').then(function(comunnityData){
+  //   $.get('url').then(function(comunnityData){
   //     return {
   //       type: SET_COMMUNITY_DATA,
   //       comunnityData
   //     }
   //   })
-  // }
+  // };
   return {
     type: SET_COMMUNITY_DATA,
-    communityData: {title: 'aa', quantity: 33.2, percentage: true}
+    communityData: {title: 'test', quantity: 33.2, percentage: true}
   };
 }
+
+export function setUsersActivityData(data) {
+  // return function(dispatch) {
+  //   $.get('url').then(function(usersActivityData){
+  //     return {
+  //       type: SET_USERS_ACTIVITY_DATA,
+  //       usersActivityData
+  //     }
+  //   })
+  // };
+  return {
+    type: SET_USERS_ACTIVITY_DATA,
+    usersActivityData: [
+      {name: 'Pepi', roads: 33},
+      {name: 'Pepi', roads: 33},
+      {name: 'Pepi', roads: 33},
+      {name: 'Pepi', roads: 33},
+      {name: 'Pepi', roads: 33},
+    ]
+  };
+}
+
+

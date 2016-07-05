@@ -36,6 +36,18 @@
       flex-flow: row;
       justify-content: space-between;
     }
+
+    & > div {
+      margin-bottom: 30px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @media screen and (min-width: $screen-m) {
+        margin-bottom: 0;
+      }
+    }
   }
 
   .text-legend {

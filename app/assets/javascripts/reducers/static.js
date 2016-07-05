@@ -1,16 +1,21 @@
 import React from 'react';
-import SET_COMMUNITY_DATA from '../actions/static';
 
 function setCommunityData(state, communityData) {
-  console.log('reduc-func');
-  return Object.assign({}, communityData);
+  let newState = Object.assign({}, state, {communityData});
+  return newState;
 }
 
-export default function staticReducer(state = [], action) {
-  console.log('reduc-static');
+function setUsersActivityData(state, usersActivityData) {
+  let newState = Object.assign({}, state, {usersActivityData});
+  return newState;
+}
+
+export default function staticReducer(state = {}, action) {
   switch (action.type) {
-    case SET_COMMUNITY_DATA:
+    case 'SET_COMMUNITY_DATA':
       return setCommunityData(state, action.communityData);
+    case 'SET_USERS_ACTIVITY_DATA':
+      return setUsersActivityData(state, action.usersActivityData);
     default:
       return state;
   }
