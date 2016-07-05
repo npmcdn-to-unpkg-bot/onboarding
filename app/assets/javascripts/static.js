@@ -18,14 +18,19 @@ $(document).on('page:change', function () {
 
 
 /* Sets dots to turn one when in section */
+$(document).ready(setDotOn);
 $(window).scroll(function() {
+  setDotOn();
+});
+
+function setDotOn() {
   let positions = getSectionsPositions();
   const windowTop = $(window).scrollTop();
   const key = setItemKey(positions, windowTop);
 
   clearActiveDots();
   setActiveDot(positions, key);
-});
+}
 
 function getSectionsPositions() {
   let positions = {};
