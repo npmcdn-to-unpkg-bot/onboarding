@@ -16,6 +16,17 @@ $(document).on('page:change', function () {
   setSlider();
 });
 
+
+/* Sets dots to turn one when in section */
+$(window).scroll(function() {
+  let positions = getSectionsPositions();
+  const windowTop = $(window).scrollTop();
+  const key = setItemKey(positions, windowTop);
+
+  clearActiveDots();
+  setActiveDot(positions, key);
+});
+
 function getSectionsPositions() {
   let positions = {};
   positions[$('#intro').offset().top] = 'intro';
@@ -28,16 +39,6 @@ function getSectionsPositions() {
 
   return positions;
 }
-
-$(window).scroll(function() {
-  let positions = getSectionsPositions();
-  const windowTop = $(window).scrollTop();
-  const key = setItemKey(positions, windowTop);
-
-  clearActiveDots();
-  setActiveDot(positions, key);
-});
-
 
 function setItemKey(positions, windowTop) {
   let keys = Object.keys(positions);
