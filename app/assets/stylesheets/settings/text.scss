@@ -23,10 +23,14 @@
 /* MODULE TITLE */
 .text-module-title {
   font-family: $font-family-5;
-  font-size: 63px;
+  font-size: 53px;
   text-transform: uppercase;
 
   @media screen and (min-width: $screen-m) {
+    font-size: 63px;
+  }
+
+  @media screen and (min-width: $screen-xl) {
     font-size: 73px;
   }
 }
@@ -64,8 +68,8 @@
 
 .text-p {
   font-family: $font-family-4;
-  font-size: 28px;
-  line-height: 35px;
+  font-size: 20px;
+  line-height: 25px;
 
   @media screen and (min-width: $screen-m) {
     font-size: 32px;

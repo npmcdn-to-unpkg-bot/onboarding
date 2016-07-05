@@ -7,9 +7,13 @@
   // padding-bottom: calc(2 * #{$skew-offset});
 
   .wrap-center {
-    padding-top: 100px;
-    padding-bottom: 160px;
+    padding-bottom: 85px;
     // height: calc(100% - #{$skew-offset});
+
+    @media screen and (min-width: $screen-m) {
+      padding-top: 100px;
+      padding-bottom: 160px;
+    }
   }
 
   .image-title {

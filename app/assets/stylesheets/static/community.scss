@@ -2,8 +2,11 @@
 
 .community {
   .wrap-center {
-    padding-top: 50px;
-    padding-bottom: 60px;
+
+    @media screen and (min-width: $screen-m) {
+      padding-top: 50px;
+      padding-bottom: 60px;
+    }
   }
 
   .text-module-title {

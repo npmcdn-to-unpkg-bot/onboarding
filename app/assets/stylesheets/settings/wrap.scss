@@ -6,31 +6,31 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 15px;
+  padding: 35px 15px 30px;
 
   @media screen and (min-width: $screen-s) {
-    padding: 0 40px;
+    padding: 45px 40px 40px;
   }
 
   @media screen and (min-width: $screen-m) {
-    padding: 0 138px;
+    padding: 95px 138px 90px;
   }
 
   @media screen and (min-width: $screen-xl) {
-    padding: 0 205px;
+    padding: 95px 205px 90px;
   }
 
   @media screen and (min-width: $screen-xl) {
-    padding: 0 290px;
+    padding: 95px 290px 90px;
   }
 }
 
 .wrap {
   display: flex;
-  padding: 0 15px;
+  padding: 35px 15px 30px;
 
   @media screen and (min-width: $screen-m) {
-    padding: 0 75px 0 45px;
+    padding: 95px 75px 90px 45px;
   }
 }
 
@@ -39,21 +39,21 @@
   flex-flow: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 0 15px;
+  padding: 35px 15px 30px;
 
   @media screen and (min-width: $screen-s) {
-    padding: 0 40px;
+    padding: 35px 40px 30px;
   }
 
   @media screen and (min-width: $screen-m) {
-    padding: 0 90px;
+    padding: 95px 90px 90px;
   }
 
   @media screen and (min-width: $screen-l) {
-    padding: 0 138px;
+    padding: 95px 138px 90px;
   }
 
   @media screen and (min-width: $screen-xl) {
-    padding: 0 170px;
+    padding: 95px 170px 90px;
   }
 }

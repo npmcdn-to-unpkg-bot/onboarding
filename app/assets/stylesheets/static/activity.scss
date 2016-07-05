@@ -4,8 +4,6 @@
   background-color: $color-3;
 
   .wrap-full {
-    padding-top: 60px;
-    padding-bottom: 60px;
 
     @media screen and (min-width: $screen-m) {
      padding-top: 80px;
@@ -23,7 +21,7 @@
   }
 
   .text-module-subtitle {
-    margin-bottom: -18px;
+    margin-bottom: -14px;
   }
 
   .activity-data {
