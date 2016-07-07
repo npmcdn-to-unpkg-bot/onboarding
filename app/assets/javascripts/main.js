@@ -8,7 +8,6 @@ import thunk from 'redux-thunk';
 import { hashHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
 import reducers from './reducers';
-import Routes from './routes';
 import CommunityDataContainer from './containers/static/CommunityDataContainer';
 import UsersActivityDataContainer from './containers/static/UsersActivityDataContainer';
 
