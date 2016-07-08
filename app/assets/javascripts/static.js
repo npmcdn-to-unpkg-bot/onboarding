@@ -27,12 +27,12 @@ function getSectionsPositions() {
 
 function setItemKey(positions, windowTop) {
   const keys = Object.keys(positions);
-  let key = 0;
-  let h = $win.height();
-  let dh = $document.height();
+  var key = 0;
+  const h = $win.height();
+  const dh = $document.height();
   const len = keys.length;
 
-  for (let i = 0; i < len; i++) {
+  for (var i = 0; i < len; i++) {
     if (windowTop < keys[i] && i !== 0) {
       key = i - 1;
       break;
@@ -41,8 +41,6 @@ function setItemKey(positions, windowTop) {
       break;
     } else if (windowTop > keys[i] || i === len - 1) {
       key = i;
-    } else {
-      key = 0;
     }
   }
   return key;
@@ -51,7 +49,7 @@ function setItemKey(positions, windowTop) {
 function clearActiveDots() {
   const items = document.getElementsByClassName('dot-item');
 
-  for (let i = 0; i < items.length; i++) {
+  for (var i = 0 ; i < items.length ; i++) {
     const item = document.getElementsByClassName('dot-item')[i];
     const itemClass = item.getAttribute('class');
     item.setAttribute('class', itemClass.replace('-active', ''));
