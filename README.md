@@ -6,6 +6,8 @@ Helping people get involved in tagging roads.
 
 Ruby 2.3.1
 
+Node 6.2
+
 ## Installation
 
 Install global dependencies:
@@ -15,6 +17,7 @@ Install global dependencies:
 Install project dependencies:
 
     bundle install
+    npm install
 
 Set up environment variables by copying `.env.sample` to `.env` and filling up the necessary values accordingly
 
