@@ -19,12 +19,12 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'browserify-rails'
 gem 'jquery-rails'
+gem 'jquery-slick-rails', '~> 1.5', '>= 1.5.9.1'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'sprockets-rails', '> 2.3.2'
 gem 'react-rails'
 
 # Front end libraries
-gem 'jquery-slick-rails', '~> 1.5', '>= 1.5.9.1'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end

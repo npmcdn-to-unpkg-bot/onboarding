@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614104229) do
+ActiveRecord::Schema.define(version: 20160701105919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20160614104229) do
     t.string   "background_image"
     t.string   "url"
     t.integer  "status"
-    t.string   "order_sequence"
     t.date     "start_date"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
@@ -31,6 +30,8 @@ ActiveRecord::Schema.define(version: 20160614104229) do
     t.string   "background_image_content_type"
     t.integer  "background_image_file_size"
     t.datetime "background_image_updated_at"
+    t.integer  "position",                      null: false
+    t.index ["position"], name: "index_campaigns_on_position", using: :btree
     t.index ["user_id"], name: "index_campaigns_on_user_id", using: :btree
   end
 
