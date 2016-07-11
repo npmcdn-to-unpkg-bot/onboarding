@@ -14,7 +14,9 @@
 //= require jquery_ujs
 //= require tether
 //= require bootstrap-sprockets
+//= require sortable
+//= require jquery-ui/sortable
 
-
-
-
+$(document).ready(function(){
+    $('*[data-role=activerecord_sortable]').activerecord_sortable();
+});

@@ -19,6 +19,3 @@
 //= require jquery.slick
 //= require_tree .
 //= require main
-
-
-
