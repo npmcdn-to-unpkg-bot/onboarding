@@ -37,7 +37,7 @@
   <strong>Campaigns:</strong>
   <ul>
   <% @task.campaigns.each do |campaign| %>
-      <li><%= campaign.name %></li>
+      <li><%= link_to campaign.name, [:admin, campaign] %></li>
   <% end %>
   </ul>
 </p>
@@ -46,7 +46,7 @@
   <strong>Events:</strong>
   <ul>
   <% @task.events.each do |event| %>
-      <li><%= event.name %></li>
+      <li><%= link_to event.name, [:admin, event] %></li>
   <% end %>
   </ul>
 </p>
