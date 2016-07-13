@@ -46,6 +46,14 @@
   <% end %>
   </ul>
 </p>
+<p>
+  <strong>Events:</strong>
+  <ul>
+  <% @campaign.events.each do |task| %>
+    <li><%= task.name %></li>
+  <% end %>
+  </ul>
+</p>
 
 <%= link_to 'Edit', edit_admin_campaign_path(@campaign),  class: 'btn btn-primary' %>
 <%= link_to 'Back', admin_campaigns_path, class: 'btn btn-secondary' %>
