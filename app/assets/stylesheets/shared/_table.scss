@@ -35,6 +35,10 @@
     background-color: #fbfbfb;
   }
 
+  th {
+    border: 0 !important;
+  }
+
   td:first-child,
   th:first-child {
     padding-left: $wrap-padding-mobile;
@@ -46,6 +50,7 @@
 
   td:last-child,
   th:last-child {
+    border: 0;
     padding-right: $wrap-padding-mobile;
 
     @media screen and (min-width: $screen-m) {
@@ -54,6 +59,7 @@
   }
 
   td {
+    border: 0;
     border-right: 1px solid lightgrey;
 
     a {
