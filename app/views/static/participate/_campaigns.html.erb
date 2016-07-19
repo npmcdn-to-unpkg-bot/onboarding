@@ -54,7 +54,7 @@
       <div class="c-pagination col-xs-12 col-sm-6 col-sm-offset-3">
         <!-- Implements the paginations once we get the campaigns (@campagins) -->
         <% if @campaigns %>
-          <% will_paginate @campaigns, :previous_label => '<', :next_label => '>' %>
+          <%= will_paginate @campaigns, :previous_label => '<', :next_label => '>' %>
         <% end %>
       </div>
     </div>
