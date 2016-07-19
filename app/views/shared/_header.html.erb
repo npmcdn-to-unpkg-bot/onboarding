@@ -23,10 +23,10 @@
         </ul>
       <% else %>
         <ul class="nav navbar-nav main-menu">
-          <li class="nav-item"><%= link_to 'Participate', '/', {class: current_class('admin/campaigns') + 'nav-link text text-menu -light'} %></li>
-          <li class="nav-item"><%= link_to 'Impact', "/", {class: current_class('admin/event_requests') + 'nav-link text text-menu -light'} %></li>
-          <li class="nav-item"><%= link_to 'Data Download', "/", {class: current_class('admin/events') + 'nav-link text text-menu -light'} %></li>
-          <li class="nav-item"><%= link_to 'About', "/",  {class: current_class('admin/tasks') + 'nav-link text text-menu -light'} %></li>
+          <li class="nav-item"><%= link_to 'Participate', campaigns_path, {class: 'nav-link text text-menu -light'} %></li>
+          <li class="nav-item"><%= link_to 'Impact', "/", {class: 'nav-link text text-menu -light'} %></li>
+          <li class="nav-item"><%= link_to 'Data Download', "/", {class: 'nav-link text text-menu -light'} %></li>
+          <li class="nav-item"><%= link_to 'About', "/",  {class: 'nav-link text text-menu -light'} %></li>
         </ul>
       <% end %>
     </div>
