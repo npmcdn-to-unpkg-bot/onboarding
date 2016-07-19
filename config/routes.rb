@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   end
 
   get '/admin', to: 'static#admin'
+
+  get '/campaigns', to: 'static#campaigns'
   root 'static#home'
 end

@@ -5,8 +5,8 @@
  *  <table class="c-table table">
  *    <thead>
  *      <tr>
- *        <th class="text text-menu -dark">{ Title }</th>
- *        <th class="text text-menu -dark">{ Title }</th>
+ *        <th class="text text-menu -dark"><a href="{ path } class="sort">{ Title }</a></th>
+ *        <th class="text text-menu -dark"><a href="{ path } class="sort">{ Title }</a></th>
  *      </tr>
  *    </thead>
  *
@@ -31,12 +31,28 @@
     text-transform: capitalize;
   }
 
-  tbody tr:nth-child(odd) {
-    background-color: #fbfbfb;
+  thead th {
+    position: relative;
+    padding-right: 20px;
+    border: 0;
+
+    & .sort {
+      position: absolute;
+      right: 8px;
+    }
+
+    &:last-child .sort {
+      right: calc(8px + 20px);
+
+      @media screen and (min-width: $screen-m) {
+        right: calc(8px + 110px);
+      }
+
+    }
   }
 
-  th {
-    border: 0 !important;
+  tbody tr:nth-child(odd) {
+    background-color: #fbfbfb;
   }
 
   td:first-child,
@@ -50,7 +66,6 @@
 
   td:last-child,
   th:last-child {
-    border: 0;
     padding-right: $wrap-padding-mobile;
 
     @media screen and (min-width: $screen-m) {
