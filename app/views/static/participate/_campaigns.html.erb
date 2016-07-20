@@ -1,4 +1,5 @@
-<section class="campaign-main section">
+
+<section class="campaign-main section" id="campaign-main">
   <article class="c-intro content-fluid">
     <ul class="c-routes wrap text text-desc -light">
       <!-- Paths to set -->
@@ -19,36 +20,7 @@
     </aside>
   </article>
 
-  <article class="content content-fluid">
-    <div class="input-group col-xs-12 wrap">
-      <input type="text" class="form-control search" placeholder="Search">
-      <span class="input-group-btn">
-        <img src="" class="search-icon" />
-      </span>
-    </div>
-    <table class="c-table table">
-      <thead>
-      <tr>
-      <!-- Sort by icon to set -->
-        <th class="text text-menu -dark">Start date <%= link_to '>', url_for(:sort_by => 'start_date', :direction => params[:direction] == 'DESC' ? 'ASC' : 'DESC'), { :class => 'sort' } %></th>
-        <th class="text text-menu -dark">Campaign Name <%= link_to '>', url_for(:sort_by => 'name', :direction => params[:direction] == 'DESC' ? 'ASC' : 'DESC' ), { :class => 'sort' } %></th>
-        <th class="text text-menu -dark">Tags <%= link_to '>', url_for(:sort_by => 'htag', :direction => params[:direction] == 'DESC' ? 'ASC' : 'DESC'), { :class => 'sort' } %></th>
-      </tr>
-      </thead>
-      <!-- Paths to set -->
-      <tbody>
-        <% if @campaigns %>
-          <% @campaigns.each do |campaign| %>
-            <tr class="wrap text text-desc -dark" data-role="campaign<%= campaign.id %>" data-move-url="<%= move_admin_campaign_url(campaign) %>" data-position="<%= campaign.position %>">
-              <td class="text text-desc -dark"><%= campaign.start_date %></td>
-              <td class="text text-desc -dark -bold"><%= link_to campaign.name, "/" %></td>
-              <td class="text text-desc -dark"><%= campaign.htag %></td>
-            </tr>
-          <% end %>
-        <% end %>
-      </tbody>
-    </table>
-
+  <article class="content content-fluid" id="data-view">
     <div class="wrap row">
       <div class="c-pagination col-xs-12 col-sm-6 col-sm-offset-3">
         <!-- Implements the pagination once we get the campaigns (@campaigns) -->
