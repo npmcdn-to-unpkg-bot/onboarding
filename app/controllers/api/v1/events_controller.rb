@@ -1,4 +1,4 @@
-class Api::V1::EventController < ApiController
+class Api::V1::EventsController < ApiController
   def index
     render json: Event.all
   end

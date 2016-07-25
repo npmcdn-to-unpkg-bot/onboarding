@@ -1,10 +1,9 @@
-
 <section class="campaign-main section">
   <article class="c-intro content-fluid">
     <ul class="c-routes wrap text text-desc -light">
       <!-- Paths to set -->
-      <li class="route"><%= link_to 'Participate', '/', { :class => current_class('/') + 'route-link'} %></li>
-      <li class="route"><%= link_to 'Campaign', '/', {:class => current_class('/') + 'route-link'} %></li>
+      <li class="route">Participate</li>
+      <li class="route"><%= link_to 'Campaign', campaigns_path, {:class => 'route-link'} %></li>
     </ul>
 
     <aside class="wrap row">
@@ -52,7 +51,7 @@
 
     <div class="wrap row">
       <div class="c-pagination col-xs-12 col-sm-6 col-sm-offset-3">
-        <!-- Implements the paginations once we get the campaigns (@campagins) -->
+        <!-- Implements the pagination once we get the campaigns (@campaigns) -->
         <% if @campaigns %>
           <%= will_paginate @campaigns, :previous_label => '<', :next_label => '>' %>
         <% end %>
