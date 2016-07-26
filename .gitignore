@@ -28,6 +28,9 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+# Ignore Npm debug logs
+npm-debug.log
+
 # Ignore generated files
 /vendor/bundle
 /public/assets
