@@ -16,8 +16,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      get 'events', to: 'events#index'
-      get 'campaigns', to: 'campaigns#index'
+      resources :events, only: [:show, :index]
+      resources :campaigns, only: [:show, :index]
     end
   end
 
