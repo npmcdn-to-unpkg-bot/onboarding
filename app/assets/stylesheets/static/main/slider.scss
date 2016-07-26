@@ -1,4 +1,3 @@
-
 .l-slider {
   position: relative;
 
@@ -25,14 +24,7 @@
 
   .text-module-title {
     margin-bottom: 20px;
-  }
-
-  .text-module-subtitle {
-    margin-bottom: -16px;
-
-    @media screen and (min-width: $screen-m) {
-      margin-bottom: -21px;
-    }
+    // line-height: 66px;
   }
 
   .text-p-title {
