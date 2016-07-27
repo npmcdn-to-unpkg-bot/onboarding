@@ -1,8 +1,11 @@
 
 .l-events {
   background-color: $color-3;
+  margin-top: -65px;
+  transform: skewY(3deg);
 
   .wrap-full {
+    transform: skewY(-3deg);
 
     @media screen and (min-width: $screen-m) {
       padding-top: 160px;
@@ -13,14 +16,6 @@
   .title-module-title {
     margin-bottom: 20px;
   }
-
-  // .text-module-subtitle {
-  //   margin-bottom: -14px;
-
-  //   @media screen and (min-width: $screen-m) {
-  //     margin-bottom: -16px;
-  //   }
-  // }
 
   .text-p {
     margin-bottom: 10px;

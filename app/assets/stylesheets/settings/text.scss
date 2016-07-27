@@ -1,4 +1,3 @@
-
 .text {
   margin: 0;
 
@@ -27,11 +26,12 @@
 
   @media screen and (min-width: $screen-m) {
     font-size: 63px;
+    line-height: 50px;
   }
 
   @media screen and (min-width: $screen-xl) {
     font-size: 72px;
-    line-height: 55px;
+    line-height: 65px;
   }
 }
 

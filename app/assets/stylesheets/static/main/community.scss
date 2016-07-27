@@ -1,5 +1,9 @@
-
 .l-community {
+  position: relative;
+  z-index: 2;
+  margin-top: -65px;
+  background-color: #fff;
+
   .wrap-center {
 
     @media screen and (min-width: $screen-m) {
@@ -11,10 +15,6 @@
   .text-module-title {
     margin-bottom: 20px;
   }
-
-  // .text-module-subtitle {
-  //   margin-bottom: -16px;
-  // }
 
   hr {
     width: 80%;
