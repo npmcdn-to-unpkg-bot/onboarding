@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   end
 
   get '/campaigns', to: 'static#campaigns'
+  get '/mapathon', to: 'static#mapathon'
   root 'static#home'
 end
