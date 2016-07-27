@@ -73,14 +73,20 @@ function setDotOn() {
 
 $document
   .on('ready', function () {
-    setSlider();
-    setDotOn();
+    if ($('.home')[0]) {
+      setSlider();
+      setDotOn();
+    }
   })
   .on('page:change', function () {
-    setSlider();
+    if ($('.home')[0]) {
+      setSlider();
+    }
   });
 
 /* Sets dots to turn one when in section */
 $win.on('scroll', function () {
-  setDotOn();
+  if ($('.home')[0]) {
+    setDotOn();
+  }
 });
