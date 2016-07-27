@@ -7,7 +7,7 @@ class StaticController < ApplicationController
   def campaigns
   end
 
-  def mapathon
+  def events
   end
 
   def admin
