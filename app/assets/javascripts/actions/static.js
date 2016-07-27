@@ -41,6 +41,7 @@ export function setUsersActivityData(data) {
 }
 
 export function setElementsList(data) {
+  const url = '/api/v1/campaigns'
   /* return function(dispatch) {
     $.get('url').then(function(elementsList){
       return {
