@@ -89,7 +89,6 @@ $('#parallax-campaigns').ready( function() {
       });
     });
   }
-
 });
 
 
