@@ -15,6 +15,11 @@ function setElementsList(state, elementsList) {
   return newState;
 }
 
+function setEventsList(state, eventsList) {
+  const newState = Object.assign({}, state, {eventsList});
+  return newState;
+}
+
 export default function staticReducer(state = {}, action) {
   switch (action.type) {
     case 'SET_COMMUNITY_DATA':
@@ -23,6 +28,8 @@ export default function staticReducer(state = {}, action) {
       return setUsersActivityData(state, action.usersActivityData);
     case 'SET_ELEMENTS_LIST':
       return setElementsList(state, action.elementsList);
+    case 'SET_EVENTS_LIST':
+      return setEventsList(state, action.eventsList);
     default:
       return state;
   }
