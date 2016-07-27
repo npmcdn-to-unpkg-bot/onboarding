@@ -44,36 +44,52 @@ const store = createStore(
  */
 const history = syncHistoryWithStore(hashHistory, store);
 
+/* Home page */
 $('#parallax').ready( function() {
+  /* It always access into this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#parallax')[0]) {
+    /* Community data */
+    ['total-roads', 'total-tagged', 'user-changes'].map(element => {
+      ReactDOM.render(
+        <Provider store={store}>
+          <CommunityDataContainer data={element} />
+        </Provider>,
+        document.getElementById(element)
+      );
+    });
 
-  ['total-roads', 'total-tagged', 'user-changes'].map(element => {
-    ReactDOM.render(
-      <Provider store={store}>
-        <CommunityDataContainer data={element} />
-      </Provider>,
-      document.getElementById(element)
-    );
-  });
-
-  ['ranking', 'latest-activity'].map(element => {
-    ReactDOM.render(
-      <Provider store={store}>
-        <UsersActivityDataContainer data={element} />
-      </Provider>,
-      document.getElementById(element)
-    );
-  });
+    /* Users activity data */
+    ['ranking', 'latest-activity'].map(element => {
+      ReactDOM.render(
+        <Provider store={store}>
+          <UsersActivityDataContainer data={element} />
+        </Provider>,
+        document.getElementById(element)
+      );
+    });
+  }
 });
 
-['campaign-main'].map( element => {
-  $('#' + element).ready( function() {
-    ReactDOM.render(
-      <Provider store={store}>
-        <DataViewContainer data={{}} />
-      </Provider>,
-      document.getElementById('data-view')
-    );
-  });
+/* Campaigns page */
+$('#parallax-campaigns').ready( function() {
+  /* It always access into this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#parallax-campaigns')[0]) {
+
+    /* Campaigns data */
+    ['campaign-main'].map( element => {
+      $('#' + element).ready( function() {
+        ReactDOM.render(
+          <Provider store={store}>
+            <DataViewContainer data={{}} />
+          </Provider>,
+          document.getElementById('data-view')
+        );
+      });
+    });
+  }
+
 });
 
 
