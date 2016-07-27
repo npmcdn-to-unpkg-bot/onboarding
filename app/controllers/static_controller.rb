@@ -7,6 +7,9 @@ class StaticController < ApplicationController
   def campaigns
   end
 
+  def events
+  end
+
   def admin
     render layout: "admin"
   end
