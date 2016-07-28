@@ -54,16 +54,19 @@
     width: 100%;
     margin-bottom: 50px;
 
-    &.-task {
-      background-image: image-url('');
+    &.-task .content-img {
+      background-size: cover;
+      background-image: image-url('illustration1.svg');
     }
 
-    &.-square {
-      background-image: image-url('');
+    &.-square .content-img {
+      background-size: cover;
+      background-image: image-url('illustration2.svg');
     }
 
-    &.-roads {
-      background-image: image-url('');
+    &.-roads .content-img {
+      background-size: cover;
+      background-image: image-url('illustration3.svg');
     }
 
     @media screen and (min-width: $screen-m) {

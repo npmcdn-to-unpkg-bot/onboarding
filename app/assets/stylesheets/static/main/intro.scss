@@ -62,4 +62,43 @@
       border-left: 0;
     }
   }
+
+  .partners {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    min-width: 450px;
+    padding: 20px 0 90px;
+
+    .moabi {
+      width: 70px;
+      height: 65px;
+      background-image: image-url('partner-logo-1.png');
+      background-size: cover;
+
+      &:hover {
+        background-image: image-url('partner-logo-1hover.png');
+      }
+    }
+
+    .eu-co {
+      width: 140px;
+      height: 87px;
+      background-image: image-url('partner-logo-2.png');
+      background-size: cover;
+    }
+
+    .gfw {
+      width: 70px;
+      height: 65px;
+      background-image: image-url('partner-logo-3.png');
+      background-size: cover;
+
+      &:hover {
+        background-image: image-url('partner-logo-3hover.png');
+      }
+    }
+
+
+  }
 }
