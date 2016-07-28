@@ -54,6 +54,18 @@
     width: 100%;
     margin-bottom: 50px;
 
+    &.-task {
+      background-image: image-url('');
+    }
+
+    &.-square {
+      background-image: image-url('');
+    }
+
+    &.-roads {
+      background-image: image-url('');
+    }
+
     @media screen and (min-width: $screen-m) {
       width: 220px;
       margin-bottom: 0px;
