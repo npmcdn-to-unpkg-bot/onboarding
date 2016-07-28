@@ -3,6 +3,7 @@
 
   .wrap-center {
     padding-top: 60px;
+    padding-bottom: 60px;
   }
 
   .wrap-full {
@@ -30,9 +31,9 @@
     margin-bottom: 15px;
   }
 
-  .text-p {
-    margin-bottom: 30px;
-  }
+  // .text-p {
+  //   margin-bottom: 30px;
+  // }
 
   .activity-data {
     display: flex;
@@ -94,7 +95,7 @@
       height: 180px;
     }
 
-    @media screen and (min-width: $screen-xl) {
+    @media screen and (min-width: $screen-l) {
       width: 250px;
       height: 250px;
     }

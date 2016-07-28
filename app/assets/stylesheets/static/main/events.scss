@@ -1,4 +1,6 @@
 .l-events {
+  padding-top: 160px;
+  padding-bottom: 200px;
   background-color: $color-3;
   margin-top: -65px;
   transform: skewY(3deg);
@@ -6,11 +8,6 @@
 
   .wrap-full {
     transform: skewY(-3deg);
-
-    @media screen and (min-width: $screen-m) {
-      padding-top: 160px;
-      padding-bottom: 110px;
-    }
   }
 
   .title-module-title {
