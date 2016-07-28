@@ -3,7 +3,7 @@
 import React from 'react';
 import Fuse from 'fuse.js';
 
-class DataView extends React.Component {
+class EventsView extends React.Component {
 
   constructor(props) {
     super();
@@ -18,12 +18,12 @@ class DataView extends React.Component {
 
   componentWillMount() {
     /* data will specify what kind of section will be rendered */
-    this.props.setElementsList(this.props.data);
+    this.props.setEventsList(this.props.data);
   }
 
   componentWillReceiveProps(newProps) {
-    newProps.elementsList && this.setState({ list: newProps.elementsList });
-    this.list = newProps.elementsList;
+    newProps.eventsList && this.setState({ list: newProps.eventsList });
+    this.list = newProps.eventsList;
     this.options = {
         caseSensitive: false,
         includeScore: false,
@@ -60,7 +60,7 @@ class DataView extends React.Component {
   }
 
   sortBy(keySorted) {
-    let sortList = this.props.elementsList;
+    let sortList = this.props.eventsList;
     this.keySorted = keySorted;
     const direction = this.state.direction < 2 ? this.state.direction + 1 : 0;
 
@@ -81,7 +81,6 @@ class DataView extends React.Component {
 
   render() {
     const list = this.state.list;
-
     return (
       <div>
         <div className="input-group col-xs-12 wrap">
@@ -104,7 +103,7 @@ class DataView extends React.Component {
                   </svg>
                 </div>
               </th>
-              <th className="text text-menu -dark">Campaign Name
+              <th className="text text-menu -dark">Task Name
                 <div className="sort" onClick={ () => this.sortBy('name') }>
                   <svg className="icon icon-TriangleDown sort-arrow" >
                     <use xlinkHref="#icon-TriangleDown"></use>
@@ -141,8 +140,8 @@ class DataView extends React.Component {
   }
 }
 
-DataView.propTypes = {
+EventsView.propTypes = {
   data: React.PropTypes.object
 };
 
-export default DataView;
+export default EventsView;
