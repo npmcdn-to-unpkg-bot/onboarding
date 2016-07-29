@@ -13,5 +13,15 @@ Rails.application.routes.draw do
   end
 
   get '/admin', to: 'static#admin'
+
+  namespace :api do
+    namespace :v1 do
+      resources :events, only: [:show, :index]
+      resources :campaigns, only: [:show, :index]
+    end
+  end
+
+  get '/campaigns', to: 'static#campaigns'
+  get '/events', to: 'static#events'
   root 'static#home'
 end

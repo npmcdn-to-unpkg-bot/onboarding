@@ -10,10 +10,25 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *= require_self
- *= require_tree ./settings
- *= require_tree ./shared
- *= require_tree ./admin
  */
 
-@import 'bootstrap';
+ @import 'bootstrap';
+
+ @import "settings/settings";
+ @import "settings/normalize";
+ @import "settings/fonts";
+ @import "settings/buttons";
+ @import "settings/text";
+ @import "settings/wrap";
+ @import "settings/utils";
+ @import "settings/form";
+
+ @import "shared/header";
+ @import "shared/footer";
+ @import "shared/table";
+
+ @import "admin/shared/footer-back";
+ @import "admin/shared/table";
+
+ @import "admin/index";
 

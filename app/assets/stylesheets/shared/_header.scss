@@ -1,4 +1,3 @@
-@import'../settings/settings.scss';
 
 .menu-toggle {
   display: flex;
@@ -74,6 +73,11 @@
     }
   }
 
+  .logo {
+    width: 125px;
+    height: 55px;
+  }
+
   &.collapse {
     @media screen and (min-width: $screen-m) {
       display: flex !important; // Avoid library statement
@@ -120,18 +124,21 @@
 
     .nav-item {
       margin-bottom: 60px;
+      position: relative;
 
       @media screen and (min-width: $screen-m) {
-        margin-right: 28px;
+        padding-right: 25px;
+        padding-left: 25px;
         margin-bottom: 0;
       }
 
       @media screen and (min-width: $screen-l) {
-        margin-right: 40px;
+        padding-right: 35px;
+        padding-left: 35px;
       }
 
       &.nav-item:last-child {
-        margin-right: 0;
+        padding-right: 0;
       }
 
       .active {
@@ -146,17 +153,66 @@
         }
       }
 
-      & .text-menu {
+      .text-menu {
         font-size: 22px;
         padding-bottom: 2px;
 
         @media screen and (min-width: $screen-m) {
-          font-size: 18px;
-          padding-bottom: 18px;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .sub-menu-toggler {
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (min-width: $screen-m) {
+        display: block;
+
+        &:hover .sub-menu {
+          display: block;
+        }
+      }
+    }
+
+    .sub-menu {
+
+      @media screen and (min-width: $screen-m) {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding-top: 20px;
+        transform: translatey(100%);
+      }
+
+      li {
+        width: 100%;
+
+        @media screen and (min-width: $screen-m) {
+          background-color: #fff;
         }
 
-        @media screen and (min-width: $screen-l) {
-          font-size: 20px;
+        &:hover {
+          background-color: #eeeeee;
+        }
+
+        &:last-child a {
+          border-bottom: 0;
+        }
+      }
+
+      a {
+        width: 100%;
+        text-align: center;
+        padding: 15px 0 !important;
+        border-bottom: 1px solid #000;
+        color: #fff;
+
+        @media screen and (min-width: $screen-m) {
+          color: #000;
         }
       }
     }

@@ -1,26 +1,17 @@
-@import'../../settings/settings.scss';
-
 .l-events {
+  padding-top: 160px;
+  padding-bottom: 200px;
   background-color: $color-3;
+  margin-top: -65px;
+  transform: skewY(3deg);
+  background-image: image-url('bg1-1600.jpg');
 
   .wrap-full {
-
-    @media screen and (min-width: $screen-m) {
-      padding-top: 160px;
-      padding-bottom: 110px;
-    }
+    transform: skewY(-3deg);
   }
 
   .title-module-title {
     margin-bottom: 20px;
-  }
-
-  .text-module-subtitle {
-    margin-bottom: -14px;
-
-    @media screen and (min-width: $screen-m) {
-      margin-bottom: -16px;
-    }
   }
 
   .text-p {

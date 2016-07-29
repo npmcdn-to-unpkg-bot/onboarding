@@ -4,9 +4,13 @@ class StaticController < ApplicationController
   def home
   end
 
+  def campaigns
+  end
+
+  def events
+  end
+
   def admin
-
-
-  render layout: "admin"
+    render layout: "admin"
   end
 end

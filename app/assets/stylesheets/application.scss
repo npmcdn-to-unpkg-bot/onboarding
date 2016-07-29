@@ -10,19 +10,43 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *= require settings/normalize
- *= require_tree .
  *= require_self
  *= require slick
  *= require slick-theme
  */
 
-//@import "bootstrap";
+ @import "bootstrap";
 
-body {
-  // padding-top: 20px;
-  // padding-bottom: 20px;
-}
+ @import "settings/settings";
+ @import "settings/normalize";
+ @import "settings/fonts";
+ @import "settings/buttons";
+ @import "settings/text";
+ @import "settings/wrap";
+ @import "settings/utils";
+
+ @import "shared/header";
+ @import "shared/footer";
+ @import "shared/table";
+
+ @import "static/main/about";
+ @import "static/main/activity";
+ @import "static/main/community";
+ @import "static/main/events";
+ @import "static/main/index";
+ @import "static/main/intro";
+ @import "static/main/participate";
+ @import "static/main/slider";
+
+ @import "static/participate/campaign/index";
+
+ @import "static/participate/components/intro";
+ @import "static/participate/components/pagination";
+ @import "static/participate/components/routes";
+ @import "static/participate/components/tab-menu";
+
+ @import "static";
+
 
 .navbar {
   margin-bottom: 20px;

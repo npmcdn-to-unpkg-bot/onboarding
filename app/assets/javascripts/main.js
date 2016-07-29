@@ -10,6 +10,8 @@ import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-rou
 import reducers from './reducers';
 import CommunityDataContainer from './containers/static/CommunityDataContainer';
 import UsersActivityDataContainer from './containers/static/UsersActivityDataContainer';
+import EventsViewContainer from './containers/static/EventsViewContainer';
+import DataViewContainer from './containers/static/DataViewContainer';
 
 
 /**
@@ -43,40 +45,74 @@ const store = createStore(
  */
 const history = syncHistoryWithStore(hashHistory, store);
 
+/* Home page */
 $('#parallax').ready( function() {
-  ReactDOM.render(
-    <Provider store={store}>
-      <CommunityDataContainer data="total-roads" />
-    </Provider>,
-    document.getElementById('total-roads')
-  );
+  /* It always access into this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#parallax')[0]) {
+    /* Community data */
+    ['total-roads', 'total-tagged', 'user-changes'].map(element => {
+      ReactDOM.render(
+        <Provider store={store}>
+          <CommunityDataContainer data={element} />
+        </Provider>,
+        document.getElementById(element)
+      );
+    });
 
-  ReactDOM.render(
-    <Provider store={store}>
-      <CommunityDataContainer data="total-tagged" />
-    </Provider>,
-    document.getElementById('total-tagged')
-  );
-
-  ReactDOM.render(
-    <Provider store={store}>
-      <CommunityDataContainer data="user-changes" />
-    </Provider>,
-    document.getElementById('user-changes')
-  );
-
-  ReactDOM.render(
-    <Provider store={store}>
-      <UsersActivityDataContainer data="ranking" />
-    </Provider>,
-    document.getElementById('ranking')
-  );
-
-  ReactDOM.render(
-    <Provider store={store}>
-      <UsersActivityDataContainer data="latest-activity" />
-    </Provider>,
-    document.getElementById('latest-activity')
-  );
+    /* Users activity data */
+    ['ranking', 'latest-activity'].map(element => {
+      ReactDOM.render(
+        <Provider store={store}>
+          <UsersActivityDataContainer data={element} />
+        </Provider>,
+        document.getElementById(element)
+      );
+    });
+  }
 });
+
+/* Campaigns page */
+$('#parallax-campaigns').ready( function() {
+  /* It always access into this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#parallax-campaigns')[0]) {
+
+    /* Campaigns data */
+    ['campaign-main'].map( element => {
+      $('#' + element).ready( function() {
+        ReactDOM.render(
+          <Provider store={store}>
+            <DataViewContainer data={{}} />
+          </Provider>,
+          document.getElementById('data-view')
+        );
+      });
+    });
+  }
+});
+
+/* Campaigns page */
+$('#mapathon').ready( function() {
+  /* It always access into this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#mapathon')[0]) {
+
+    /* Campaigns data */
+    ['mapathon-main'].map( element => {
+      $('#' + element).ready( function() {
+        ReactDOM.render(
+          <Provider store={store}>
+            <EventsViewContainer data={{}} />
+          </Provider>,
+          document.getElementById('data-view')
+        );
+      });
+    });
+  }
+});
+
+
+
+
 

@@ -26,6 +26,8 @@ gem 'react-rails'
 
 gem 'activerecord-sortable'
 gem 'jquery-ui-rails'
+gem 'will_paginate', '~> 3.1.0'
+gem 'active_model_serializers', '~> 0.10.0'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'

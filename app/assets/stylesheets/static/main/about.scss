@@ -1,15 +1,9 @@
-@import'../../settings/settings.scss';
-
 .l-about {
   .wrap-center {
     @media screen and (min-width: $screen-m) {
-      padding-top: 125px;
-      padding-bottom: 125px;
+      padding-top: 60px;
+      padding-bottom: 70px;
     }
-  }
-
-  .text-module-title {
-    margin-bottom: -16px;
   }
 
   .text-module-subtitle {
