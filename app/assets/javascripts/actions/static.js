@@ -3,6 +3,7 @@ import React from 'react';
 export const SET_COMMUNITY_DATA = 'SET_COMMUNITY_DATA';
 export const SET_USERS_ACTIVITY_DATA = 'SET_USERS_ACTIVITY_DATA';
 export const SET_ELEMENTS_LIST = 'SET_ELEMENTS_LIST';
+export const SET_EVENTS_LIST = 'SET_EVENTS_LIST';
 
 export function setCommunityData(data) {
   /* return function(dispatch) {
@@ -41,22 +42,27 @@ export function setUsersActivityData(data) {
 }
 
 export function setElementsList(data) {
-  /* return function(dispatch) {
-    $.get('url').then(function(elementsList){
-      return {
-        type: SET_ELEMENT_LIST,
+  const url = '/api/v1/campaigns';
+
+   return function(dispatch) {
+    $.get(url).then(function(elementsList){
+      dispatch({
+        type: SET_ELEMENTS_LIST,
         elementsList
-      }
-    })
-  }; */
-  return {
-    type: SET_ELEMENTS_LIST,
-    elementsList: [
-      {name: 'First', start_date: '2016-11-11', htag: ['Tag 1', 'Tag 2'], create_at: '2015-02-04'},
-      {name: 'Second', start_date: '2016-11-13', htag: ['Tag 1', 'Tag 3'], create_at: '2015-08-04'},
-      {name: 'Third', start_date: '2016-11-14', htag: ['Tag 1'], create_at: '2015-12-12'},
-      {name: 'Forth', start_date: '2016-11-19', htag: ['Tag 1', 'Tag 2'], create_at: '2016-08-04'}
-    ]
+      });
+    });
+  };
+}
+
+export function setEventsList(data) {
+  const url = '/api/v1/events';
+   return function(dispatch) {
+    $.get(url).then(function(eventsList){
+      dispatch({
+        type: SET_EVENTS_LIST,
+        eventsList
+      });
+    });
   };
 }
 
