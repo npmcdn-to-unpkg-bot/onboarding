@@ -15,10 +15,6 @@
     }
 
     @media screen and (min-width: $screen-l) {
-      padding-bottom: 180px;
-    }
-
-    @media screen and (min-width: $screen-xl) {
       padding-bottom: 90px;
     }
   }
@@ -111,25 +107,35 @@
 
   .slick-prev {
     left: -7px;
+    z-index: 10;
 
     @media screen and (min-width: $screen-m) {
       left: 2px;
     }
 
     &:before {
-      content: '<';
+      content: '';
+      width: 15px;
+      height: 20px;
+      @include arrow(15px, #fff, 3px, -45deg);
+      transform: translateY(-50%) rotate(-45deg);
     }
   }
 
   .slick-next {
     right: 4px;
+    z-index: 10;
 
     @media screen and (min-width: $screen-m) {
       right: 12px;
     }
 
     &:before {
-      content: '>';
+      content: '';
+      width: 15px;
+      height: 20px;
+      @include arrow(15px, #fff, 3px, 135deg);
+      transform: translateY(-50%) rotate(135deg);
     }
   }
 
@@ -138,7 +144,6 @@
     top: 50%;
     color: $color-2;
     z-index: 3;
-    transform: translateY(-50%);
   }
 
   .arrow-right, .arrow-left {

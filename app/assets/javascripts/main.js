@@ -67,12 +67,14 @@ $('#parallax').ready( function() {
 
 ['campaign-main'].map( element => {
   $('#' + element).ready( function() {
-    ReactDOM.render(
-      <Provider store={store}>
-        <DataViewContainer data={{}} />
-      </Provider>,
-      document.getElementById('data-view')
-    );
+    if ($('#' + element)[0]) {
+      ReactDOM.render(
+        <Provider store={store}>
+          <DataViewContainer data={{}} />
+        </Provider>,
+        document.getElementById('data-view')
+      );
+    }
   });
 });
 
