@@ -130,7 +130,7 @@ class DataView extends React.Component {
             { list.map((element, i) =>
               <tr key={i} className="wrap text text-desc -dark">
                 <td className="text text-desc -dark">{ element.start_date }</td>
-                <td className="text text-desc -dark -bold">{ element.name }</td>
+                <td className="text text-desc -dark -bold"><a href={`/campaigns/${element.id}`}>{ element.name }</a></td>
                 <td className="text text-desc -dark">{ element.htag }</td>
               </tr>
             )}

@@ -65,7 +65,7 @@
   }
 
   tbody tr:nth-child(odd) {
-    background-color: #fbfbfb;
+    background-color: #ebebeb;
   }
 
   td:first-child,
@@ -75,6 +75,10 @@
     @media screen and (min-width: $screen-m) {
       padding-left: $wrap-padding-desktop;
     }
+  }
+
+  td:last-child {
+    border-right: none;
   }
 
   td:last-child,
@@ -94,7 +98,7 @@
       color: $color-3;
 
       &:hover {
-        opacity: .5;
+        text-decoration: underline;
       }
     }
   }

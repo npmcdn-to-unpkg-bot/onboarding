@@ -12,6 +12,7 @@ import CommunityDataContainer from './containers/static/CommunityDataContainer';
 import UsersActivityDataContainer from './containers/static/UsersActivityDataContainer';
 import EventsViewContainer from './containers/static/EventsViewContainer';
 import DataViewContainer from './containers/static/DataViewContainer';
+import CampaingViewContainer from './containers/static/CampaingViewContainer';
 
 
 /**
@@ -77,7 +78,6 @@ $('#parallax-campaigns').ready( function() {
   /* It always access into this callback, that's why we need to establish
   a condition to avoid issues */
   if ($('#parallax-campaigns')[0]) {
-
     /* Campaigns data */
     ['campaign-main'].map( element => {
       $('#' + element).ready( function() {
@@ -92,7 +92,26 @@ $('#parallax-campaigns').ready( function() {
   }
 });
 
-/* Campaigns page */
+/* Campaigns detail */
+$('#campaings-detail').ready( function() {
+  /* It always access into this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#campaings-detail')[0]) {
+    /* Campaigns data */
+    ['campaign-detail-section'].map( element => {
+      $('#' + element).ready( function() {
+        ReactDOM.render(
+          <Provider store={store}>
+            <CampaingViewContainer data={{}} />
+          </Provider>,
+          document.getElementById('campaign-detail-table')
+        );
+      });
+    });
+  }
+});
+
+/* Mapathon page */
 $('#mapathon').ready( function() {
   /* It always access into this callback, that's why we need to establish
   a condition to avoid issues */

@@ -1,4 +1,4 @@
-<section class="campaign-main section" id="campaign-main">
+<section class="campaign-detail section" id="campaign-detail-section">
   <article class="c-intro content-fluid">
     <ul class="c-routes wrap text text-desc -light">
       <!-- Paths to set -->
@@ -16,21 +16,14 @@
           <li class="tag">Tag 3</li>
         </ul>
         <p class="text text-desc -light">Description vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer pio posuere erat a ante venenatis dapi, ctetur, sed do. </p>
-        <a href="#slider" class="text text-button -light">Participate</a>
+        <a href="#" class="bttn bttn-primary">Participate</a>
       </div>
     </aside>
   </article>
 
-  <article class="content content-fluid" id="data-view">
+  <article class="content content-fluid" id="campaign-detail-table">
     <div class="wrap row">
-      <div class="c-pagination col-xs-12 col-sm-6 col-sm-offset-3">
-        <!-- Implements the pagination once we get the campaigns (@campaigns) -->
-        <% if @campaigns %>
-          <%= will_paginate @campaigns, :previous_label => '<', :next_label => '>' %>
-        <% end %>
-      </div>
     </div>
-
   </article>
 </section>
 
