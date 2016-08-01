@@ -22,3 +22,15 @@
   $angle: $angle * pi() / 180;
   @return $angle + pow($angle, 3) / 3 + 2 * pow($angle, 5) / 15;
 }
+
+/*
+ * SHAPES
+ */
+@mixin arrow ($width, $color, $border-width, $deg) {
+  width: $width;
+  height: $width;
+  border-top: $border-width solid $color;
+  border-left: $border-width solid $color;
+  transform: rotate($deg);
+  pointer-events: none;
+}

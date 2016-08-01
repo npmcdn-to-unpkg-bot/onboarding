@@ -73,6 +73,11 @@
     }
   }
 
+  .logo {
+    width: 125px;
+    height: 55px;
+  }
+
   &.collapse {
     @media screen and (min-width: $screen-m) {
       display: flex !important; // Avoid library statement
@@ -188,6 +193,10 @@
 
         @media screen and (min-width: $screen-m) {
           background-color: #fff;
+        }
+
+        &:hover {
+          background-color: #eeeeee;
         }
 
         &:last-child a {

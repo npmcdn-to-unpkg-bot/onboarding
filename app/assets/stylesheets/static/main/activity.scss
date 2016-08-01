@@ -12,17 +12,13 @@
     }
 
     @media screen and (min-width: $screen-l) {
-     padding-top: 130px;
-     padding-bottom: 130px;
+     padding-top: 80px;
+     padding-bottom: 0;
     }
   }
 
   .text-module-title {
     margin-bottom: 70px;
-  }
-
-  .text-module-subtitle {
-    margin-bottom: -14px;
   }
 
   .activity-data {

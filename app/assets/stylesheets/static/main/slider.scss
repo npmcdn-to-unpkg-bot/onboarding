@@ -1,9 +1,9 @@
-
 .l-slider {
   position: relative;
 
   .wrap-center {
     padding-top: 60px;
+    padding-bottom: 60px;
   }
 
   .wrap-full {
@@ -15,10 +15,6 @@
     }
 
     @media screen and (min-width: $screen-l) {
-      padding-bottom: 180px;
-    }
-
-    @media screen and (min-width: $screen-xl) {
       padding-bottom: 90px;
     }
   }
@@ -27,21 +23,13 @@
     margin-bottom: 20px;
   }
 
-  .text-module-subtitle {
-    margin-bottom: -16px;
-
-    @media screen and (min-width: $screen-m) {
-      margin-bottom: -21px;
-    }
-  }
-
   .text-p-title {
     margin-bottom: 15px;
   }
 
-  .text-p {
-    margin-bottom: 30px;
-  }
+  // .text-p {
+  //   margin-bottom: 30px;
+  // }
 
   .activity-data {
     display: flex;
@@ -62,6 +50,21 @@
     align-items: center;
     width: 100%;
     margin-bottom: 50px;
+
+    &.-task .content-img {
+      background-size: cover;
+      background-image: image-url('illustration1.svg');
+    }
+
+    &.-square .content-img {
+      background-size: cover;
+      background-image: image-url('illustration2.svg');
+    }
+
+    &.-roads .content-img {
+      background-size: cover;
+      background-image: image-url('illustration3.svg');
+    }
 
     @media screen and (min-width: $screen-m) {
       width: 220px;
@@ -88,7 +91,7 @@
       height: 180px;
     }
 
-    @media screen and (min-width: $screen-xl) {
+    @media screen and (min-width: $screen-l) {
       width: 250px;
       height: 250px;
     }
@@ -104,25 +107,35 @@
 
   .slick-prev {
     left: -7px;
+    z-index: 10;
 
     @media screen and (min-width: $screen-m) {
       left: 2px;
     }
 
     &:before {
-      content: '<';
+      content: '';
+      width: 15px;
+      height: 20px;
+      @include arrow(15px, #fff, 3px, -45deg);
+      transform: translateY(-50%) rotate(-45deg);
     }
   }
 
   .slick-next {
     right: 4px;
+    z-index: 10;
 
     @media screen and (min-width: $screen-m) {
       right: 12px;
     }
 
     &:before {
-      content: '>';
+      content: '';
+      width: 15px;
+      height: 20px;
+      @include arrow(15px, #fff, 3px, 135deg);
+      transform: translateY(-50%) rotate(135deg);
     }
   }
 
@@ -131,7 +144,6 @@
     top: 50%;
     color: $color-2;
     z-index: 3;
-    transform: translateY(-50%);
   }
 
   .arrow-right, .arrow-left {

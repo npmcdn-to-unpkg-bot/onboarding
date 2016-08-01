@@ -1,14 +1,15 @@
-
 .l-participate {
+  padding: 110px 0;
   background-color: $color-1;
+  transform: skewY(-3deg);
+  background-image: image-url('landing-bg2.jpg');
 
   .wrap-full {
     display: flex;
     flex-flow: column;
     align-items: flex-start;
     justify-content: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    transform: skewY(3deg);
 
     @media screen and (min-width: $screen-m) {
       padding-top: 110px;
@@ -16,11 +17,6 @@
     }
 
     @media screen and (min-width: $screen-l) {
-      padding-top: 180px;
-      padding-bottom: 180px;
-    }
-
-    @media screen and (min-width: $screen-xl) {
       padding-top: 90px;
       padding-bottom: 90px;
     }
@@ -28,11 +24,6 @@
 
   .text-module-title {
     margin-bottom: 30px;
-    line-height: 58px;
-  }
-
-  .text-module-subtitle {
-    margin-bottom: -8px;
   }
 
   .text-p-title {
