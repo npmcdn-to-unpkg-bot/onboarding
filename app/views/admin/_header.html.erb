@@ -1,0 +1,23 @@
+<nav class="menu-toggle wrap-full">
+  <a href="<%= root_url %>" class="h-logo"><img src="" class="logo"></a>
+  <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+    &#9776;
+  </button>
+</nav>
+<nav class="l-header wrap-full collapse" id="exCollapsingNavbar2">
+  <div class="header-container">
+    <div class="header-content">
+      <%= link_to (image_tag "logo.png", class: "logo"), "/"%>
+      <ul class="nav navbar-nav main-menu">
+        <li class="nav-item"><%= link_to 'Campaigns', admin_campaigns_path, {class: current_class('admin/campaigns') + 'nav-link text text-menu -light'} %></li>
+        <li class="nav-item"><%= link_to 'Event requests', admin_event_requests_path, {class: current_class('admin/event_requests') + 'nav-link text text-menu -light'} %></li>
+        <li class="nav-item"><%= link_to 'Events', admin_events_path, {class: current_class('admin/events') + 'nav-link text text-menu -light'} %></li>
+        <li class="nav-item"><%= link_to 'Tasks', admin_tasks_path, {class: current_class('admin/tasks') + 'nav-link text text-menu -light'} %></li>
+        <li class="nav-item"><%= link_to 'Users', admin_users_path, {class: current_class('admin/users') + 'nav-link text text-menu -light'} %></li>
+        <% if user_signed_in? %>
+          <li class="nav-item"><%= link_to 'Log out', destroy_user_session_path, {class: 'nav-link text text-menu -light', :method => :delete} %></li>
+        <% end %>
+        </ul>
+    </div>
+  </div>
+</nav>

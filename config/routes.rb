@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  get '/admin', to: 'static#admin'
+  resources :admin, only: [:index]
 
   namespace :api do
     namespace :v1 do
@@ -21,8 +21,9 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/campaigns', to: 'static#campaigns'
-  get '/campaigns/:id', to: 'static#campaigns_show'
-  get '/events', to: 'static#events'
-  root 'static#home'
+  resources :campaigns, only: [:show, :index]
+  resources :events, only: [:show, :index]
+  resources :tasks, only: [:show, :index]
+
+  root 'home#index'
 end
