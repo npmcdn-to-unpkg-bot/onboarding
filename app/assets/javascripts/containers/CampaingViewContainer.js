@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CampaingView from '../../components/static/CampaingView';
+import CampaingView from '../components/CampaingView';
 
 const mapStateToProps = (state) => {
   return {

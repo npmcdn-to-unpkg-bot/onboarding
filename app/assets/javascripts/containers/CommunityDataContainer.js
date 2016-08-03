@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { setCommunityData } from '../../actions/static';
-import CommunityData from '../../components/static/CommunityData';
+import { setCommunityData } from '../actions/static';
+import CommunityData from '../components/CommunityData';
 
 const mapStateToProps = (state) => {
   return {

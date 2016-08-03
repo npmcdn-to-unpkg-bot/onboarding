@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { setElementsList } from '../../actions/static';
-import DataView from '../../components/static/DataView';
+import { setElementsList } from '../actions/static';
+import DataView from '../components/DataView';
 
 const mapStateToProps = (state) => {
   return {

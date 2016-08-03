@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { setEventsList } from '../../actions/static';
-import EventsView from '../../components/static/EventsView';
+import { setEventsList } from '../actions/static';
+import EventsView from '../components/EventsView';
 
 const mapStateToProps = (state) => {
   return {

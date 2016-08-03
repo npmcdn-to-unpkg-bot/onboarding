@@ -8,11 +8,11 @@ import thunk from 'redux-thunk';
 import { hashHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
 import reducers from './reducers';
-import CommunityDataContainer from './containers/static/CommunityDataContainer';
-import UsersActivityDataContainer from './containers/static/UsersActivityDataContainer';
-import EventsViewContainer from './containers/static/EventsViewContainer';
-import DataViewContainer from './containers/static/DataViewContainer';
-import CampaingViewContainer from './containers/static/CampaingViewContainer';
+import CommunityDataContainer from './containers/CommunityDataContainer';
+import UsersActivityDataContainer from './containers/UsersActivityDataContainer';
+import EventsViewContainer from './containers/EventsViewContainer';
+import DataViewContainer from './containers/DataViewContainer';
+import CampaingViewContainer from './containers/CampaingViewContainer';
 
 
 /**
