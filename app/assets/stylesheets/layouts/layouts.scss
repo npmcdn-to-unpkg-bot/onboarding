@@ -7,11 +7,12 @@
 }
 
 .l-intro {
-  padding: 70px 0 300px;
   max-height: 500px;
+  padding: 70px 0 300px;
+  background-size: cover;
 
-  .-campaigns {
-
+  &.-campaigns {
+    background-image: image-url('bg1-1600.jpg');
   }
 }
 
