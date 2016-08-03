@@ -1,4 +1,3 @@
-
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -15,6 +14,10 @@
  *= require slick-theme
  */
 
+/*
+ * THANK YOU FOR KEEPING ALPHABETICAL ORDER
+ */
+
  @import "bootstrap";
 
  @import "settings/settings";
@@ -25,9 +28,16 @@
  @import "settings/wrap";
  @import "settings/utils";
 
- @import "components/shared/header";
- @import "components/shared/footer";
- @import "components/shared/table";
+ @import "layouts/layouts";
+
+ @import "components/shared/c-footer";
+ @import "components/shared/c-header";
+ @import "components/shared/c-pagination";
+ @import "components/shared/c-routes";
+ @import "components/shared/c-section-intro";
+ // @import "components/shared/tab-menu";
+ @import "components/shared/c-table";
+ @import "components/shared/c-tag";
 
  @import "components/home/about";
  @import "components/home/activity";
@@ -37,13 +47,6 @@
  @import "components/home/intro";
  @import "components/home/participate";
  @import "components/home/slider";
-
- @import "components/participate/campaign/index";
-
- @import "components/participate/components/intro";
- @import "components/participate/components/pagination";
- @import "components/participate/components/routes";
- @import "components/participate/components/tab-menu";
 
  @import "static";
 

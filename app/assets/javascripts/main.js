@@ -74,18 +74,18 @@ $('#parallax').ready( function() {
 });
 
 /* Campaigns page */
-$('#parallax-campaigns').ready( function() {
+$('#campaignsIndex').ready( function() {
   /* It always access into this callback, that's why we need to establish
   a condition to avoid issues */
-  if ($('#parallax-campaigns')[0]) {
+  if ($('#campaignsIndex')[0]) {
     /* Campaigns data */
-    ['campaign-main'].map( element => {
+    ['campaignsIndex'].map( element => {
       $('#' + element).ready( function() {
         ReactDOM.render(
           <Provider store={store}>
             <DataViewContainer data={{}} />
           </Provider>,
-          document.getElementById('data-view')
+          document.getElementById('data-table-view')
         );
       });
     });
@@ -124,7 +124,7 @@ $('#mapathon').ready( function() {
           <Provider store={store}>
             <EventsViewContainer data={{}} />
           </Provider>,
-          document.getElementById('data-view')
+          document.getElementById('data-table-view')
         );
       });
     });
