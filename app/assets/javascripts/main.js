@@ -44,7 +44,7 @@ const store = createStore(
  * @info(https://github.com/reactjs/react-router/tree/master/docs)
  * @type {Object}
  */
-const history = syncHistoryWithStore(hashHistory, store);
+// const history = syncHistoryWithStore(hashHistory, store);
 
 /* Home page */
 $('#parallax').ready( function() {
