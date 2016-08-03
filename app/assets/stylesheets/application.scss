@@ -25,25 +25,25 @@
  @import "settings/wrap";
  @import "settings/utils";
 
- @import "shared/header";
- @import "shared/footer";
- @import "shared/table";
+ @import "components/shared/header";
+ @import "components/shared/footer";
+ @import "components/shared/table";
 
- @import "static/main/about";
- @import "static/main/activity";
- @import "static/main/community";
- @import "static/main/events";
- @import "static/main/index";
- @import "static/main/intro";
- @import "static/main/participate";
- @import "static/main/slider";
+ @import "components/home/about";
+ @import "components/home/activity";
+ @import "components/home/community";
+ @import "components/home/events";
+ @import "components/home/index";
+ @import "components/home/intro";
+ @import "components/home/participate";
+ @import "components/home/slider";
 
- @import "static/participate/campaign/index";
+ @import "components/participate/campaign/index";
 
- @import "static/participate/components/intro";
- @import "static/participate/components/pagination";
- @import "static/participate/components/routes";
- @import "static/participate/components/tab-menu";
+ @import "components/participate/components/intro";
+ @import "components/participate/components/pagination";
+ @import "components/participate/components/routes";
+ @import "components/participate/components/tab-menu";
 
  @import "static";
 
