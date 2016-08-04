@@ -15,7 +15,7 @@ function setSlider() {
 
 function getSectionsPositions() {
   const positions = {};
-  positions[$('#intro').offset().top] = 'intro';
+  positions[$('#home-intro').offset().top] = 'intro';
   positions[$('#slider').offset().top] = 'slider';
   positions[$('#participate').offset().top] = 'participate';
   positions[$('#events').offset().top] = 'events';

@@ -73,7 +73,7 @@ $('#parallax').ready( function() {
   }
 });
 
-/* Campaigns page */
+/* Campaigns index */
 $('#campaignsIndex').ready( function() {
   /* It always access into this callback, that's why we need to establish
   a condition to avoid issues */
@@ -93,18 +93,18 @@ $('#campaignsIndex').ready( function() {
 });
 
 /* Campaigns detail */
-$('#campaings-detail').ready( function() {
+$('#campaignsDetail').ready( function() {
   /* It always access into this callback, that's why we need to establish
   a condition to avoid issues */
-  if ($('#campaings-detail')[0]) {
+  if ($('#campaignsDetail')[0]) {
     /* Campaigns data */
-    ['campaign-detail-section'].map( element => {
+    ['campaignsDetail'].map( element => {
       $('#' + element).ready( function() {
         ReactDOM.render(
           <Provider store={store}>
             <CampaingViewContainer data={{}} />
           </Provider>,
-          document.getElementById('campaign-detail-table')
+          document.getElementById('data-table-view')
         );
       });
     });
@@ -112,13 +112,13 @@ $('#campaings-detail').ready( function() {
 });
 
 /* Mapathon page */
-$('#mapathon').ready( function() {
+$('#eventsIndex').ready( function() {
   /* It always access into this callback, that's why we need to establish
   a condition to avoid issues */
-  if ($('#mapathon')[0]) {
+  if ($('#eventsIndex')[0]) {
 
     /* Campaigns data */
-    ['mapathon-main'].map( element => {
+    ['eventsIndex'].map( element => {
       $('#' + element).ready( function() {
         ReactDOM.render(
           <Provider store={store}>

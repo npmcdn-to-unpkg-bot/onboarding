@@ -7,12 +7,33 @@
 }
 
 .l-intro {
+  position: relative;
   max-height: 500px;
   padding: 70px 0 300px;
   background-size: cover;
 
   &.-campaigns {
     background-image: image-url('bg1-1600.jpg');
+  }
+
+  &.-campaigns-detail {
+    background-image: image-url('bg2-1600.jpg');
+  }
+
+  &.-events {
+    background-image: image-url('bg1-1600.jpg');
+  }
+
+  &.-events-detail {
+    background-image: image-url('bg2-1600.jpg');
+  }
+
+  &.-tasks {
+    background-image: image-url('bg2-1600.jpg');
+  }
+
+  &.-tasks-detail {
+    background-image: image-url('bg2-1600.jpg');
   }
 }
 
