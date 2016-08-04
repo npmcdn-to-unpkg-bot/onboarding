@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { setCampaingsList } from '../actions/static';
+import { setCampaingsList } from '../actions/campaingsActions';
 import CampaingsPageView from '../components/pages/CampaingsPageView';
 
 const mapStateToProps = (state) => {
   return {
-    campaingsList: state.staticReducer.campaingsList
+    campaingsList: state.campaingsReducer.campaingsList
   }
 }
 

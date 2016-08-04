@@ -19,15 +19,15 @@ class DataTableView extends React.Component {
     newProps.data && this.setState({ list: newProps.data });
     this.list = newProps.data;
     this.options = {
-        caseSensitive: false,
-        includeScore: false,
-        shouldSort: true,
-        threshold: 0.6,
-        location: 0,
-        distance: 100,
-        maxPatternLength: 32,
-        keys: ['name', 'start_date', 'htag']
-      };
+      caseSensitive: false,
+      includeScore: false,
+      shouldSort: true,
+      threshold: 0.6,
+      location: 0,
+      distance: 100,
+      maxPatternLength: 32,
+      keys: ['name', 'start_date', 'htag']
+    };
 
     this.fuse = new Fuse(this.list, this.options);
   }
