@@ -41,16 +41,9 @@ const store = createStore(
   )
 );
 
-/**
- * HTML5 History API managed by React Router module
- * @info(https://github.com/reactjs/react-router/tree/master/docs)
- * @type {Object}
- */
-// const history = syncHistoryWithStore(hashHistory, store);
-
 /* Home page */
 $('#parallax').ready( function() {
-  /* It always access into this callback, that's why we need to establish
+  /* It always runs this callback, that's why we need to establish
   a condition to avoid issues */
   if ($('#parallax')[0]) {
     /* Community data */
@@ -77,7 +70,7 @@ $('#parallax').ready( function() {
 
 /* Campaigns index */
 $('#campaignsIndex').ready( function() {
-  /* It always access into this callback, that's why we need to establish
+  /* It always runs this callback, that's why we need to establish
   a condition to avoid issues */
   if ($('#campaignsIndex')[0]) {
     /* Campaigns data */
@@ -96,7 +89,7 @@ $('#campaignsIndex').ready( function() {
 
 /* Campaigns detail */
 $('#campaignsDetail').ready( function() {
-  /* It always access into this callback, that's why we need to establish
+  /* It always runs this callback, that's why we need to establish
   a condition to avoid issues */
   if ($('#campaignsDetail')[0]) {
     /* Campaigns data */
@@ -114,7 +107,7 @@ $('#campaignsDetail').ready( function() {
 
 /* Mapathon page */
 $('#eventsIndex').ready( function() {
-  /* It always access into this callback, that's why we need to establish
+  /* It always runs this callback, that's why we need to establish
   a condition to avoid issues */
   if ($('#eventsIndex')[0]) {
 
@@ -134,7 +127,7 @@ $('#eventsIndex').ready( function() {
 
 /* Tasks page */
 $('#tasksIndex').ready( function() {
-  /* It always access into this callback, that's why we need to establish
+  /* It always runs this callback, that's why we need to establish
   a condition to avoid issues */
   if ($('#tasksIndex')[0]) {
 
