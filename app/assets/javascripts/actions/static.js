@@ -2,7 +2,7 @@ import React from 'react';
 
 export const SET_COMMUNITY_DATA = 'SET_COMMUNITY_DATA';
 export const SET_USERS_ACTIVITY_DATA = 'SET_USERS_ACTIVITY_DATA';
-export const SET_ELEMENTS_LIST = 'SET_ELEMENTS_LIST';
+export const SET_CAMPAINGS_LIST = 'SET_CAMPAINGS_LIST';
 export const SET_EVENTS_LIST = 'SET_EVENTS_LIST';
 
 export function setCommunityData(data) {
@@ -41,14 +41,14 @@ export function setUsersActivityData(data) {
   };
 }
 
-export function setElementsList(data) {
+export function setCampaingsList() {
   const url = '/api/v1/campaigns';
 
    return function(dispatch) {
-    $.get(url).then(function(elementsList){
+    $.get(url).then(function(campaingsList){
       dispatch({
-        type: SET_ELEMENTS_LIST,
-        elementsList
+        type: SET_CAMPAINGS_LIST,
+        campaingsList
       });
     });
   };

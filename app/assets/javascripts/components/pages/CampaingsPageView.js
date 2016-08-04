@@ -2,22 +2,13 @@
 
 import React from 'react';
 import {Tabs} from 'react-bootstrap';
-
+import DataTableView from './../DataTableView'
 
 class CampaingView extends React.Component {
 
-  constructor(props) {
-    super();
-    this.state = {};
-  }
-
-  componentWillMount() {
-  }
-
-  componentWillReceiveProps(newProps) {
-  }
-
   componentDidMount() {
+    /* data will specify what kind of section will be rendered */
+    this.props.setCampaingsList();
   }
 
   render() {
@@ -32,7 +23,9 @@ class CampaingView extends React.Component {
     return (
       <div>
         <div>
-          <p>Campaing detail table</p>
+          <DataTableView
+            data={this.props.campaingsList}
+          />
         </div>
       </div>
     );
@@ -40,7 +33,6 @@ class CampaingView extends React.Component {
 }
 
 CampaingView.propTypes = {
-  data: React.PropTypes.object
 };
 
 export default CampaingView;

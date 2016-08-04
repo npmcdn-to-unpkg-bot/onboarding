@@ -1,22 +1,22 @@
 import { connect } from 'react-redux';
-import { setElementsList } from '../actions/static';
-import DataTableView from '../components/DataTableView';
+import { setCampaingsList } from '../actions/static';
+import CampaingsPageView from '../components/pages/CampaingsPageView';
 
 const mapStateToProps = (state) => {
   return {
-    elementsList: state.staticReducer.elementsList
+    campaingsList: state.staticReducer.campaingsList
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setElementsList: (data) => dispatch(setElementsList(data))
+    setCampaingsList: () => dispatch(setCampaingsList())
   };
 }
 
 const CampaingsViewContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(DataTableView);
+)(CampaingsPageView);
 
 export default CampaingsViewContainer;
