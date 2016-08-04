@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :events, only: [:show, :index]
       resources :campaigns, only: [:show, :index]
+      resources :tasks, only: [:show, :index]
     end
   end
 

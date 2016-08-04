@@ -2,7 +2,6 @@ import React from 'react';
 
 export const SET_COMMUNITY_DATA = 'SET_COMMUNITY_DATA';
 export const SET_USERS_ACTIVITY_DATA = 'SET_USERS_ACTIVITY_DATA';
-export const SET_ELEMENTS_LIST = 'SET_ELEMENTS_LIST';
 export const SET_EVENTS_LIST = 'SET_EVENTS_LIST';
 
 export function setCommunityData(data) {
@@ -38,19 +37,6 @@ export function setUsersActivityData(data) {
       {name: 'Pepi', roads: 33},
       {name: 'Pepi', roads: 33}
     ]
-  };
-}
-
-export function setElementsList(data) {
-  const url = '/api/v1/campaigns';
-
-   return function(dispatch) {
-    $.get(url).then(function(elementsList){
-      dispatch({
-        type: SET_ELEMENTS_LIST,
-        elementsList
-      });
-    });
   };
 }
 

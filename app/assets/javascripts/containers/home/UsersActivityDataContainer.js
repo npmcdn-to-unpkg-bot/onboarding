@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { setUsersActivityData } from '../../actions/static';
-import UsersActivityData from '../../components/static/UsersActivityData';
+import UsersActivityData from '../../components/home/UsersActivityData';
 
 const mapStateToProps = (state) => {
   return {

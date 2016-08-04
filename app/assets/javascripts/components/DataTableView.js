@@ -3,7 +3,7 @@
 import React from 'react';
 import Fuse from 'fuse.js';
 
-class DataView extends React.Component {
+class DataTableView extends React.Component {
 
   constructor(props) {
     super();
@@ -12,28 +12,22 @@ class DataView extends React.Component {
       direction: 0,
       keySorted: 'start_date'
     };
-
     this.keySorted = 'start_date';
   }
 
-  componentWillMount() {
-    /* data will specify what kind of section will be rendered */
-    this.props.setElementsList(this.props.data);
-  }
-
   componentWillReceiveProps(newProps) {
-    newProps.elementsList && this.setState({ list: newProps.elementsList });
-    this.list = newProps.elementsList;
+    newProps.data && this.setState({ list: newProps.data });
+    this.list = newProps.data;
     this.options = {
-        caseSensitive: false,
-        includeScore: false,
-        shouldSort: true,
-        threshold: 0.6,
-        location: 0,
-        distance: 100,
-        maxPatternLength: 32,
-        keys: ['name', 'start_date', 'htag']
-      };
+      caseSensitive: false,
+      includeScore: false,
+      shouldSort: true,
+      threshold: 0.6,
+      location: 0,
+      distance: 100,
+      maxPatternLength: 32,
+      keys: ['name', 'start_date', 'htag']
+    };
 
     this.fuse = new Fuse(this.list, this.options);
   }
@@ -60,7 +54,7 @@ class DataView extends React.Component {
   }
 
   sortBy(keySorted) {
-    let sortList = this.props.elementsList;
+    let sortList = this.props.data.campaignsList;
     this.keySorted = keySorted;
     const direction = this.state.direction < 2 ? this.state.direction + 1 : 0;
 
@@ -131,7 +125,7 @@ class DataView extends React.Component {
               <tr key={i} className="wrap text text-desc -dark">
                 <td className="text text-desc -dark">{ element.start_date }</td>
                 <td className="text text-desc -dark -bold"><a href={`/campaigns/${element.id}`}>{ element.name }</a></td>
-                <td className="text text-desc -dark">{ element.htag }</td>
+                <td className="text text-desc -dark"><button className="c-tag">{ element.htag }</button></td>
               </tr>
             )}
           </tbody>
@@ -141,8 +135,7 @@ class DataView extends React.Component {
   }
 }
 
-DataView.propTypes = {
-  data: React.PropTypes.object
+DataTableView.propTypes = {
 };
 
-export default DataView;
+export default DataTableView;

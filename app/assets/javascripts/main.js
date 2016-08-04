@@ -2,18 +2,19 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import { hashHistory } from 'react-router';
-import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
 import reducers from './reducers';
-import CommunityDataContainer from './containers/static/CommunityDataContainer';
-import UsersActivityDataContainer from './containers/static/UsersActivityDataContainer';
-import EventsViewContainer from './containers/static/EventsViewContainer';
-import DataViewContainer from './containers/static/DataViewContainer';
-import CampaingViewContainer from './containers/static/CampaingViewContainer';
-
+//HOME
+import CommunityDataContainer from './containers/home/CommunityDataContainer';
+import UsersActivityDataContainer from './containers/home/UsersActivityDataContainer';
+//CAMPAINGS
+import CampaingsPageContainer from './containers/CampaingsPageContainer';
+//EVENTS
+import EventsPageContainer from './containers/EventsPageContainer';
+//TASK
+import TasksPageContainer from './containers/TasksPageContainer';
 
 /**
  * Reducers
@@ -21,8 +22,7 @@ import CampaingViewContainer from './containers/static/CampaingViewContainer';
  * @type {Object}
  */
 const reducer = combineReducers({
-  ...reducers,
-  routing: routerReducer
+  ...reducers
 });
 
 /**
@@ -30,25 +30,20 @@ const reducer = combineReducers({
  * @info(http://redux.js.org/docs/basics/Store.html)
  * @type {Object}
  */
-const middlewareRouter = routerMiddleware(hashHistory);
 const store = createStore(
   reducer,
-  // The router middleware MUST be before thunk otherwise the URL changes inside
-  // a thunk function won't work properly
-  applyMiddleware(middlewareRouter),
-  applyMiddleware(thunk)
+  compose(
+    applyMiddleware(thunk),
+    /* Redux dev tool, install chrome extension in
+    * https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi */
+    typeof window === 'object' &&
+      typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
+  )
 );
-
-/**
- * HTML5 History API managed by React Router module
- * @info(https://github.com/reactjs/react-router/tree/master/docs)
- * @type {Object}
- */
-const history = syncHistoryWithStore(hashHistory, store);
 
 /* Home page */
 $('#parallax').ready( function() {
-  /* It always access into this callback, that's why we need to establish
+  /* It always runs this callback, that's why we need to establish
   a condition to avoid issues */
   if ($('#parallax')[0]) {
     /* Community data */
@@ -73,19 +68,19 @@ $('#parallax').ready( function() {
   }
 });
 
-/* Campaigns page */
-$('#parallax-campaigns').ready( function() {
-  /* It always access into this callback, that's why we need to establish
+/* Campaigns index */
+$('#campaignsIndex').ready( function() {
+  /* It always runs this callback, that's why we need to establish
   a condition to avoid issues */
-  if ($('#parallax-campaigns')[0]) {
+  if ($('#campaignsIndex')[0]) {
     /* Campaigns data */
-    ['campaign-main'].map( element => {
+    ['campaignsIndex'].map( element => {
       $('#' + element).ready( function() {
         ReactDOM.render(
           <Provider store={store}>
-            <DataViewContainer data={{}} />
+            <CampaingsPageContainer data={{}} />
           </Provider>,
-          document.getElementById('data-view')
+          document.getElementById('data-table-view')
         );
       });
     });
@@ -93,18 +88,17 @@ $('#parallax-campaigns').ready( function() {
 });
 
 /* Campaigns detail */
-$('#campaings-detail').ready( function() {
-  /* It always access into this callback, that's why we need to establish
+$('#campaignsDetail').ready( function() {
+  /* It always runs this callback, that's why we need to establish
   a condition to avoid issues */
-  if ($('#campaings-detail')[0]) {
+  if ($('#campaignsDetail')[0]) {
     /* Campaigns data */
-    ['campaign-detail-section'].map( element => {
+    ['campaignsDetail'].map( element => {
       $('#' + element).ready( function() {
         ReactDOM.render(
           <Provider store={store}>
-            <CampaingViewContainer data={{}} />
           </Provider>,
-          document.getElementById('campaign-detail-table')
+          document.getElementById('data-table-view')
         );
       });
     });
@@ -112,19 +106,39 @@ $('#campaings-detail').ready( function() {
 });
 
 /* Mapathon page */
-$('#mapathon').ready( function() {
-  /* It always access into this callback, that's why we need to establish
+$('#eventsIndex').ready( function() {
+  /* It always runs this callback, that's why we need to establish
   a condition to avoid issues */
-  if ($('#mapathon')[0]) {
+  if ($('#eventsIndex')[0]) {
 
     /* Campaigns data */
-    ['mapathon-main'].map( element => {
+    ['eventsIndex'].map( element => {
       $('#' + element).ready( function() {
         ReactDOM.render(
           <Provider store={store}>
-            <EventsViewContainer data={{}} />
+            <EventsPageContainer data={{}} />
           </Provider>,
-          document.getElementById('data-view')
+          document.getElementById('data-table-view')
+        );
+      });
+    });
+  }
+});
+
+/* Tasks page */
+$('#tasksIndex').ready( function() {
+  /* It always runs this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#tasksIndex')[0]) {
+
+    /* Campaigns data */
+    ['tasksIndex'].map( element => {
+      $('#' + element).ready( function() {
+        ReactDOM.render(
+          <Provider store={store}>
+            <TasksPageContainer data={{}} />
+          </Provider>,
+          document.getElementById('data-table-view')
         );
       });
     });
