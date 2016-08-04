@@ -64,7 +64,8 @@
   }
 
   tbody tr:nth-child(odd) {
-    background-color: #ebebeb;
+    background-color: rgba(#ebebeb, .3);
+
   }
 
   td:first-child,

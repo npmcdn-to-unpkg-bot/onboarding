@@ -8,12 +8,15 @@ import thunk from 'redux-thunk';
 import { hashHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
 import reducers from './reducers';
-import CommunityDataContainer from './containers/CommunityDataContainer';
-import UsersActivityDataContainer from './containers/UsersActivityDataContainer';
-import EventsViewContainer from './containers/EventsViewContainer';
-import DataViewContainer from './containers/DataViewContainer';
-import CampaingViewContainer from './containers/CampaingViewContainer';
-
+//HOME
+import CommunityDataContainer from './containers/home/CommunityDataContainer';
+import UsersActivityDataContainer from './containers/home/UsersActivityDataContainer';
+//CAMPAINGS
+import CampaingsPageContainer from './containers/CampaingsPageContainer';
+//EVENTS
+import EventsPageContainer from './containers/EventsPageContainer';
+//TASK
+import TasksPageContainer from './containers/TasksPageContainer';
 
 /**
  * Reducers
@@ -83,7 +86,7 @@ $('#campaignsIndex').ready( function() {
       $('#' + element).ready( function() {
         ReactDOM.render(
           <Provider store={store}>
-            <DataViewContainer data={{}} />
+            <CampaingsPageContainer data={{}} />
           </Provider>,
           document.getElementById('data-table-view')
         );
@@ -102,7 +105,6 @@ $('#campaignsDetail').ready( function() {
       $('#' + element).ready( function() {
         ReactDOM.render(
           <Provider store={store}>
-            <CampaingViewContainer data={{}} />
           </Provider>,
           document.getElementById('data-table-view')
         );
@@ -122,7 +124,27 @@ $('#eventsIndex').ready( function() {
       $('#' + element).ready( function() {
         ReactDOM.render(
           <Provider store={store}>
-            <EventsViewContainer data={{}} />
+            <EventsPageContainer data={{}} />
+          </Provider>,
+          document.getElementById('data-table-view')
+        );
+      });
+    });
+  }
+});
+
+/* Tasks page */
+$('#tasksIndex').ready( function() {
+  /* It always access into this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#tasksIndex')[0]) {
+
+    /* Campaigns data */
+    ['tasksIndex'].map( element => {
+      $('#' + element).ready( function() {
+        ReactDOM.render(
+          <Provider store={store}>
+            <TasksPageContainer data={{}} />
           </Provider>,
           document.getElementById('data-table-view')
         );

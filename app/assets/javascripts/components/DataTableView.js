@@ -3,7 +3,7 @@
 import React from 'react';
 import Fuse from 'fuse.js';
 
-class DataView extends React.Component {
+class DataTableView extends React.Component {
 
   constructor(props) {
     super();
@@ -131,7 +131,7 @@ class DataView extends React.Component {
               <tr key={i} className="wrap text text-desc -dark">
                 <td className="text text-desc -dark">{ element.start_date }</td>
                 <td className="text text-desc -dark -bold"><a href={`/campaigns/${element.id}`}>{ element.name }</a></td>
-                <td className="text text-desc -dark">{ element.htag }</td>
+                <td className="text text-desc -dark"><button className="c-tag">{ element.htag }</button></td>
               </tr>
             )}
           </tbody>
@@ -141,8 +141,8 @@ class DataView extends React.Component {
   }
 }
 
-DataView.propTypes = {
+DataTableView.propTypes = {
   data: React.PropTypes.object
 };
 
-export default DataView;
+export default DataTableView;

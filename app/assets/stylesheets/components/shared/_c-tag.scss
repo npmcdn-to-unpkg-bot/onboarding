@@ -1,8 +1,16 @@
 .c-tag {
-  background-color: $color-1;
   padding: 2px 6px;
   border-radius: 20px;
   margin-right: 10px;
+  font-size: 12px;
+  line-height: 20px;
+  color: $black;
+  background-color: #e4e3e3;
+
+  &.-primary {
+    color: #fff;
+    background-color: $color-1;
+  }
 
   @media screen and (min-width: $screen-m) {
     padding: 0 15px;

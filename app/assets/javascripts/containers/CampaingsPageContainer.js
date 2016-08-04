@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { setElementsList } from '../actions/static';
-import DataView from '../components/DataView';
+import DataTableView from '../components/DataTableView';
 
 const mapStateToProps = (state) => {
   return {
@@ -14,9 +14,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
-const DataViewContainer = connect(
+const CampaingsViewContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(DataView);
+)(DataTableView);
 
-export default DataViewContainer;
+export default CampaingsViewContainer;
