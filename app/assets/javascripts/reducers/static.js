@@ -8,8 +8,8 @@ function setUsersActivityData(state, usersActivityData) {
   return Object.assign({}, state, {usersActivityData});
 }
 
-function setCampaingsList(state, campaignsList) {
-  return Object.assign({}, state, {campaignsList});
+function setCampaingsList(state, campaingsList) {
+  return Object.assign({}, state, {campaingsList});
 }
 
 function setEventsList(state, eventsList) {

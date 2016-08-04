@@ -3,15 +3,14 @@ import { setCampaingsList } from '../actions/static';
 import CampaingsPageView from '../components/pages/CampaingsPageView';
 
 const mapStateToProps = (state) => {
-  debugger
   return {
-    campaingsList: state.staticReducer
+    campaingsList: state.staticReducer.campaingsList
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setCampaingsList: (data) => dispatch(setCampaingsList(data))
+    setCampaingsList: () => dispatch(setCampaingsList())
   };
 }
 

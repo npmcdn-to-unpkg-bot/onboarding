@@ -12,14 +12,12 @@ class DataTableView extends React.Component {
       direction: 0,
       keySorted: 'start_date'
     };
-
     this.keySorted = 'start_date';
   }
 
   componentWillReceiveProps(newProps) {
-    debugger
-    newProps.data.campaignsList && this.setState({ list: newProps.data.campaignsList });
-    this.list = newProps.data.campaignsList;
+    newProps.data && this.setState({ list: newProps.data });
+    this.list = newProps.data;
     this.options = {
         caseSensitive: false,
         includeScore: false,
@@ -138,7 +136,6 @@ class DataTableView extends React.Component {
 }
 
 DataTableView.propTypes = {
-  data: React.PropTypes.object
 };
 
 export default DataTableView;

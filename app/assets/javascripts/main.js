@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import reducers from './reducers';
@@ -32,7 +32,13 @@ const reducer = combineReducers({
  */
 const store = createStore(
   reducer,
-  applyMiddleware(thunk)
+  compose(
+    applyMiddleware(thunk),
+    /* Redux dev tool, install chrome extension in
+    * https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi */
+    typeof window === 'object' &&
+      typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
+  )
 );
 
 /**

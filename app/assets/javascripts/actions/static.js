@@ -41,7 +41,7 @@ export function setUsersActivityData(data) {
   };
 }
 
-export function setCampaingsList(data) {
+export function setCampaingsList() {
   const url = '/api/v1/campaigns';
 
    return function(dispatch) {

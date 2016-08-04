@@ -6,16 +6,9 @@ import DataTableView from './../DataTableView'
 
 class CampaingView extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      campaingsList: []
-    };
-  }
-
   componentDidMount() {
     /* data will specify what kind of section will be rendered */
-    this.props.setCampaingsList(this.props.data);
+    this.props.setCampaingsList();
   }
 
   render() {
@@ -26,8 +19,6 @@ class CampaingView extends React.Component {
         <Tab eventKey={3} title="Tab 3" disabled>Tab 3 content</Tab>
       </Tabs>
     );
-
-    debugger
 
     return (
       <div>
@@ -42,7 +33,6 @@ class CampaingView extends React.Component {
 }
 
 CampaingView.propTypes = {
-  data: React.PropTypes.object
 };
 
 export default CampaingView;
