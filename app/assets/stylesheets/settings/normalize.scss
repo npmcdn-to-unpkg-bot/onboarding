@@ -26,8 +26,8 @@ html {
 }
 
 a, li {
-  /* To avoid library default styles */
-  text-decoration: none !important;
+  /* Avoid important here because we do want underline styles for some links */
+  text-decoration: none;
 }
 
 button {

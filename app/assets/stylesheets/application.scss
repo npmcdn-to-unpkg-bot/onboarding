@@ -1,4 +1,3 @@
-
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -25,25 +24,32 @@
  @import "settings/wrap";
  @import "settings/utils";
 
- @import "shared/header";
- @import "shared/footer";
- @import "shared/table";
+/*
+ * THANK YOU FOR KEEPING ALPHABETICAL ORDER
+ * Beyond this point, modules shouldn't have dependencies between them.
+ */
 
- @import "static/main/about";
- @import "static/main/activity";
- @import "static/main/community";
- @import "static/main/events";
- @import "static/main/index";
- @import "static/main/intro";
- @import "static/main/participate";
- @import "static/main/slider";
+ @import "layouts/layouts";
 
- @import "static/participate/campaign/index";
+ @import "components/shared/c-footer";
+ @import "components/shared/c-header";
+ @import "components/shared/c-pagination";
+ @import "components/shared/c-routes";
+ @import "components/shared/c-section-intro";
+ // Trying to figure out if we need this... or not...
+ // That is why I'm keeping it for the moment.
+ // @import "components/shared/tab-menu";
+ @import "components/shared/c-table";
+ @import "components/shared/c-tag";
 
- @import "static/participate/components/intro";
- @import "static/participate/components/pagination";
- @import "static/participate/components/routes";
- @import "static/participate/components/tab-menu";
+ @import "components/home/about";
+ @import "components/home/activity";
+ @import "components/home/community";
+ @import "components/home/events";
+ @import "components/home/index";
+ @import "components/home/home-intro";
+ @import "components/home/participate";
+ @import "components/home/slider";
 
  @import "static";
 

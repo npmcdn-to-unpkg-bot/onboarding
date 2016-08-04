@@ -1,0 +1,43 @@
+/**
+ *  Template:
+ *
+ *  <article class="c-section-intro content-fluid">
+ *    { c-routes }
+ *    <aside class="wrap row">
+ *      <div class="col-sm-12 col-md-5">
+ *        <h1 class="title text text-module-subtitle -light">{ Title }</h1>
+ *        <ul class="tags-list text text-tag -light">
+ *          <li class="tag">{ Tag name }</li>
+ *        </ul>
+ *        <p class="text text-desc -light">{ Content }</p>
+ *        <a href="/" class="bttn bttn-primary">{ content }</a>  // Optional
+ *        { tab-menu } // Optional
+ *      </div>
+ *    </aside>
+ *  </article>
+ *
+ **/
+
+
+.c-section-intro {
+  .title {
+    margin-top: 27px;
+    text-transform: capitalize;
+    margin-bottom: 12px;
+  }
+
+  .tags-list {
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  p.text-desc {
+    margin-bottom: 15px;
+  }
+
+  .bttn-primary {
+    padding: 10px 25px;
+    font-size: 14px;
+    font-family: $font-family-2;
+  }
+}

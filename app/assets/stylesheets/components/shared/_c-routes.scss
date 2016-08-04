@@ -1,0 +1,30 @@
+/**
+ *  Template:
+ *
+ *    <ul class="c-routes text text-legend -light">
+ *      <li class="route">
+ *        <a href="{ path } class=current_class('{ path }') + "route-link">{ content }</a>
+ *      </li>
+ *    </ul>
+ *
+ */
+
+.c-routes {
+  .route {
+    float: left;
+
+    &:after {
+      content: '>';
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    &:last-child:after{
+      content: '';
+    }
+  }
+
+  .route-link {
+    color: $color-2;
+  }
+}

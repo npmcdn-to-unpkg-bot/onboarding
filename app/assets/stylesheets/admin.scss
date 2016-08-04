@@ -23,9 +23,9 @@
  @import "settings/utils";
  @import "settings/form";
 
- @import "shared/header";
- @import "shared/footer";
- @import "shared/table";
+ @import "components/shared/c-header";
+ @import "components/shared/c-footer";
+ @import "components/shared/c-table";
 
  @import "admin/shared/footer-back";
  @import "admin/shared/table";

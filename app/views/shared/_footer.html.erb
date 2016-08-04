@@ -1,9 +1,13 @@
-<footer class="l-footer-back wrap-full">
-    <ul class="footer-menu">
-      <li class="text text-foot -light">About</li>
-      <li class="text text-foot -light">Contact</li>
-    </ul>
-    <div class="rights">
-      <p class="text text-foot -light">© JRC European Commission</p>
+<div class="l-footer">
+  <div class="main-footer">
+    <%= link_to (image_tag "logo.png", class: "logo"), "/"%>
+    <div class="subscribe">
+      <p class="text text-legend -light">SUSCRIBE TO<br/> NEWSLETTER:</p>
+      <input class="email-input text text-legend" type="text" name="email" placeholder="Your email">
     </div>
-</footer>
+    <div class="aux"></div>
+  </div>
+  <div class="login">
+    <button class="text text-button -light">Sign in</button>
+  </div>
+</div>
