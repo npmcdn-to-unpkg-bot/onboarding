@@ -5,8 +5,6 @@ import { render } from 'react-dom';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import { hashHistory } from 'react-router';
-import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
 import reducers from './reducers';
 //HOME
 import CommunityDataContainer from './containers/home/CommunityDataContainer';
@@ -24,8 +22,7 @@ import TasksPageContainer from './containers/TasksPageContainer';
  * @type {Object}
  */
 const reducer = combineReducers({
-  ...reducers,
-  routing: routerReducer
+  ...reducers
 });
 
 /**
@@ -33,12 +30,8 @@ const reducer = combineReducers({
  * @info(http://redux.js.org/docs/basics/Store.html)
  * @type {Object}
  */
-const middlewareRouter = routerMiddleware(hashHistory);
 const store = createStore(
   reducer,
-  // The router middleware MUST be before thunk otherwise the URL changes inside
-  // a thunk function won't work properly
-  applyMiddleware(middlewareRouter),
   applyMiddleware(thunk)
 );
 

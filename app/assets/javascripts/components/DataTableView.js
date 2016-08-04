@@ -16,14 +16,10 @@ class DataTableView extends React.Component {
     this.keySorted = 'start_date';
   }
 
-  componentWillMount() {
-    /* data will specify what kind of section will be rendered */
-    this.props.setElementsList(this.props.data);
-  }
-
   componentWillReceiveProps(newProps) {
-    newProps.elementsList && this.setState({ list: newProps.elementsList });
-    this.list = newProps.elementsList;
+    debugger
+    newProps.data.campaignsList && this.setState({ list: newProps.data.campaignsList });
+    this.list = newProps.data.campaignsList;
     this.options = {
         caseSensitive: false,
         includeScore: false,
@@ -60,7 +56,7 @@ class DataTableView extends React.Component {
   }
 
   sortBy(keySorted) {
-    let sortList = this.props.elementsList;
+    let sortList = this.props.data.campaignsList;
     this.keySorted = keySorted;
     const direction = this.state.direction < 2 ? this.state.direction + 1 : 0;
 
