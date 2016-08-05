@@ -26,7 +26,7 @@
 
 /*
  * THANK YOU FOR KEEPING ALPHABETICAL ORDER
- * Beyond this point, modules shoulden't have dependency among them.
+ * Beyond this point, modules shouldn't have dependency among them.
  */
 
  @import "layouts/layouts";
@@ -36,11 +36,9 @@
  @import "components/shared/c-pagination";
  @import "components/shared/c-routes";
  @import "components/shared/c-section-intro";
- // Trying to figure out if we need this... or not...
- // That is why I'm keeping it for the moment.
- // @import "components/shared/tab-menu";
  @import "components/shared/c-table";
  @import "components/shared/c-tag";
+ @import "components/shared/c-tabs";
 
  @import "components/home/about";
  @import "components/home/activity";

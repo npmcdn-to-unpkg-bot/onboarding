@@ -1,0 +1,54 @@
+/*
+  <div className="c-tabs">
+    <ul className="tabs">
+      <li className="tab" id=tab-1>Mapathon</li>
+      <li className="tab">Task</li>
+    </ul>
+    <div className="tabs-content">
+      <div className="tabs-panel" id="panel-tab-1">
+        //Content tab 1
+      </div>
+      <div className="tabs-panel" id="panel-tab-2">
+        //Content tab 2
+      </div>
+    </div>
+  </div>
+*/
+
+
+.c-tabs {
+
+  .tabs {
+    width: 100%;
+    display: flex;
+    background-color: rgba($color-4, .5);
+
+    .tab {
+      width: 50%;
+      padding: 20px 0;
+      text-align: center;
+      color: #fff;
+
+      &.-is-active {
+        display: block;
+        color: $font-color-3;
+        background-color: #fff;
+      }
+    }
+  }
+
+  .tabs-content {
+    position: relative;
+    width: 100%;
+
+    .tabs-panel {
+      display: none;
+      background-color: #fff;
+
+      &.-is-active {
+        display: block;
+      }
+    }
+
+  }
+}
