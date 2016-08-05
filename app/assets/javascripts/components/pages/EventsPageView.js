@@ -8,6 +8,7 @@ class CampaingView extends React.Component {
   componentDidMount() {
     /* data will specify what kind of section will be rendered */
     this.props.setEventsList();
+    this.props.setTasksList();
   }
 
   render() {
@@ -27,7 +28,7 @@ class CampaingView extends React.Component {
             </div>
             <div className="tabs-panel">
               <DataTableView
-                data={this.props.tasksByEventList}
+                data={this.props.tasksList}
               />
             </div>
           </div>
