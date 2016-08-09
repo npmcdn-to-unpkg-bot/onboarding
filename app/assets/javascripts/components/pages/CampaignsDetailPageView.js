@@ -7,15 +7,18 @@ class CampaingsDetailView extends React.Component {
 
   constructor(props) {
     super(props);
+    const path = window.location.pathname.split('/');
+    this.campaignId = path[path.length - 1];
+
     this.state = {
-      activeTab: "tab1"
+      activeTab: 'tab1',
+      currentCampaign: this.campaignId
     };
   }
 
   componentDidMount() {
     //Here we need to filter for events or task of a CAMPAING. Now, we are getting everything.
-    this.props.setEventsList();
-    this.props.setTasksList();
+    this.props.setCampaignDetail(this.campaignId);
   }
 
   changeTab(tab) {
@@ -25,27 +28,27 @@ class CampaingsDetailView extends React.Component {
   render() {
     const mapathonTable = (
       <DataTableView
-        identity="events"
-        base_url="/events"
-        data={this.props.eventsList}
+        identity='events'
+        base_url='/events'
+        data={this.props.campaignDetail && this.props.campaignDetail.events}
         columns={[
-          { title: "Start / End Date", slug: "date" },
-          { title: "Mapathon Name", slug: "name" },
-          { title: "Location Point", slug: "location" }
+          { title: 'Date', slug: 'date' },
+          { title: 'Mapathon Name', slug: 'name' },
+          { title: 'Description', slug: 'description' }
         ]}
       />
     );
 
     const taskTable = (
       <DataTableView
-        identity="tasks"
-        base_url="/tasks"
-        data={this.props.tasksList}
+        identity='tasks'
+        base_url='/tasks'
+        data={this.props.campaignDetail && this.props.campaignDetail.tasks}
         columns={[
-          { title: "Deadline", slug: "deadline" },
-          { title: "Task Name", slug: "name" },
-          { title: "Type", slug: "task_type" },
-          { title: "State", slug: "status" }
+          { title: 'Deadline', slug: 'deadline' },
+          { title: 'Task Name', slug: 'name' },
+          { title: 'Type', slug: 'task_type' },
+          { title: 'State', slug: 'status' }
         ]}
       />
     )

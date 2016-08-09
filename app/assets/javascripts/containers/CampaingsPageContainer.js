@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setCampaingsList } from '../actions/campaingsActions';
+import { setCampaingsList } from '../actions/campaignsActions';
 import CampaingsPageView from '../components/pages/CampaingsPageView';
 
 const mapStateToProps = (state) => {

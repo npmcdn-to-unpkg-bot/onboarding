@@ -1,25 +1,22 @@
 import { connect } from 'react-redux';
-import { setEventsList } from '../actions/eventsActions';
-import { setTasksList } from '../actions/tasksActions';
-import CampaingsDetailView from '../components/pages/CampaingsDetailPageView';
+import { setCampaignDetail } from '../actions/campaignsActions';
+import CampaignsDetailPageView from '../components/pages/CampaignsDetailPageView';
 
 const mapStateToProps = (state) => {
   return {
-    eventsList: state.eventsReducer.eventsList,
-    tasksList: state.tasksReducer.tasksList
+    campaignDetail: state.campaingsReducer.campaignDetail,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setEventsList: () => dispatch(setEventsList()),
-    setTasksList: () => dispatch(setTasksList())
+    setCampaignDetail: (id) => dispatch(setCampaignDetail(id))
   };
 }
 
-const EventsPageContainer = connect(
+const CampaignDetailPageContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(CampaingsDetailView);
+)(CampaignsDetailPageView);
 
-export default EventsPageContainer;
+export default CampaignDetailPageContainer;
