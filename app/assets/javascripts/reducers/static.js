@@ -8,18 +8,12 @@ function setUsersActivityData(state, usersActivityData) {
   return Object.assign({}, state, {usersActivityData});
 }
 
-function setEventsList(state, eventsList) {
-  return Object.assign({}, state, {eventsList});
-}
-
 export default function staticReducer(state = {} , action) {
   switch (action.type) {
     case 'SET_COMMUNITY_DATA':
       return setCommunityData(state, action.communityData);
     case 'SET_USERS_ACTIVITY_DATA':
       return setUsersActivityData(state, action.usersActivityData);
-    case 'SET_EVENTS_LIST':
-      return setEventsList(state, action.eventsList);
     default:
       return state;
   }

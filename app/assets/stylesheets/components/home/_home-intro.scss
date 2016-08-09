@@ -1,19 +1,14 @@
-@import'../../settings/utils.scss';
+// @import'../../settings/utils.scss';
 
 .l-home-intro {
   position: relative;
   background-color: lightgrey;
   background-image: image-url('landing-bg1.jpg');
-  // padding-bottom: calc(2 * #{$skew-offset});
+  padding-bottom: 85px;
 
-  .wrap-center {
-    padding-bottom: 85px;
-    // height: calc(100% - #{$skew-offset});
-
-    @media screen and (min-width: $screen-m) {
-      padding-top: 100px;
-      padding-bottom: 160px;
-    }
+  @media screen and (min-width: $screen-m) {
+    padding-top: 100px;
+    padding-bottom: 160px;
   }
 
   .image-title {
@@ -98,7 +93,5 @@
         background-image: image-url('partner-logo-3hover.png');
       }
     }
-
-
   }
 }

@@ -1,4 +1,6 @@
-.input-group {
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
+input {
+  @extend %clean-button-or-input;
+  padding: 20px 25px;
+  border: 2px solid rgba($color-4, .3);
+  color: rgba($color-4, .4);
 }

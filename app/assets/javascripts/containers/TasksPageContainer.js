@@ -1,24 +1,22 @@
 import { connect } from 'react-redux';
-import { setEventsList } from '../actions/static';
-import DataTableView from '../components/DataTableView';
+import { setTasksList } from '../actions/tasksActions';
+import TasksPageView from '../components/pages/TasksPageView';
 
 const mapStateToProps = (state) => {
   return {
-    elementsList: state.staticReducer.eventsList
+    tasksList: state.campaignsReducer.tasksList
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setElementsList: (data) => dispatch(setEventsList(data))
+    setTasksList: () => dispatch(setTasksList())
   };
 }
 
-const TasksPageContainer = connect(
+const TasksViewContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(DataTableView);
+)(TasksPageView);
 
-export default TasksPageContainer;
-
-
+export default TasksViewContainer;

@@ -33,8 +33,4 @@ class UsersActivityData extends React.Component {
   }
 }
 
-UsersActivityData.propTypes = {
-  usersActivityData: React.PropTypes.array
-};
-
 export default UsersActivityData;
