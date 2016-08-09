@@ -14,6 +14,7 @@ import CampaignsPageContainer from './containers/CampaignsPageContainer';
 import CampaignsDetailPageContainer from './containers/CampaignsDetailPageContainer';
 //EVENTS
 import EventsPageContainer from './containers/EventsPageContainer';
+import EventsDetailPageContainer from './containers/EventsDetailPageContainer';
 //TASK
 import TasksPageContainer from './containers/TasksPageContainer';
 
@@ -119,6 +120,26 @@ $('#eventsIndex').ready( function() {
         ReactDOM.render(
           <Provider store={store}>
             <EventsPageContainer data={{}} />
+          </Provider>,
+          document.getElementById('data-table-view')
+        );
+      });
+    });
+  }
+});
+
+/* Events detail */
+$('#eventsDetail').ready( function() {
+  /* It always runs this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#eventsDetail')[0]) {
+
+    /* Campaigns data */
+    ['eventsIndex'].map( element => {
+      $('#' + element).ready( function() {
+        ReactDOM.render(
+          <Provider store={store}>
+            <EventsDetailPageContainer data={{}} />
           </Provider>,
           document.getElementById('data-table-view')
         );
