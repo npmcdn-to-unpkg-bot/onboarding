@@ -13,7 +13,7 @@ class CampaingsDetailView extends React.Component {
   }
 
   componentDidMount() {
-    /* data will specify what kind of section will be rendered */
+    //Here we need to filter for events or task of a CAMPAING. Now, we are getting everything.
     this.props.setEventsList();
     this.props.setTasksList();
   }

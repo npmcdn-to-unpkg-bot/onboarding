@@ -6,7 +6,7 @@ import DataTableView from './../DataTableView'
 class CampaingView extends React.Component {
 
   componentDidMount() {
-    /* data will specify what kind of section will be rendered */
+    //All the campaings.
     this.props.setCampaingsList();
   }
 
