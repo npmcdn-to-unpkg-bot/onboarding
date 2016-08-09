@@ -4,7 +4,7 @@ import TasksPageView from '../components/pages/TasksPageView';
 
 const mapStateToProps = (state) => {
   return {
-    tasksList: state.campaingsReducer.tasksList
+    tasksList: state.campaignsReducer.tasksList
   }
 }
 

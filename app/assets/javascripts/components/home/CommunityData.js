@@ -22,8 +22,4 @@ class CommunityData extends React.Component {
   }
 }
 
-CommunityData.propTypes = {
-  communityData: React.PropTypes.object
-};
-
 export default CommunityData;
