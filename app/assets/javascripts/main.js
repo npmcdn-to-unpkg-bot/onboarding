@@ -11,6 +11,7 @@ import CommunityDataContainer from './containers/home/CommunityDataContainer';
 import UsersActivityDataContainer from './containers/home/UsersActivityDataContainer';
 //CAMPAINGS
 import CampaingsPageContainer from './containers/CampaingsPageContainer';
+import CampaingsDetailPageContainer from './containers/CampaingsDetailPageContainer';
 //EVENTS
 import EventsPageContainer from './containers/EventsPageContainer';
 //TASK
@@ -97,6 +98,7 @@ $('#campaignsDetail').ready( function() {
       $('#' + element).ready( function() {
         ReactDOM.render(
           <Provider store={store}>
+            <CampaingsDetailPageContainer data={{}} />
           </Provider>,
           document.getElementById('data-table-view')
         );

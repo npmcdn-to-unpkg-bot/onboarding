@@ -8,7 +8,7 @@ class DataTableView extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      list: [],
+      data: [],
       direction: 0,
       keySorted: 'start_date'
     };
@@ -16,8 +16,8 @@ class DataTableView extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    newProps.data && this.setState({ list: newProps.data });
-    this.list = newProps.data;
+    newProps.data && this.setState({ data: newProps.data });
+    this.data = newProps.data;
     this.options = {
       caseSensitive: false,
       includeScore: false,
@@ -29,7 +29,7 @@ class DataTableView extends React.Component {
       keys: ['name', 'start_date', 'htag']
     };
 
-    this.fuse = new Fuse(this.list, this.options);
+    this.fuse = new Fuse(this.data, this.options);
   }
 
   search(event) {
@@ -37,9 +37,9 @@ class DataTableView extends React.Component {
 
     if (token !== '') {
       const result = this.fuse.search(token);
-      this.setState({ list: result });
+      this.setState({ data: result });
     } else {
-      this.setState({ list: this.list });
+      this.setState({ data: this.data });
     }
   }
 
@@ -54,28 +54,27 @@ class DataTableView extends React.Component {
   }
 
   sortBy(keySorted) {
-    let sortList = this.props.data.campaignsList;
+    let sortdata = this.props.data;
     this.keySorted = keySorted;
     const direction = this.state.direction < 2 ? this.state.direction + 1 : 0;
 
     if (direction !== 0) {
-      sortList = sortList.sort(this.sortIndex.bind(this));
+      sortdata = sortdata.sort(this.sortIndex.bind(this));
     } else {
       this.keySorted = 'create_at';
-      sortList = sortList.sort(this.sortIndex.bind(this)).reverse();
+      sortdata = sortdata.sort(this.sortIndex.bind(this)).reverse();
     }
 
     if (direction === 2) {
-      sortList = sortList.reverse();
+      sortdata = sortdata.reverse();
     }
 
-    this.setState({ list: sortList, direction });
+    this.setState({ data: sortdata, direction });
   }
 
 
   render() {
-    const list = this.state.list;
-
+    const data = this.state.data;
     return (
       <div className="l-table">
         <div className="wrap">
@@ -90,44 +89,31 @@ class DataTableView extends React.Component {
         <table className="c-table table">
           <thead>
             <tr>
-              <th className="text text-menu -dark">Start / End Date
-                <div className="sort" onClick={ () => this.sortBy('start_date') }>
-                  <svg className="icon icon-TriangleDown sort-arrow" >
-                    <use xlinkHref="#icon-TriangleDown"></use>
-                  </svg>
-                  <svg className="icon icon-TriangleDown sort-arrow" >
-                    <use xlinkHref="#icon-TriangleDown"></use>
-                  </svg>
-                </div>
-              </th>
-              <th className="text text-menu -dark">Campaign Name
-                <div className="sort" onClick={ () => this.sortBy('name') }>
-                  <svg className="icon icon-TriangleDown sort-arrow" >
-                    <use xlinkHref="#icon-TriangleDown"></use>
-                  </svg>
-                  <svg className="icon icon-TriangleDown sort-arrow" >
-                    <use xlinkHref="#icon-TriangleDown"></use>
-                  </svg>
-                </div>
-              </th>
-              <th className="text text-menu -dark">Tags
-                <div className="sort" onClick={ () => this.sortBy('htag') }>
-                  <svg className="icon icon-TriangleDown sort-arrow" >
-                    <use xlinkHref="#icon-TriangleDown"></use>
-                  </svg>
-                  <svg className="icon icon-TriangleDown sort-arrow" >
-                    <use xlinkHref="#icon-TriangleDown"></use>
-                  </svg>
-                </div>
-              </th>
+              { this.props.columns && this.props.columns.map((column, i) =>
+                <th key={i} className="text text-menu -dark">{column.title}
+                  <div className="sort" onClick={ () => this.sortBy(`${column.slug}`) }>
+                    <svg className="icon icon-TriangleDown sort-arrow" >
+                      <use xlinkHref="#icon-TriangleDown"></use>
+                    </svg>
+                    <svg className="icon icon-TriangleDown sort-arrow" >
+                      <use xlinkHref="#icon-TriangleDown"></use>
+                    </svg>
+                  </div>
+                </th>
+              )}
             </tr>
           </thead>
           <tbody>
-            { list.map((element, i) =>
+            { data.map((element, i) =>
               <tr key={i} className="wrap text text-desc -dark">
-                <td className="text text-desc -dark">{ element.start_date }</td>
-                <td className="text text-desc -dark -bold"><a href={`/campaigns/${element.id}`}>{ element.name }</a></td>
-                <td className="text text-desc -dark"><button className="c-tag">{ element.htag }</button></td>
+                { this.props.columns && this.props.columns.map((column, i) => {
+                    const key = column.slug;
+                    if (key === "name") { return <td key={i} className="text text-desc -dark -bold"><a href={element.url}>{ element[key] }</a></td> }
+                    if (key === "htag") { return <td key={i} className="text text-desc -dark"><button className="c-tag">{ element[key] }</button></td> }
+
+                    return (<td key={i} className="text text-desc -dark">{ element[key] }</td>)
+                  }
+                )}
               </tr>
             )}
           </tbody>
@@ -137,7 +123,9 @@ class DataTableView extends React.Component {
   }
 }
 
-DataTableView.propTypes = {
-};
-
 export default DataTableView;
+
+
+// <td className="text text-desc -dark">{ element.start_date }</td>
+// <td className="text text-desc -dark -bold"><a href={`/campaigns/${element.id}`}>{ element.name }</a></td>
+// <td className="text text-desc -dark"><button className="c-tag">{ element.htag }</button></td>

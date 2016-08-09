@@ -3,7 +3,7 @@
 import React from 'react';
 import DataTableView from './../DataTableView'
 
-class CampaingView extends React.Component {
+class CampaingsDetailView extends React.Component {
 
   constructor(props) {
     super(props);
@@ -27,9 +27,9 @@ class CampaingView extends React.Component {
       <DataTableView
         data={this.props.eventsList}
         columns={[
-          { title: "Start / End Date", slug: "start_date" },
-          { title: "Campaign Name", slug: "name" },
-          { title: "Tags", slug: "htag" }
+          { title: "Start / End Date", slug: "date" },
+          { title: "Mapathon Name", slug: "name" },
+          { title: "Location Point", slug: "location" }
         ]}
       />
     );
@@ -37,6 +37,12 @@ class CampaingView extends React.Component {
     const taskTable = (
       <DataTableView
         data={this.props.tasksList}
+        columns={[
+          { title: "Deadline", slug: "deadline" },
+          { title: "Task Name", slug: "name" },
+          { title: "Type", slug: "task_type" },
+          { title: "State", slug: "status" }
+        ]}
       />
     )
 
@@ -65,4 +71,4 @@ class CampaingView extends React.Component {
   }
 }
 
-export default CampaingView;
+export default CampaingsDetailView;
