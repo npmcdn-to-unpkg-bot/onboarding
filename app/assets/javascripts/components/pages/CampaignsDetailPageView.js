@@ -26,6 +26,9 @@ class CampaignsDetailView extends React.Component {
   }
 
   render() {
+    /*
+    Slug must match with column name from API.
+     */
     const mapathonTable = (
       <DataTableView
         identity='events'
@@ -39,6 +42,9 @@ class CampaignsDetailView extends React.Component {
       />
     );
 
+    /*
+    Slug must match with column name from API.
+     */
     const taskTable = (
       <DataTableView
         identity='tasks'
@@ -59,8 +65,10 @@ class CampaignsDetailView extends React.Component {
           <ul className="tabs">
             <div className="wrap row">
               <div className="col-md-12">
-                <li className={`tab ${this.state.activeTab === "tab1" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab1")}>Mapathon</li>
-                <li className={`tab ${this.state.activeTab === "tab2" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab2")}>Task</li>
+                <ul>
+                  <li className={`tab ${this.state.activeTab === "tab1" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab1")}>Mapathon</li>
+                  <li className={`tab ${this.state.activeTab === "tab2" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab2")}>Task</li>
+                </ul>
               </div>
             </div>
           </ul>
