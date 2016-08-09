@@ -1,20 +1,17 @@
 
 .l-activity {
+  padding-top: 50px;
+  padding-bottom: 50px;
   background-color: $color-3;
 
-  .wrap-full {
-    padding-top: 50px;
-    padding-bottom: 50px;
+  @media screen and (min-width: $screen-m) {
+   padding-top: 80px;
+   padding-bottom: 80px;
+  }
 
-    @media screen and (min-width: $screen-m) {
-     padding-top: 80px;
-     padding-bottom: 80px;
-    }
-
-    @media screen and (min-width: $screen-l) {
-     padding-top: 80px;
-     padding-bottom: 0;
-    }
+  @media screen and (min-width: $screen-l) {
+   padding-top: 80px;
+   padding-bottom: 0;
   }
 
   .text-module-title {

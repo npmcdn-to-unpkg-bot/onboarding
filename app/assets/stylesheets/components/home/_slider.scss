@@ -1,22 +1,13 @@
 .l-slider {
   position: relative;
+  padding: 60px 0;
 
-  .wrap-center {
-    padding-top: 60px;
-    padding-bottom: 60px;
+  @media screen and (min-width: $screen-m) {
+    padding-bottom: 110px;
   }
 
-  .wrap-full {
-    padding-top: 0;
-    padding-bottom: 30px;
-
-    @media screen and (min-width: $screen-m) {
-      padding-bottom: 110px;
-    }
-
-    @media screen and (min-width: $screen-l) {
-      padding-bottom: 90px;
-    }
+  @media screen and (min-width: $screen-l) {
+    padding-bottom: 90px;
   }
 
   .text-module-title {
@@ -26,10 +17,6 @@
   .text-p-title {
     margin-bottom: 15px;
   }
-
-  // .text-p {
-  //   margin-bottom: 30px;
-  // }
 
   .activity-data {
     display: flex;
