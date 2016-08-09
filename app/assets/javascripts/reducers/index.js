@@ -1,10 +1,10 @@
 import staticReducer from './static';
-import campaingsReducer from './campaingsReducer';
+import campaignsReducer from './campaignsReducer';
 import eventsReducer from './eventsReducer';
 import tasksReducer from './tasksReducer';
 
 export default {
-  campaingsReducer,
+  campaignsReducer,
   eventsReducer,
   tasksReducer,
   staticReducer

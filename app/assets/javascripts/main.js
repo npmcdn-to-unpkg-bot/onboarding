@@ -10,8 +10,8 @@ import reducers from './reducers';
 import CommunityDataContainer from './containers/home/CommunityDataContainer';
 import UsersActivityDataContainer from './containers/home/UsersActivityDataContainer';
 //CAMPAINGS
-import CampaingsPageContainer from './containers/CampaingsPageContainer';
-import CampaingsDetailPageContainer from './containers/CampaingsDetailPageContainer';
+import CampaignsPageContainer from './containers/CampaignsPageContainer';
+import CampaignsDetailPageContainer from './containers/CampaignsDetailPageContainer';
 //EVENTS
 import EventsPageContainer from './containers/EventsPageContainer';
 //TASK
@@ -79,7 +79,7 @@ $('#campaignsIndex').ready( function() {
       $('#' + element).ready( function() {
         ReactDOM.render(
           <Provider store={store}>
-            <CampaingsPageContainer data={{}} />
+            <CampaignsPageContainer data={{}} />
           </Provider>,
           document.getElementById('data-table-view')
         );
@@ -98,7 +98,7 @@ $('#campaignsDetail').ready( function() {
       $('#' + element).ready( function() {
         ReactDOM.render(
           <Provider store={store}>
-            <CampaingsDetailPageContainer data={{}} />
+            <CampaignsDetailPageContainer data={{}} />
           </Provider>,
           document.getElementById('data-table-view')
         );

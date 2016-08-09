@@ -6,8 +6,8 @@ import DataTableView from './../DataTableView'
 class CampaingView extends React.Component {
 
   componentDidMount() {
-    //All the campaings.
-    this.props.setCampaingsList();
+    //All the campaigns.
+    this.props.setCampaignsList();
   }
 
   render() {
@@ -16,7 +16,7 @@ class CampaingView extends React.Component {
         <DataTableView
           identity="campaigns"
           base_url="/campaigns"
-          data={this.props.campaingsList}
+          data={this.props.campaignsList}
           columns={[
             { title: "Start / End Date", slug: "start_date" },
             { title: "Campaign Name", slug: "name" },

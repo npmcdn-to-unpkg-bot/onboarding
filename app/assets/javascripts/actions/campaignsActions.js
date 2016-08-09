@@ -1,16 +1,16 @@
 import React from 'react';
 
-export const SET_CAMPAINGS_LIST = 'SET_CAMPAINGS_LIST';
+export const SET_CAMPAIGNS_LIST = 'SET_CAMPAIGNS_LIST';
 export const SET_CAMPAIGN_DETAIL = 'SET_CAMPAIGN_DETAIL';
 
-export function setCampaingsList() {
+export function setCampaignsList() {
   const url = '/api/v1/campaigns';
 
    return function(dispatch) {
-    $.get(url).then(function(campaingsList){
+    $.get(url).then(function(campaignsList){
       dispatch({
-        type: SET_CAMPAINGS_LIST,
-        campaingsList
+        type: SET_CAMPAIGNS_LIST,
+        campaignsList
       });
     });
   };

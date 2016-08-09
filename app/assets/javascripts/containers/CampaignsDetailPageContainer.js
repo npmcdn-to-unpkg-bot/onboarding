@@ -4,7 +4,7 @@ import CampaignsDetailPageView from '../components/pages/CampaignsDetailPageView
 
 const mapStateToProps = (state) => {
   return {
-    campaignDetail: state.campaingsReducer.campaignDetail,
+    campaignDetail: state.campaignsReducer.campaignDetail,
   }
 }
 
