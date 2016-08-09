@@ -25,6 +25,8 @@ class CampaingsDetailView extends React.Component {
   render() {
     const mapathonTable = (
       <DataTableView
+        identity="events"
+        base_url="/events"
         data={this.props.eventsList}
         columns={[
           { title: "Start / End Date", slug: "date" },
@@ -36,6 +38,8 @@ class CampaingsDetailView extends React.Component {
 
     const taskTable = (
       <DataTableView
+        identity="tasks"
+        base_url="/tasks"
         data={this.props.tasksList}
         columns={[
           { title: "Deadline", slug: "deadline" },

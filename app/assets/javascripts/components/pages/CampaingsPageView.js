@@ -14,6 +14,8 @@ class CampaingView extends React.Component {
     return (
       <div>
         <DataTableView
+          identity="campaigns"
+          base_url="/campaigns"
           data={this.props.campaingsList}
           columns={[
             { title: "Start / End Date", slug: "start_date" },
