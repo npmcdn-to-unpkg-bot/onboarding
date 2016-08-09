@@ -23,7 +23,4 @@ class CampaingView extends React.Component {
   }
 }
 
-CampaingView.propTypes = {
-};
-
 export default CampaingView;

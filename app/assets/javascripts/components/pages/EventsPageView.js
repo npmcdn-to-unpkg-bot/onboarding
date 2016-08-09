@@ -24,13 +24,13 @@ class CampaingView extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="l-tabs">
         <div className="c-tabs">
           <ul className="tabs">
             <div className="wrap row">
               <div className="col-md-12">
-                <li className="tab" onClick={this.changeTab.bind(this, "tab1")}>Mapathon</li>
-                <li className="tab" onClick={this.changeTab.bind(this, "tab2")}>Task</li>
+                <li className={`tab ${this.state.activeTab === "tab1" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab1")}>Mapathon</li>
+                <li className={`tab ${this.state.activeTab === "tab2" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab2")}>Task</li>
               </div>
             </div>
           </ul>
@@ -50,10 +50,6 @@ class CampaingView extends React.Component {
       </div>
     );
   }
-
 }
-
-CampaingView.propTypes = {
-};
 
 export default CampaingView;

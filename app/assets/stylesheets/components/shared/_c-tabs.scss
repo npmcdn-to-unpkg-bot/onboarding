@@ -15,7 +15,6 @@
   </div>
 */
 
-
 .c-tabs {
 
   .tabs {
@@ -28,6 +27,11 @@
       padding: 20px 0;
       text-align: center;
       color: #fff;
+      float: left;
+      font-size: 18px;
+      line-height: 18px;
+      text-transform: uppercase;
+      font-weight: 700;
 
       &.-is-active {
         display: block;

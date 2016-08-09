@@ -77,12 +77,14 @@ class DataTableView extends React.Component {
     const list = this.state.list;
 
     return (
-      <div>
-        <div className="input-group col-xs-12 wrap">
-          <input type="text" className="form-control search" placeholder="Search" onChange={ (event) => this.search(event) } />
-          <span className="input-group-btn">
-            <img src="" className="search-icon" />
-          </span>
+      <div className="l-table">
+        <div className="wrap">
+          <div className="c-search col-xs-12">
+            <input type="text" className="search-input" placeholder="Search" onChange={ (event) => this.search(event) } />
+            <svg className="icon icon-search" >
+              <use xlinkHref="#icon-search"></use>
+            </svg>
+          </div>
         </div>
 
         <table className="c-table table">
