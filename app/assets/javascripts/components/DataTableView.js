@@ -10,9 +10,9 @@ class DataTableView extends React.Component {
     this.state = {
       data: [],
       direction: 0,
-      keySorted: 'start_date'
+      keySorted: 'date'
     };
-    this.keySorted = 'start_date';
+    this.keySorted = 'date';
   }
 
   componentWillReceiveProps(newProps) {
@@ -26,7 +26,7 @@ class DataTableView extends React.Component {
       location: 0,
       distance: 100,
       maxPatternLength: 32,
-      keys: ['name', 'start_date', 'htag']
+      keys: this.props.columns.map((column) => {return column.slug})
     };
 
     this.fuse = new Fuse(this.data, this.options);
@@ -71,7 +71,6 @@ class DataTableView extends React.Component {
 
     this.setState({ data: sortdata, direction });
   }
-
 
   render() {
     const data = this.state.data;
@@ -124,8 +123,3 @@ class DataTableView extends React.Component {
 }
 
 export default DataTableView;
-
-
-// <td className="text text-desc -dark">{ element.start_date }</td>
-// <td className="text text-desc -dark -bold"><a href={`/campaigns/${element.id}`}>{ element.name }</a></td>
-// <td className="text text-desc -dark"><button className="c-tag">{ element.htag }</button></td>
