@@ -23,23 +23,11 @@ $grid-max-width: 1400px;
 $wrap-padding-mobile: 20px;
 $wrap-padding-tablet: 30px;
 $wrap-padding-desktop: 110px;
-
-
-/* WRAPPER */
-.wrap {
-	padding-left: $wrap-padding-mobile;
-	padding-right: $wrap-padding-mobile;
-
-	@media screen and (min-width: $screen-m) {
-		padding-left: $wrap-padding-desktop;
-		padding-right: $wrap-padding-desktop;
-	}
-}
-
+$wrap-padding-desktop-xl: 110px;
 
 /* SKEWED RECTANGLES */
-$skew-angle: 3deg;
-$skew-offset: 50vw * tan($skew-angle);
+// $skew-angle: 3deg;
+// $skew-offset: 50vw * tan($skew-angle);
 
 
 /* COLORS */
