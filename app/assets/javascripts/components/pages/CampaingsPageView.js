@@ -13,16 +13,14 @@ class CampaingView extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <DataTableView
-            data={this.props.campaingsList}
-            columns={[
-              { title: "Start / End Date", slug: "start_date" },
-              { title: "Campaign Name", slug: "name" },
-              { title: "Tags", slug: "htag" }
-            ]}
-          />
-        </div>
+        <DataTableView
+          data={this.props.campaingsList}
+          columns={[
+            { title: "Start / End Date", slug: "start_date" },
+            { title: "Campaign Name", slug: "name" },
+            { title: "Tags", slug: "htag" }
+          ]}
+        />
       </div>
     );
   }
