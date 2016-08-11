@@ -1,5 +1,5 @@
 import React from 'react';
-import L from 'leaflet';
+// import L from 'leaflet';
 const BASEMAP = 'http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png';
 
 class Map extends React.Component {

@@ -7,6 +7,7 @@
 
     <title>Onboarding</title>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
@@ -44,6 +45,7 @@
     <%= yield %>
     <%= render 'shared/footer' %>
     <div id="app"></div>
+    <script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
     <%= javascript_include_tag 'application' %>
   </div>
   </body>
