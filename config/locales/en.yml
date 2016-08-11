@@ -20,8 +20,20 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  nav:
+    participate: Participate
+    campaigns: Campaigns
+    events: Mapathons
+    tasks: Tasks
+    impact: Impact
+    data_download: Data Download
+    about: about
+  footer:
+    subscribe: "Subscribe to <br/> Newsletter:"
+    input_placeholder: "Your email"
   home:
     intro: Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum id ligula porta felis euismod semper. Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+    find_more: Find out more
     about:
       title_primary: About
       title_secondary: The Project
