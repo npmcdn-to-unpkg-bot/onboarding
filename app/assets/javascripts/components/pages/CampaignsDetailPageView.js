@@ -62,16 +62,13 @@ class CampaignsDetailView extends React.Component {
     return (
       <div className="l-tabs">
         <div className="c-tabs">
-          <ul className="tabs">
-            <div className="wrap row">
-              <div className="col-md-12">
-                <ul>
-                  <li className={`tab ${this.state.activeTab === "tab1" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab1")}>Mapathon</li>
-                  <li className={`tab ${this.state.activeTab === "tab2" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab2")}>Task</li>
-                </ul>
-              </div>
-            </div>
-          </ul>
+          <div className="wrap">
+            <ul className="tabs">
+              <li className={`tab ${this.state.activeTab === "tab1" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab1")}>Mapathon</li>
+              <li className={`tab ${this.state.activeTab === "tab2" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab2")}>Task</li>
+            </ul>
+          </div>
+
           <div className="tabs-content">
             <div className={`tabs-panel ${this.state.activeTab === "tab1" ? "-is-active" : ""}`}>
               {mapathonTable}

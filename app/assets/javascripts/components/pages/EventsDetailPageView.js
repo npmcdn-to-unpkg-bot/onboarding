@@ -50,13 +50,11 @@ class EventsDetailView extends React.Component {
           <div className="c-switcher">
             <div className="l-switcher-header">
               <div className="wrap">
-
-                    <h2>Tasks</h2>
-                    <ul className="tabs">
-                      <li className={`tab ${this.state.activeTab === "tab1" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab1")}>Map View</li>
-                      <li className={`tab ${this.state.activeTab === "tab2" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab2")}>List View</li>
-                    </ul>
-
+                <h2>Tasks</h2>
+                <ul className="tabs">
+                  <li className={`tab ${this.state.activeTab === "tab1" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab1")}>Map View</li>
+                  <li className={`tab ${this.state.activeTab === "tab2" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab2")}>List View</li>
+                </ul>
               </div>
             </div>
             <div className="tabs-content">
