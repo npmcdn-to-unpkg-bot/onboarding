@@ -77,6 +77,22 @@ $('#latestActivity').ready( function() {
   }
 });
 
+$('#ranking').ready( function() {
+  /* It always runs this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#ranking')[0]) {
+    /* Users activity data */
+    ['ranking'].map(element => {
+      ReactDOM.render(
+        <Provider store={store}>
+          <UsersActivityDataContainer data={element} />
+        </Provider>,
+        document.getElementById(element)
+      );
+    });
+  }
+});
+
 /* Campaigns index */
 $('#campaignsIndex').ready( function() {
   /* It always runs this callback, that's why we need to establish
