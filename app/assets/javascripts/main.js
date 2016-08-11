@@ -45,12 +45,12 @@ const store = createStore(
 );
 
 /* Home page */
-$('#parallax').ready( function() {
+$('#communityData').ready( function() {
   /* It always runs this callback, that's why we need to establish
   a condition to avoid issues */
-  if ($('#parallax')[0]) {
+  if ($('#communityData')[0]) {
     /* Community data */
-    ['total-roads', 'total-tagged', 'user-changes'].map(element => {
+    ['communityData'].map(element => {
       ReactDOM.render(
         <Provider store={store}>
           <CommunityDataContainer data={element} />
@@ -58,9 +58,15 @@ $('#parallax').ready( function() {
         document.getElementById(element)
       );
     });
+  }
+});
 
+$('#latestActivity').ready( function() {
+  /* It always runs this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#latestActivity')[0]) {
     /* Users activity data */
-    ['ranking', 'latest-activity'].map(element => {
+    ['latestActivity'].map(element => {
       ReactDOM.render(
         <Provider store={store}>
           <UsersActivityDataContainer data={element} />
