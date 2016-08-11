@@ -20,4 +20,25 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  home:
+    intro: Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum id ligula porta felis euismod semper. Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+    about:
+      title_primary: About
+      title_secondary: The Project
+      claim_para_1: To achieve our ambitious goals we want to build a true global partnership to protect tropical forests. Your input – wherever you are – will support leading experts in ecology, mapmaking and information technology.
+      claim_para_2: Just take a look at who we’ve got joining us on the journey...
+      btn: Fint out more
+    activity:
+      title: Activity
+      subtitle: Users
+    community:
+      title: Community
+      subtitle: Join the
+    events:
+      title: Campaign
+      subtitle: Events
+      btn: Participate
+      tell_us: Tell us your initiative
+    participate:
+      title: Help us map roads<br />in forests
+      subtitle: Participate
