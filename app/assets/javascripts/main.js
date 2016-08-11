@@ -17,6 +17,7 @@ import EventsPageContainer from './containers/EventsPageContainer';
 import EventsDetailPageContainer from './containers/EventsDetailPageContainer';
 //TASK
 import TasksPageContainer from './containers/TasksPageContainer';
+import TasksPageDetailContainer from './containers/TasksPageDetailContainer';
 
 /**
  * Reducers
@@ -160,6 +161,26 @@ $('#tasksIndex').ready( function() {
         ReactDOM.render(
           <Provider store={store}>
             <TasksPageContainer data={{}} />
+          </Provider>,
+          document.getElementById('data-table-view')
+        );
+      });
+    });
+  }
+});
+
+/* Tasks detail */
+$('#tasksDetail').ready( function() {
+  /* It always runs this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#tasksDetail')[0]) {
+
+    /* Campaigns data */
+    ['tasksDetail'].map( element => {
+      $('#' + element).ready( function() {
+        ReactDOM.render(
+          <Provider store={store}>
+            <TasksPageDetailContainer data={{}} />
           </Provider>,
           document.getElementById('data-table-view')
         );
