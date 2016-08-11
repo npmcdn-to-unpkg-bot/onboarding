@@ -5,6 +5,11 @@ import DataTableView from './../DataTableView'
 
 class TasksDetailView extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   componentDidMount() {
     /* data will specify what kind of section will be rendered */
     this.props.setTasksList();

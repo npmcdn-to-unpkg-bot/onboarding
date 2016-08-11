@@ -27,4 +27,27 @@
   .route-link {
     color: $color-2;
   }
+
+  //We need to find a better way to do this,
+  //but that bit is not managed by a react compoment.
+  //So we need a better way to change it color when changing the tab.
+  .-tasks & {
+    .route {
+      color: $font-color-3;
+
+      a {
+        color: $font-color-3;
+      }
+    }
+  }
+
+  .-dark & {
+    .route {
+      color: $color-2;
+
+      a {
+        color: $color-2;
+      }
+    }
+  }
 }

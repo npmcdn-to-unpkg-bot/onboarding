@@ -48,7 +48,7 @@ class EventsDetailView extends React.Component {
       <div>
         <div className="l-switcher">
           <div className="c-switcher">
-            <div className="l-switcher-header">
+            <div className="switcher-header">
               <div className="wrap">
                 <h2>Tasks</h2>
                 <ul className="tabs">
