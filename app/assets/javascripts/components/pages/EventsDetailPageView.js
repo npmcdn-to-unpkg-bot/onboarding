@@ -1,7 +1,8 @@
 'use strict';
 
 import React from 'react';
-import DataTableView from './../DataTableView'
+import DataTableView from './../DataTableView';
+import Map from './../Map';
 
 class EventsDetailView extends React.Component {
 
@@ -59,7 +60,7 @@ class EventsDetailView extends React.Component {
           </ul>
           <div className="tabs-content">
             <div className={`tabs-panel ${this.state.activeTab === "tab1" ? "-is-active" : ""}`}>
-              <div id="map"></div>
+              <Map tiles={this.props.tiles} />
             </div>
             <div className="tabs-panel" className={`tabs-panel ${this.state.activeTab === "tab2" ? "-is-active" : ""}`}>
               {taskTable}

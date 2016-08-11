@@ -13,6 +13,7 @@
  */
 
  @import 'bootstrap';
+ @import 'leaflet';
 
  @import "settings/settings";
  @import "settings/normalize";
@@ -26,6 +27,7 @@
  @import "components/shared/c-header";
  @import "components/shared/c-footer";
  @import "components/shared/c-table";
+ @import "components/shared/c-map";
 
  @import "admin/shared/footer-back";
  @import "admin/shared/table";
