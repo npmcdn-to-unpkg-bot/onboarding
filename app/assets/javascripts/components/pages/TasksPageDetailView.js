@@ -3,15 +3,14 @@
 import React from 'react';
 import DataTableView from './../DataTableView'
 
-class TaskView extends React.Component {
+class TasksDetailView extends React.Component {
 
   componentDidMount() {
     /* data will specify what kind of section will be rendered */
-    this.props.setTaskList();
+    this.props.setTasksList();
   }
 
   render() {
-    debugger
     return (
       <div>
         <div>
@@ -24,4 +23,4 @@ class TaskView extends React.Component {
   }
 }
 
-export default TaskView;
+export default TasksDetailView;
