@@ -35,9 +35,15 @@
   }
 
   &.-tasks-detail {
-    height: 40px;
-    padding: 0;
     background-image: none;
+    position: absolute;
+    top: 0;
+    //This wierd figure is to be over the map.
+    //It seems to have a 400.
+    z-index: 401;
+    width: 100%;
+    padding-bottom: 0;
+    pointer-events: none;
   }
 }
 
@@ -74,5 +80,9 @@
 }
 
 .l-tasks {
+  position: relative;
+}
+
+.l-tasks-detail {
   position: relative;
 }
