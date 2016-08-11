@@ -42,3 +42,17 @@ en:
     participate:
       title: Help us map roads<br />in forests
       subtitle: Participate
+      read_more: More
+    collaborate:
+      title: With us
+      subtitle: Collaborate
+      description: Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer pio posuere erat a ante venenatis dapi, ctetur adipisicing elit, sed do dionisio.
+      more: MORE
+      info: INFO
+      tasking_manager:
+        step_one_title: GO TO TASK
+        step_one_legend: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. dolor sit amet, consectetur adipisicing elit.
+        step_two_title: SELECT A SQUARE TO WORK ON
+        step_two_legend: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. dolor sit amet, consectetur adipisicing elit.
+        step_three_title: MAP THE ROADS
+        step_three_legend: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. dolor sit amet, consectetur adipisicing elit.
