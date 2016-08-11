@@ -19,7 +19,8 @@ class Map extends React.Component {
     const mapContainer = document.getElementById('map');
     this.map = L.map(mapContainer, {
       center: [39.950490, -98.746077],
-      zoom: 3
+      zoom: 3,
+      scrollWheelZoom: false
     });
     this.basemap = L.tileLayer(BASEMAP);
     this.basemap.addTo(this.map);

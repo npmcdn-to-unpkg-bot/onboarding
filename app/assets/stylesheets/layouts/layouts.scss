@@ -57,3 +57,22 @@
   z-index: 1;
   margin-top: -80px;
 }
+
+.l-switcher-header {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  padding: 20px;
+  background-color: rgba($color-4, .5);
+
+  h2 {
+    font-size: 34px;
+    color: #fff;
+    font-weight: 700;
+    font-family: $font-family-2;
+  }
+
+  .wrap {
+   display: flex;
+  }
+}
