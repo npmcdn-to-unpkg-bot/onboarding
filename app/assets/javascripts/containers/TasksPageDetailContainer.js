@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { setTasksList } from '../actions/tasksActions';
-import TasksPageView from '../components/pages/TasksPageView';
+import TasksPageDetailView from '../components/pages/TasksPageDetailView';
 
 const mapStateToProps = (state) => {
   return {
-    tasksList: state.tasksReducer.tasksList
+    tasksList: state.campaignsReducer.tasksList
   }
 }
 
@@ -14,9 +14,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
-const TasksViewContainer = connect(
+const TasksDetailViewContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(TasksPageView);
+)(TasksPageDetailView);
 
-export default TasksViewContainer;
+export default TasksDetailViewContainer;

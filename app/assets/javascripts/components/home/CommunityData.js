@@ -5,18 +5,26 @@ import React from 'react';
 class CommunityData extends React.Component {
 
   componentWillMount() {
-    this.props.setCommunityData(this.props.data);
+    this.props.setCommunityData();
   }
 
   render() {
-    const title = this.props.communityData && this.props.communityData.title;
-    const quantity = this.props.communityData && this.props.communityData.quantity;
-    const precemtage = this.props.communityData && this.props.communityData.percentage && '%';
+
+    const items = ['users', 'roads', 'buildings'];
+    const cummunityItems = this.props.communityData && items.map(
+      (key, i) => {
+        const data = this.props.communityData;
+
+        return(<div className="community-element" key={i}>
+          <h3 className="text text-legend -primary">{key}</h3>
+          <p className="text text-numeric-m -darker">{data[key]}</p>
+        </div>)
+      }
+    )
 
     return (
-      <div className="community-element">
-        <h3 className="text text-legend -primary">{title}</h3>
-        <p className="text text-numeric-m -darker">{quantity}%</p>
+      <div className="community-data">
+        {cummunityItems}
       </div>
     );
   }
