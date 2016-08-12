@@ -1,4 +1,4 @@
-<section class="l-campaigns -detail" id="campaignsDetail">
+<section class="l-events-section -detail" id="eventsDetail">
 
   <article class="l-intro -campaigns-detail">
     <div class="l-routes">
@@ -8,8 +8,8 @@
             <ul class="c-routes text text-desc -light">
               <!-- Paths to set -->
               <li class="route">Participate</li>
-              <li class="route"><%= link_to 'Campaigns', campaigns_path, {:class => 'route-link'} %></li>
-              <li class="route">Campaign name</li>
+              <li class="route"><%= link_to 'Tasks', tasks_path, {:class => 'route-link'} %></li>
+              <li class="route">Task name</li>
             </ul>
           </div>
         </div>
@@ -19,12 +19,8 @@
       <div class="row">
         <div class="col-sm-12 col-md-5">
           <div class="c-section-intro">
-            <h1 class="title text text-module-subtitle -light">Campaign Name</h1>
-            <ul class="tags-list text text-tag -light">
-              <li class="c-tag -primary">Tag 1</li>
-              <li class="c-tag -primary">Tag 2</li>
-              <li class="c-tag -primary">Tag 3</li>
-            </ul>
+            <span class="date">10/03/2016 - 10/09/2016</span>
+            <h1 class="title text text-module-subtitle -light"><%= @event.name %></h1>
             <p class="text text-desc -light">Description vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer pio posuere erat a ante venenatis dapi, ctetur, sed do. </p>
           </div>
         </div>

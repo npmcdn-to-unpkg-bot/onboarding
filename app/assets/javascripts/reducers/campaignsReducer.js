@@ -2,11 +2,11 @@ import React from 'react';
 
 function setCampaignsList(state, campaignsList) {
   return Object.assign({}, state, {campaignsList});
-}
+};
 
 function setCampaignDetail(state, campaignDetail) {
   return Object.assign({}, state, {campaignDetail});
-}
+};
 
 export default function campaignsReducer(state = {} , action) {
   switch (action.type) {
@@ -17,4 +17,4 @@ export default function campaignsReducer(state = {} , action) {
     default:
       return state;
   }
-}
+};

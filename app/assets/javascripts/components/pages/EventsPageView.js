@@ -3,7 +3,7 @@
 import React from 'react';
 import DataTableView from './../DataTableView'
 
-class CampaingView extends React.Component {
+class EventsView extends React.Component {
 
   constructor(props) {
     super(props);
@@ -39,4 +39,4 @@ class CampaingView extends React.Component {
   }
 }
 
-export default CampaingView;
+export default EventsView;

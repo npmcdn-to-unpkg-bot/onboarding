@@ -4,40 +4,37 @@ import React from 'react';
 import DataTableView from './../DataTableView';
 import Map from './../Map';
 
-class TaskView extends React.Component {
+class EventsDetailView extends React.Component {
 
   constructor(props) {
     super(props);
+    const path = window.location.pathname.split('/');
+    this.eventId = path[path.length - 1];
+
     this.state = {
-      activeTab: "tab1"
+      activeTab: "tab1",
+      currentEvent: this.eventId
     };
   }
 
   componentDidMount() {
-    /* data will specify what kind of section will be rendered */
-    this.props.setTasksList();
+    //All mapathons
+    this.props.setEventDetail(this.eventId);
   }
 
   changeTab(tab) {
     this.setState({activeTab: tab});
-
-    this._changeRoutesTheme(tab);
-  }
-
-  _changeRoutesTheme(tab) {
-    if (tab === "tab1") {
-      document.getElementById('taskRoutes').classList.add('-dark');
-    } else {
-      document.getElementById('taskRoutes').classList.remove('-dark');
-    }
   }
 
   render() {
+    /*
+    Slug must match with column name from API.
+     */
     const taskTable = (
       <DataTableView
         identity="tasks"
         base_url="/tasks"
-        data={this.props.tasksList}
+        data={this.props.eventDetail && this.props.eventDetail.tasks}
         columns={[
           { title: 'Deadline', slug: 'deadline' },
           { title: 'Task Name', slug: 'name' },
@@ -50,21 +47,21 @@ class TaskView extends React.Component {
     return (
       <div>
         <div className="l-switcher">
-          <div className={`c-switcher ${this.state.activeTab === "tab2" && "-light"}`}>
+          <div className="c-switcher">
             <div className="switcher-header">
               <div className="wrap">
                 <h2>Tasks</h2>
                 <ul className="tabs">
-                  <li className={`tab ${this.state.activeTab === "tab1" && "-is-active"}`} onClick={this.changeTab.bind(this, "tab1")}>Map View</li>
-                  <li className={`tab ${this.state.activeTab === "tab2" && "-is-active"}`} onClick={this.changeTab.bind(this, "tab2")}>List View</li>
+                  <li className={`tab ${this.state.activeTab === "tab1" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab1")}>Map View</li>
+                  <li className={`tab ${this.state.activeTab === "tab2" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab2")}>List View</li>
                 </ul>
               </div>
             </div>
             <div className="tabs-content">
-              <div className={`tabs-panel ${this.state.activeTab === "tab1" && "-is-active"}`}>
+              <div className={`tabs-panel ${this.state.activeTab === "tab1" ? "-is-active" : ""}`}>
                 <Map tiles={this.props.tiles} />
               </div>
-              <div className="tabs-panel" className={`tabs-panel ${this.state.activeTab === "tab2" && "-is-active"}`}>
+              <div className="tabs-panel" className={`tabs-panel ${this.state.activeTab === "tab2" ? "-is-active" : ""}`}>
                 {taskTable}
               </div>
             </div>
@@ -75,4 +72,4 @@ class TaskView extends React.Component {
   }
 }
 
-export default TaskView;
+export default EventsDetailView;

@@ -29,11 +29,21 @@
   }
 
   &.-tasks {
-    background-image: image-url('bg2-1600.jpg');
+    height: 40px;
+    padding: 0;
+    background-image: none;
   }
 
   &.-tasks-detail {
-    background-image: image-url('bg2-1600.jpg');
+    background-image: none;
+    position: absolute;
+    top: 0;
+    //This wierd figure is to be over the map.
+    //It seems to have a 400.
+    z-index: 401;
+    width: 100%;
+    padding-bottom: 0;
+    pointer-events: none;
   }
 }
 
@@ -46,6 +56,17 @@
   padding: 10px 0;
   background-color: $color-3;
   opacity: .5;
+
+  &.-tasks {
+    color: $font-color-3;
+    background-color: #dedede;
+  }
+
+  &.-dark {
+    opacity: 1;
+    color: #fff;
+    background-color: $color-3;
+  }
 }
 
 .l-table {
@@ -56,4 +77,12 @@
   position: relative;
   z-index: 1;
   margin-top: -80px;
+}
+
+.l-tasks {
+  position: relative;
+}
+
+.l-tasks-detail {
+  position: relative;
 }
