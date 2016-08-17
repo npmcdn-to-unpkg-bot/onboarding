@@ -4,7 +4,13 @@
   position: relative;
   background-color: lightgrey;
   background-image: image-url('landing-bg1.jpg');
-  padding-bottom: 85px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   @media screen and (min-width: $screen-m) {
     padding-top: 100px;
@@ -12,11 +18,12 @@
   }
 
   .image-title {
-    margin-bottom: 38px;
+    width: 200px;
+    padding: 30px 0;
 
     img {
-      width: 450px;
-      height: 205px;
+      width: 100%;
+      height: auto;
     }
   }
 
@@ -26,50 +33,24 @@
     border: none;
     border-bottom: $color-1 solid 3px;
     border-radius: 2px;
-    margin-top: 0;
     margin-bottom: 25px;
-  }
-
-  .text-claim {
-    margin-bottom: 17px;
-  }
-
-  .find-more {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-
-    .text-button {
-      display: flex;
-      flex-flow: column;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .arrow {
-      width: 17px;
-      height: 17px;
-      border: 4px solid $color-2;
-      transform: rotate(45deg);
-      border-top: 0;
-      border-left: 0;
-    }
   }
 
   .partners {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
-    width: 50%;
-    min-width: 450px;
-    padding: 20px 0 90px;
+
+    > .partner {
+      margin: 10px 20px 20px;
+      background-size: cover;
+    }
 
     .moabi {
-      width: 70px;
-      height: 65px;
+      width: 40px;
+      height: 36px;
       background-image: image-url('partner-logo-1.png');
-      background-size: cover;
 
       &:hover {
         background-image: image-url('partner-logo-1hover.png');
@@ -77,21 +58,38 @@
     }
 
     .eu-co {
-      width: 140px;
-      height: 87px;
+      width: 77px;
+      height: 50px;
       background-image: image-url('partner-logo-2.png');
-      background-size: cover;
     }
 
     .gfw {
-      width: 70px;
-      height: 65px;
+      width: 40px;
+      height: 36px;
       background-image: image-url('partner-logo-3.png');
-      background-size: cover;
 
       &:hover {
         background-image: image-url('partner-logo-3hover.png');
       }
+    }
+  }
+
+  .find-more {
+
+    .text-button {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .arrow {
+      width: 23px;
+      height: 23px;
+      border: 4px solid $color-2;
+      transform: rotate(45deg);
+      border-top: 0;
+      border-left: 0;
     }
   }
 }

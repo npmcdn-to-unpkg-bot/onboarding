@@ -53,8 +53,9 @@
 
 .text-claim {
   font-family: $font-family-1;
-  font-size: 20px;
-  line-height: 25px;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: -0.2px;
 
   @media screen and (min-width: $screen-m) {
     font-size: 30px;
@@ -128,7 +129,8 @@
 .text-button {
   font-family: $font-family-1;
   font-size: 15px;
-  line-height: 37px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
   text-transform: uppercase;
 }
 
