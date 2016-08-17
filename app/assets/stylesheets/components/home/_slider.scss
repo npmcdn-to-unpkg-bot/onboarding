@@ -1,21 +1,30 @@
 .l-slider {
   position: relative;
-  padding: 60px 0;
+  padding: 40px 0 20px;
 
   @media screen and (min-width: $screen-m) {
-    padding-bottom: 110px;
+    padding: 60px 0;
   }
 
   @media screen and (min-width: $screen-l) {
-    padding-bottom: 90px;
+    padding: 80px 0;
   }
 
   .text-module-title {
-    margin-bottom: 20px;
+    margin: -10px 0 20px;
+
+    @media screen and (min-width: $screen-m) {
+      margin: 0 0 20px;
+    }
   }
 
-  .text-p-title {
-    margin-bottom: 15px;
+  .text-p {
+    margin-bottom: 40px;
+    max-width: 780px;
+
+    @media screen and (min-width: $screen-m) {
+      margin-bottom: 60px;
+    }
   }
 
   .activity-data {
@@ -54,13 +63,14 @@
     }
 
     @media screen and (min-width: $screen-m) {
-      width: 220px;
+      width: 250px;
       margin-bottom: 0px;
       align-items: flex-start;
+      padding: 0 10px;
     }
 
-    @media screen and (min-width: $screen-xl) {
-      width: 320px;
+    @media screen and (min-width: $screen-l) {
+      width: 380px;
     }
 
     &:last-child {
@@ -69,18 +79,29 @@
   }
 
   .content-img {
-    width: 250px;
-    height: 250px;
+    width: 180px;
+    height: 180px;
+    text-align: center;
+    margin: auto;
     margin-bottom: 20px;
 
     @media screen and (min-width: $screen-m) {
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
     }
 
     @media screen and (min-width: $screen-l) {
       width: 250px;
       height: 250px;
+    }
+  }
+
+  .text-p-title {
+    margin-bottom: 10px;
+    text-align: center;
+
+    @media screen and (min-width: $screen-m) {
+      text-align: left;
     }
   }
 
@@ -93,11 +114,13 @@
   }
 
   .slick-prev {
-    left: -7px;
+    left: -3px;
     z-index: 10;
+    margin-top: -4px;
 
     @media screen and (min-width: $screen-m) {
-      left: 2px;
+      left: 0px;
+      margin: 5px;
     }
 
     &:before {
@@ -110,11 +133,13 @@
   }
 
   .slick-next {
-    right: 4px;
+    right: 14px;
     z-index: 10;
+    margin-top: -4px;
 
     @media screen and (min-width: $screen-m) {
-      right: 12px;
+      right: 18px;
+      margin-top: 5px;
     }
 
     &:before {
@@ -145,7 +170,7 @@
 
   .arrow-right {
     right: 0;
-    transform: translate(380px, -50%);
+    transform: translate(375px, -50%);
 
     @media screen and (min-width: $screen-m) {
       transform: translate(360px, -50%);
@@ -154,7 +179,7 @@
 
   .arrow-left {
     left: 0;
-    transform: translate(-380px, -50%);
+    transform: translate(-375px, -50%);
 
     @media screen and (min-width: $screen-m) {
       transform: translate(-360px, -50%);

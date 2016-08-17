@@ -21,7 +21,7 @@
 /* MODULE TITLE */
 .text-module-title {
   font-family: $font-family-2;
-  font-size: 53px;
+  font-size: 54px;
   text-transform: uppercase;
 
   @media screen and (min-width: $screen-m) {
@@ -32,8 +32,10 @@
 
 .text-module-subtitle {
   font-family: $font-family-2;
-  font-size: 28px;
   text-transform: uppercase;
+	font-size: 22px;
+	letter-spacing: -1px;
+  font-weight: 400;
 
   @media screen and (min-width: $screen-m) {
     font-size: 32px;
@@ -43,12 +45,10 @@
 
 .text-p-title {
   font-family: $font-family-2;
-  font-size: 20px;
   text-transform: uppercase;
-
-  @media screen and (min-width: $screen-m) {
-    font-size: 26px;
-  }
+  font-size: 24px;
+	font-weight: bold;
+	line-height: 1;
 }
 
 .text-claim {
@@ -67,8 +67,9 @@
 
 .text-p {
   font-family: $font-family-1;
-  font-size: 20px;
-  line-height: 25px;
+  font-size: 18px;
+	font-weight: 300;
+	line-height: 1.5;
 
   @media screen and (min-width: $screen-m) {
     font-size: 24px;
@@ -102,8 +103,14 @@
 
 .text-legend {
   font-family: $font-family-1;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 17px;
+	line-height: 1.4;
+  font-weight: 600;
+
+  @media screen and (min-width: $screen-s) {
+    font-size: 15px;
+  	line-height: 1.6;
+  }
 }
 
 .text-menu {
