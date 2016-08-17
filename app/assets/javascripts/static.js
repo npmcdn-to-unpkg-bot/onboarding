@@ -90,14 +90,15 @@ $document
     if ($('.home')[0]) {
       setSlider();
       setDotOn();
-      setMobileMenu();
     }
+    setMobileMenu();
   })
   .on('page:change', function () {
     if ($('.home')[0]) {
       setSlider();
     }
   });
+
 
 /* Sets dots to turn one when in section */
 $win.on('scroll', function () {

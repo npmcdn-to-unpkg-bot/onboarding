@@ -1,6 +1,8 @@
 .c-navigation {
 
   .btn-mobile-menu {
+    position: relative;
+    z-index: 10;
 
     svg {
       width: 30px;
@@ -13,24 +15,25 @@
   }
 
   .main-menu {
-    display: none;
     position: absolute;
     left: 0;
     right: 0;
     z-index: 1;
     background: #000;
     text-align: center;
-    transform: translatey(-100%);
-    transition: .2 ease-in;
+    transform: translatey(-150%);
+    transition: .2s ease-in;
 
     &.is-open {
       transform: translatey(0);
     }
 
     @media screen and (min-width: $screen-m) {
+      position: relative;
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      transform: translatey(0);
     }
   }
 
@@ -99,7 +102,6 @@
       bottom: 0;
       left: 35px;
       right: -35px;
-      padding-top: 20px;
       transform: translatey(100%);
     }
 
