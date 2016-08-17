@@ -1,8 +1,12 @@
 .l-participate {
-  padding: 110px 0;
+  padding: 60px 0;
   background-color: $color-1;
   transform: skewY(-3deg);
   background-image: image-url('landing-bg2.jpg');
+
+  @media screen and (min-width: $screen-m) {
+    padding: 90px 0;
+  }
 
   .wrap {
     display: flex;
@@ -10,24 +14,33 @@
     align-items: flex-start;
     justify-content: center;
     transform: skewY(3deg);
+    padding-bottom: 30px;
 
     @media screen and (min-width: $screen-m) {
-      padding-top: 110px;
-      padding-bottom: 110px;
+      padding-bottom: 60px;
     }
 
     @media screen and (min-width: $screen-l) {
-      padding-top: 90px;
+      padding-top: 40px;
       padding-bottom: 90px;
     }
   }
 
   .text-module-title {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   .text-p-title {
-    margin-bottom: 19px;
+    margin-bottom: 15px;
+  }
+
+  .text-p {
+    font-weight: 600;
+
+    @media screen and (min-width: $screen-m) {
+      font-size: 15px;
+	    line-height: 1.6;
+    }
   }
 
   .participate-content {
@@ -40,8 +53,8 @@
   }
 
   .image-item {
-    width: 230px;
-    height: 110px;
+    width: 280px;
+    height: 140px;
     margin-bottom: 20px;
 
     @media screen and (min-width: $screen-l) {
@@ -54,13 +67,13 @@
   .participate-item {
     display: flex;
     flex-flow: column;
+    margin-bottom: 40px;
 
-    &:first-child {
-      margin-right: 80px;
-      margin-bottom: 50px;
+    @media screen and (min-width: $screen-m) {
+      margin-bottom: 0;
 
-      @media screen and (min-width: $screen-m) {
-        margin-bottom: 0;
+      &:first-child {
+        margin-right: 40px;
       }
     }
   }
