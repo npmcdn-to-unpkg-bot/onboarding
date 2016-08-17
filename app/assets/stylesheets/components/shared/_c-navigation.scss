@@ -1,0 +1,118 @@
+.c-navigation {
+
+  .btn-mobile-menu {
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    @media screen and (min-width: $screen-m) {
+      display: none;
+    }
+  }
+
+  .main-menu {
+    display: none;
+
+    @media screen and (min-width: $screen-m) {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+
+  .menu-item {
+    position: relative;
+    margin-bottom: 60px;
+
+    @media screen and (min-width: $screen-m) {
+      padding-left: 50px;
+      margin-bottom: 0;
+    }
+
+    @media screen and (min-width: $screen-l) {
+      padding-left: 70px;
+    }
+
+    &.nav-item:last-child {
+      padding-right: 0;
+    }
+
+    .active {
+      &.text-menu {
+        border-top: 4px solid $color-3;
+        border-bottom: 4px solid $color-2;
+
+        @media screen and (min-width: $screen-m) {
+          border-top: 8px solid $color-3;
+          border-bottom: 8px solid $color-2;
+        }
+      }
+    }
+
+    .text-menu {
+      font-size: 22px;
+
+      @media screen and (min-width: $screen-m) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .sub-menu-toggler {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: $screen-m) {
+      display: block;
+
+      &:hover .sub-menu {
+        display: block;
+      }
+    }
+  }
+
+  .sub-menu {
+
+    @media screen and (min-width: $screen-m) {
+      display: none;
+      position: absolute;
+      z-index: 500;
+      bottom: 0;
+      left: 35px;
+      right: -35px;
+      padding-top: 20px;
+      transform: translatey(100%);
+    }
+
+    li {
+      width: 100%;
+
+      @media screen and (min-width: $screen-m) {
+        background-color: #fff;
+      }
+
+      &:hover {
+        background-color: #eeeeee;
+      }
+
+      &:last-child a {
+        border-bottom: 0;
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        padding: 15px 0;
+        border-bottom: 1px solid #000;
+        text-align: center;
+        color: #fff;
+
+        @media screen and (min-width: $screen-m) {
+          color: #000;
+        }
+      }
+    }
+  }
+}
