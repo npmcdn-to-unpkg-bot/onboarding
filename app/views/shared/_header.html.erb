@@ -11,16 +11,16 @@
         <div class="header-content">
           <%= link_to (image_tag "logo.png", class: "logo"), "/"%>
           <ul class="nav navbar-nav main-menu">
-            <li class="nav-item sub-menu-toggler"><a href="#" class="nav-link text text-menu -light">Participate</a>
+            <li class="nav-item sub-menu-toggler"><a href="#" class="nav-link text text-menu -light"><%= t('nav.participate') %></a>
               <ul class="sub-menu">
-                <li><%= link_to 'Campaigns', campaigns_path, {class: 'text text-menu -dark'} %></li>
-                <li><%= link_to 'Mapathons', events_path, {class: 'text text-menu -dark'} %></li>
-                <li><%= link_to 'Tasks', tasks_path, {class: 'text text-menu -dark'} %></li>
+                <li><%= link_to t('nav.campaigns'), campaigns_path, {class: 'text text-menu -dark'} %></li>
+                <li><%= link_to t('nav.events'), events_path, {class: 'text text-menu -dark'} %></li>
+                <li><%= link_to t('nav.tasks'), tasks_path, {class: 'text text-menu -dark'} %></li>
               </ul>
             </li>
-            <li class="nav-item"><%= link_to 'Impact', "/", {class: 'nav-link text text-menu -light'} %></li>
-            <li class="nav-item"><%= link_to 'Data Download', "/", {class: 'nav-link text text-menu -light'} %></li>
-            <li class="nav-item"><%= link_to 'About', "/",  {class: 'nav-link text text-menu -light'} %></li>
+            <li class="nav-item"><%= link_to t('nav.impact'), "/", {class: 'nav-link text text-menu -light'} %></li>
+            <li class="nav-item"><%= link_to t('nav.data_download'), "/", {class: 'nav-link text text-menu -light'} %></li>
+            <li class="nav-item"><%= link_to t('nav.about'), "/",  {class: 'nav-link text text-menu -light'} %></li>
           </ul>
         </div>
       </div>
