@@ -1,20 +1,19 @@
 .l-activity {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding: 30px 0;
   background-color: $color-3;
 
   @media screen and (min-width: $screen-m) {
-   padding-top: 80px;
-   padding-bottom: 80px;
-  }
-
-  @media screen and (min-width: $screen-l) {
-   padding-top: 80px;
-   padding-bottom: 0;
+   padding-top: 60px;
+   padding-bottom: 60px;
   }
 
   .text-module-title {
-    margin-bottom: 70px;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+
+  .text-module-subtitle {
+    text-align: left;
   }
 
   .activity-data {
@@ -29,12 +28,13 @@
   }
 
   .text-p-title {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    text-align: left;
   }
 
   .activity-table {
     width: 100%;
-    margin-bottom: 75px;
+    margin-bottom: 45px;
     border-collapse: collapse;
 
     @media screen and (min-width: $screen-m) {
@@ -60,7 +60,12 @@
   }
 
   .rank {
-    width: 45px;
+    width: 25px;
+    text-align: left;
+  }
+
+  .user {
+    text-align: left;
   }
 
   .road {
@@ -69,12 +74,6 @@
 
   .text-legend {
     text-transform: uppercase;
-  }
-
-  .latest-activity {
-    .road {
-      padding-right: 50px;
-    }
   }
 
   .more-info {
