@@ -3,10 +3,12 @@
   .btn-mobile-menu {
     position: relative;
     z-index: 10;
+    background-color: transparent;
 
     svg {
       width: 30px;
       height: 30px;
+      fill: #fff;
     }
 
     @media screen and (min-width: $screen-m) {
