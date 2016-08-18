@@ -8,6 +8,11 @@
 
   @media screen and (min-width: $screen-m) {
     padding: 160px 0 200px;
+    margin-top: -95px;
+  }
+
+  @media screen and (min-width: $screen-l) {
+    margin-top: -120px;
   }
 
   .wrap {

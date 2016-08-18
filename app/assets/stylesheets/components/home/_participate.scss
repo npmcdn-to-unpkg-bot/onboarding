@@ -5,7 +5,13 @@
   background-image: image-url('landing-bg2.jpg');
 
   @media screen and (min-width: $screen-m) {
-    padding: 90px 0;
+    padding-bottom: 150px;
+    padding-top: 90px;
+  }
+
+  @media screen and (min-width: $screen-l) {
+    padding-bottom: 200px;
+    padding-top: 120px;
   }
 
   .wrap {
