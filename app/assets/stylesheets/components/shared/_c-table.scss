@@ -25,19 +25,21 @@
 .c-table {
   border: 0;
   margin-bottom: 50px;
+  width: 100%;
 
   .text-menu {
     text-transform: capitalize;
+    text-align: left;
   }
 
   thead th {
     position: relative;
-    padding-right: 20px;
+    padding: 10px;
     border: 0;
 
     & .sort {
       position: absolute;
-      top: 22px;
+      top: 15px;
       right: 15px;
       cursor: pointer;
 
@@ -57,6 +59,10 @@
       right: calc(8px + 20px);
 
       @media screen and (min-width: $screen-m) {
+        right: calc(8px + 60px);
+      }
+
+      @media screen and (min-width: $screen-l) {
         right: calc(8px + 110px);
       }
 
@@ -65,15 +71,19 @@
 
   tbody tr:nth-child(odd) {
     background-color: rgba(#ebebeb, .3);
-
   }
 
   td:first-child,
   th:first-child {
     padding-left: $wrap-padding-mobile;
+    margin: auto;
 
     @media screen and (min-width: $screen-m) {
       padding-left: $wrap-padding-desktop;
+    }
+
+    @media screen and (min-width: $screen-l) {
+      padding-left: $wrap-padding-desktop-xl;
     }
   }
 
@@ -88,11 +98,16 @@
     @media screen and (min-width: $screen-m) {
       padding-right: $wrap-padding-desktop;
     }
+
+    @media screen and (min-width: $screen-l) {
+      padding-right: $wrap-padding-desktop-xl;
+    }
   }
 
   td {
     border: 0;
     border-right: 1px solid lightgrey;
+    padding: 20px 10px 17px;
 
     a {
       color: $color-3;

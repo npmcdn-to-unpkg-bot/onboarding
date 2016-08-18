@@ -2,8 +2,27 @@
   display: flex;
   width: 100%;
   height: 80px;
-  align-items: center;
   background-color: $color-3;
+
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    position: relative;
+    z-index: 10;
+
+    img {
+      max-width: 100%;
+      width: 95px;
+
+      @media screen and (min-width: $screen-l) {
+        width: 125px;
+      }
+    }
+  }
 }
 
 .l-intro {

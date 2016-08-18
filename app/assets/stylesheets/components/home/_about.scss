@@ -1,4 +1,6 @@
 .l-about {
+  padding: 40px 0;
+  text-align: center;
 
   @media screen and (min-width: $screen-m) {
     padding-top: 60px;
@@ -6,11 +8,18 @@
   }
 
   .text-module-subtitle {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
   }
 
   .text-claim {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     opacity: 0.7;
+    max-width: 780px;
+    margin: auto;
+    margin-bottom: 25px;
+  }
+
+  .bttn {
+    margin-top: 30px;
   }
 }
