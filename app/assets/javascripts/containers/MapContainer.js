@@ -1,5 +1,5 @@
 import React from 'react';
-import Map from '../components/Map';
+import MapView from './../components/MapView';
 import { connect } from 'react-redux';
 import { createLayer, CREATE_LAYER } from '../actions/mapActions';
 
@@ -50,7 +50,7 @@ class MapContainer extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    layer: state.map.layer
+    layer: state.mapReducer.layer
   };
 }
 
