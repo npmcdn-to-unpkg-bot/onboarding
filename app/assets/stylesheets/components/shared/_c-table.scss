@@ -24,12 +24,24 @@
 
 .c-table {
   border: 0;
-  margin-bottom: 50px;
   width: 100%;
+  border-collapse: collapse;
+
+  @media screen and (min-width: $screen-s) {
+    margin-bottom: 50px;
+  }
 
   .text-menu {
     text-transform: capitalize;
     text-align: left;
+  }
+
+  thead {
+    display: none;
+
+    @media screen and (min-width: $screen-s) {
+      display: flex;
+    }
   }
 
   thead th {
@@ -73,9 +85,33 @@
     background-color: rgba(#ebebeb, .3);
   }
 
+  tbody tr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    justify-content: center;
+    padding: 5px 20px;
+
+    @media screen and (min-width: $screen-s) {
+
+    }
+  }
+
+  tbody tr td:first-child {
+    order: 2;
+
+    @media screen and (min-width: $screen-s) {
+      order: 1;
+    }
+  }
+
+  tbody tr td:last-child {
+    order: 3;
+  }
+
   td:first-child,
   th:first-child {
-    padding-left: $wrap-padding-mobile;
     margin: auto;
 
     @media screen and (min-width: $screen-m) {
@@ -93,7 +129,6 @@
 
   td:last-child,
   th:last-child {
-    padding-right: $wrap-padding-mobile;
 
     @media screen and (min-width: $screen-m) {
       padding-right: $wrap-padding-desktop;
@@ -105,9 +140,27 @@
   }
 
   td {
-    border: 0;
-    border-right: 1px solid lightgrey;
-    padding: 20px 10px 17px;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (min-width: $screen-s) {
+      border: 0;
+      border-right: 1px solid lightgrey;
+      padding: 20px 10px 17px;
+      padding: 10px;
+    }
+
+    span {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .c-tag {
+      margin-right: 0;
+    }
 
     a {
       color: $color-3;
@@ -121,6 +174,7 @@
   .-bold {
     font-family: $font-family-1;
     font-weight: 700;
+    font-size: 20px;
   }
 
   .actions {
