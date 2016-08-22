@@ -28,11 +28,11 @@
 .l-intro {
   position: relative;
   max-height: 500px;
-  padding: 40px 0 30px;
+  padding: 60px 0 100px;
   background-size: cover;
 
   @media screen and (min-width: $screen-s) {
-    padding: 70px 0 300px;
+    padding: 70px 0 100px;
   }
 
   &.-campaigns {
@@ -79,6 +79,7 @@
   padding: 10px 0;
   background-color: $color-3;
   opacity: .5;
+  margin-bottom: 30px;
 
   &.-tasks {
     color: $font-color-3;

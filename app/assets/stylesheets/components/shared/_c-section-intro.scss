@@ -21,9 +21,11 @@
 
 .c-section-intro {
   .title {
-    margin-top: 27px;
+    margin-top: 5px;
     text-transform: capitalize;
     margin-bottom: 12px;
+    font-size: 35px;
+    font-weight: 600;
   }
 
   .tags-list {
@@ -33,6 +35,16 @@
 
   p.text-desc {
     margin-bottom: 15px;
+    font-weight: 600;
+    max-width: 460px;
+  }
+
+  span {
+    color: $font-color-1;
+    font-size: 14px;
+	  line-height: 1.4;
+    font-family: $font-family-1;
+    font-weight: 600;
   }
 
   .bttn-primary {
