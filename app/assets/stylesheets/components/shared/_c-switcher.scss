@@ -29,10 +29,23 @@
       color: #fff;
       font-weight: 700;
       font-family: $font-family-2;
+      display: none;
+
+      @media screen and (min-width: $screen-m) {
+        display: flex;
+      }
     }
 
     .wrap {
      display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+
+     @media screen and (min-width: $screen-m) {
+       flex-direction: row;
+       justify-content: space-between;
+     }
     }
   }
 
@@ -49,13 +62,15 @@
 
   .tabs {
     width: 33%;
-    min-width: 400px;
+    min-width: 280px;
     height: 40px;
     padding: 1px;
-    margin: 0 auto;
+    margin-top: 20px;
     display: flex;
     border-radius: 100px;
     background-color: rgba(#b8b8b8, .2);
+    text-align: center;
+    margin: auto;
   }
 
   .tab {

@@ -69,14 +69,21 @@
     }
 
     &:last-child .sort {
-      right: calc(8px + 20px);
 
       @media screen and (min-width: $screen-m) {
         right: calc(8px + 60px);
       }
 
       @media screen and (min-width: $screen-l) {
-        right: calc(8px + 110px);
+        right: calc(8px + 80px);
+      }
+
+      @media screen and (min-width: $screen-xl) {
+        right: calc(30px + 110px);
+      }
+
+      @media screen and (min-width: 1400px) {
+        right: calc(20px + (100vw - 1180px)/2);
       }
 
     }
@@ -115,12 +122,24 @@
   td:first-child,
   th:first-child {
 
+    @media screen and (min-width: $screen-s) {
+      padding-left: $wrap-padding-tablet;
+    }
+
     @media screen and (min-width: $screen-m) {
       padding-left: $wrap-padding-desktop;
     }
 
     @media screen and (min-width: $screen-l) {
+      padding-left: $wrap-padding-desktop;
+    }
+
+    @media screen and (min-width: $screen-xl) {
       padding-left: $wrap-padding-desktop-xl;
+    }
+
+    @media screen and (min-width: 1400px) {
+      padding-left: calc((100vw - 1180px)/2);
     }
   }
 
@@ -131,12 +150,24 @@
   td:last-child,
   th:last-child {
 
+    @media screen and (min-width: $screen-s) {
+      padding-right: $wrap-padding-tablet;
+    }
+
     @media screen and (min-width: $screen-m) {
       padding-right: $wrap-padding-desktop;
     }
 
     @media screen and (min-width: $screen-l) {
+      padding-right: $wrap-padding-desktop;
+    }
+
+    @media screen and (min-width: $screen-xl) {
       padding-right: $wrap-padding-desktop-xl;
+    }
+
+    @media screen and (min-width: 1400px) {
+      padding-right: calc((100vw - 1180px)/2);
     }
   }
 
