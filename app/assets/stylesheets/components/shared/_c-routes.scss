@@ -45,7 +45,7 @@
       transform: rotate(45deg);
     }
 
-    &:last-child:after{
+    &:nth-last-child(2):after{
       display: none;
     }
   }
@@ -75,5 +75,11 @@
         color: $color-2;
       }
     }
+  }
+
+  .icon-share {
+    height: 20px;
+    width: 20px;
+    float: right;
   }
 }

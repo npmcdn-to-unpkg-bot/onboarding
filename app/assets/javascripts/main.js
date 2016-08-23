@@ -210,8 +210,3 @@ $('#tasksDetail').ready( function() {
     });
   }
 });
-
-
-
-
-
