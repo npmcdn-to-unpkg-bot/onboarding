@@ -3,7 +3,7 @@
 import React from 'react';
 import DataTableView from './../DataTableView'
 
-class CampaingView extends React.Component {
+class CampaignView extends React.Component {
 
   componentDidMount() {
     //All the campaigns.
@@ -28,4 +28,4 @@ class CampaingView extends React.Component {
   }
 }
 
-export default CampaingView;
+export default CampaignView;
