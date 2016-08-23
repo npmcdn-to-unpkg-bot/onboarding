@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import ShareModal from '../components/ShareModal';
+import OpenModal from '../components/OpenModal';
 
 import {setShareModal} from '../actions/modal';
 
@@ -14,4 +14,4 @@ const mapDispatchToProps = dispatch => ({
     dispatch(setShareModal(status))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShareModal);
+export default connect(mapStateToProps, mapDispatchToProps)(OpenModal);

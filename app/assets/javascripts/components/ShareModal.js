@@ -4,7 +4,6 @@ class ShareModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalOpen: true,
       copyFailed: false,
       copied: false
     };
@@ -38,7 +37,6 @@ class ShareModal extends Component {
   }
 
   render() {
-    console.log(this.props);
     const currentUrl = window.location.href;
     let copyText;
     if (this.state.copyFailed) {
@@ -50,7 +48,7 @@ class ShareModal extends Component {
     } else {
       btnText = 'copy';
     }
-    if (!this.state.modalOpen) {
+    if (!this.props.modalOpen) {
       return null;
     }
     return (
@@ -59,32 +57,29 @@ class ShareModal extends Component {
           <div className="title text text-module-subtitle -dark">
             Share this Campaign
           </div>
-          <div className="pills">
-            Link | Embed
-          </div>
           <div className="text text-desc -dark">
             Copy and paste the link in email or IM
           </div>
           <div className="actions">
             <input ref={ref => this.url = ref} defaultValue={currentUrl} className="url"/>
-            <button onClick={this.handleCopyClick}>{btnText}</button>
+            <button className="bttn bttn-primary" onClick={this.handleCopyClick}>{btnText}</button>
           </div>
           <div className="copy-text">
             {copyText}
           </div>
           <div className="share-links">
             <a href={`https://twitter.com/share?url=${currentUrl}`} className="c-btn btn-link" target="_blank" rel="noopener noreferrer">
-              <svg className={`btn-icon icon-twitter`}>
+              <svg className={`icon icon-twitter`}>
                 <use xlinkHref={`#icon-twitter`}></use>
               </svg>
             </a>
             <a href={`http://www.facebook.com/sharer/sharer.php?u=${currentUrl}`} className="c-btn btn-link" target="_blank" rel="noopener noreferrer">
-              <svg className={`btn-icon icon-facebook`}>
+              <svg className={`icon icon-facebook`}>
                 <use xlinkHref={`#icon-facebook`}></use>
               </svg>
             </a>
             <a href={`https://plus.google.com/share?url=${currentUrl}`} className="c-btn btn-link" target="_blank" rel="noopener noreferrer">
-              <svg className={`btn-icon icon-googleplus`}>
+              <svg className={`icon icon-googleplus`}>
                 <use xlinkHref={`#icon-googleplus`}></use>
               </svg>
             </a>

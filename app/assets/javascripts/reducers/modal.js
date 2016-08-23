@@ -5,7 +5,7 @@ import {
 } from '../actions/modal';
 
 const initialState = {
-  shareModalOpen: true
+  shareModalOpen: false
 };
 
 export default function (state = initialState, action) {

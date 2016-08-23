@@ -10,7 +10,8 @@ import reducers from './reducers';
 import CommunityDataContainer from './containers/home/CommunityDataContainer';
 import UsersActivityDataContainer from './containers/home/UsersActivityDataContainer';
 //SHARE
-import ShareModal from './components/ShareModal';
+import Modal from './containers/Modal';
+import OpenModal from './containers/OpenModal';
 //CAMPAINGS
 import CampaignsPageContainer from './containers/CampaignsPageContainer';
 import CampaignsDetailPageContainer from './containers/CampaignsDetailPageContainer';
@@ -99,9 +100,18 @@ $('#ranking').ready( function() {
 $(document).ready(function () {
   ReactDOM.render(
     <Provider store={store}>
-      <ShareModal/>
+      <Modal/>
     </Provider>,
     document.getElementById('share-modal')
+  );
+});
+
+$(document).ready(function () {
+  ReactDOM.render(
+    <Provider store={store}>
+      <OpenModal/>
+    </Provider>,
+    document.getElementById('open-modal')
   );
 });
 
