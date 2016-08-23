@@ -10,6 +10,7 @@ class ShareModal extends Component {
     this.handleClickModal = this.handleClickModal.bind(this);
     this.handleCopyClick = this.handleCopyClick.bind(this);
   }
+
   handleClickModal(e) {
     if (e.target === e.currentTarget) {
       this.props.setShareModal(false);
@@ -34,6 +35,20 @@ class ShareModal extends Component {
     } catch (err) {
       console.log(err);
     }
+  }
+
+  componentDidMount() {
+    this.onKeyPress = e => {
+      if (e.keyCode === 27) {
+        this.props.setShareModal(false);
+        e.preventDefault();
+      }
+    };
+    document.addEventListener('keydown', this.onKeyPress);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.onKeyPress);
   }
 
   render() {
