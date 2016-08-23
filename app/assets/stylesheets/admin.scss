@@ -23,13 +23,13 @@
  @import "settings/utils";
  @import "settings/form";
 
- @import "components/shared/c-header";
  @import "components/shared/c-footer";
+ @import "components/shared/c-navigation";
  @import "components/shared/c-table";
  @import "components/shared/c-map";
 
  @import "admin/shared/footer-back";
  @import "admin/shared/table";
+@import "admin/shared/header";
 
  @import "admin/index";
-

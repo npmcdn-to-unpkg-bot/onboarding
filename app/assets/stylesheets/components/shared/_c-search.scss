@@ -1,24 +1,32 @@
 .c-search {
   position: relative;
   width: 100%;
-  margin-bottom: 50px;
+  padding: 20px 0;
 
   input {
     @extend %clean-button-or-input;
     width: 100%;
-    padding: 20px 25px;
+    padding: 15px 15px;
     border: 2px solid rgba($color-4, .3);
     color: rgba($color-4, .4);
     font-size: 20px;
     font-family: $font-family-1;
+
+    @media screen and (min-width: $screen-s) {
+      padding: 20px 25px;
+    }
   }
 
   .icon-search {
     @extend %centery;
     position: absolute;
-    right: 40px;
+    right: 20px;
     width: 35px;
     height: 35px;
-    fill: rgba($color-4, .3)
+    fill: rgba($color-4, .3);
+
+    @media screen and (min-width: $screen-s) {
+      right: 40px;
+    }
   }
 }

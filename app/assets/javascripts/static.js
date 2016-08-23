@@ -71,18 +71,34 @@ function setDotOn() {
   setActiveDot(positions, key);
 }
 
+function setMobileMenu() {
+  if (document.body.clientWidth <= 768) {
+    menuSwitcher = document.getElementsByClassName('js--open-menu')[0];
+    menuSwitcher.addEventListener('click', openMenu);
+  } else {
+    $('.main-menu').removeClass('is-open');
+  }
+}
+
+function openMenu() {
+  $navigation = $('.main-menu');
+  $navigation.toggleClass('is-open');
+}
+
 $document
   .on('ready', function () {
     if ($('.home')[0]) {
       setSlider();
       setDotOn();
     }
+    setMobileMenu();
   })
   .on('page:change', function () {
     if ($('.home')[0]) {
       setSlider();
     }
   });
+
 
 /* Sets dots to turn one when in section */
 $win.on('scroll', function () {

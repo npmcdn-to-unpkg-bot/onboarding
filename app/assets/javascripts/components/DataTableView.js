@@ -104,13 +104,12 @@ class DataTableView extends React.Component {
           </thead>
           <tbody>
             { data.map((element, i) =>
-              <tr key={i} className="wrap text text-desc -dark">
-                { this.props.columns && this.props.columns.map((column, i) => {
+              <tr key={i} className="text text-desc -dark">
+                  { this.props.columns && this.props.columns.map((column, i) => {
                     const key = column.slug;
-                    if (key === "name") { return <td key={i} className="text text-desc -dark -bold"><a href={`${this.props.base_url}/${element.id}`}>{ element[key] }</a></td> }
-                    if (key === "htag") { return <td key={i} className="text text-desc -dark"><button className="c-tag">{ element[key] }</button></td> }
-
-                    return (<td key={i} className="text text-desc -dark">{ element[key] }</td>)
+                    if (key === "name") {return <td key={i} className="text text-desc -dark -bold"><a href={`${this.props.base_url}/${element.id}`}>{element[key]}</a></td>}
+                    if (key === "htag") {return <td key={i} className="text text-desc -dark"><span>{column.title}</span><button className="c-tag">{element[key]}</button></td>}
+                    return (<td key={i} className="text text-desc -dark"><span>{column.title}</span>{ element[key] }</td>)
                   }
                 )}
               </tr>
