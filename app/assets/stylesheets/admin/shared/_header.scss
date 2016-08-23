@@ -1,8 +1,6 @@
 .l-header {
   display: flex;
   background: black;
-  padding-top: 10px;
-  padding-bottom: 10px;
 
   > .wrap {
     display: flex;
@@ -85,6 +83,10 @@
       display: flex;
       align-items: center;
       padding-left: 30px;
+
+      .active{
+        border-bottom: 5px solid white;
+      }
     }
 
     .navbar-nav .nav-item + .nav-item {
