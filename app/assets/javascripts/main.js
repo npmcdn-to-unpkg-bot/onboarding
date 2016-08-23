@@ -106,7 +106,7 @@ $(document).ready(function () {
   );
 });
 
-$(document).ready(function () {
+$(window).load(function () {
   ReactDOM.render(
     <Provider store={store}>
       <OpenModal/>

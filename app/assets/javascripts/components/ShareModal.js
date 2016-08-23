@@ -54,6 +54,11 @@ class ShareModal extends Component {
     return (
       <div className={`overlay`} onClick={this.handleClickModal}>
         <div className={`share-modal`}>
+          <button className="btn" onClick={() => this.props.setShareModal(false)}>
+            <svg className="icon icon-close">
+              <use xlinkHref="#icon-close"></use>
+            </svg>
+          </button>
           <div className="title text text-module-subtitle -dark">
             Share this Campaign
           </div>
