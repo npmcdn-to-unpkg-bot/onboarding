@@ -25,7 +25,8 @@
 
 <p>
   <strong>Location:</strong>
-  <%= @event.location %>
+  <% locationType = JSON.parse(@event.location) %>
+  <%= locationType["geometry"]["type"] %>
 </p>
 
 <p>

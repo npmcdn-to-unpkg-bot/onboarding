@@ -108,4 +108,8 @@ $(document).ready(function () {
   if ($('#map').length) {
     loadMap();
   }
+
+  $(function(){
+    $(".chzn-select").chosen();
+  });
 });

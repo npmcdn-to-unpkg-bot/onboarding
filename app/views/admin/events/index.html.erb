@@ -18,19 +18,18 @@
 
   <tbody>
     <% @events.each do |event| %>
+    <% locationType = JSON.parse(event.location) %>
       <tr>
         <td><%= event.name %></td>
         <td><%= event.description %></td>
         <td><%= image_tag event.image.url(:thumb) %></td>
         <td><%= event.url %></td>
         <td><%= event.date %></td>
-        <td><%= event.location %></td>
+        <td><%= locationType["geometry"]["type"] %></td>
         <td><%= event.instructions %></td>
         <td><%= event.contact %></td>
         <td><%= event.user.email %></td>
-        <td><%= link_to 'Show', admin_event_path(event) %></td>
-        <td><%= link_to 'Edit', edit_admin_event_path(event) %></td>
-        <td><%= link_to 'Destroy', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="actions"><%= link_to 'Show', admin_event_path(event) %><%= link_to 'Edit', edit_admin_event_path(event) %><%= link_to 'Destroy', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

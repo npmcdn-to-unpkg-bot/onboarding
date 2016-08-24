@@ -20,6 +20,7 @@
 // = require leaflet-draw
 // = require ./location/location
 // = require bootstrap-datepicker
+// = require chosen
 
 $(document).ready(function () {
   $('*[data-role=activerecord_sortable]').activerecord_sortable();
