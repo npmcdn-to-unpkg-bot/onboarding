@@ -10,6 +10,7 @@ $(document).ready(function () {
     L.tileLayer(BASEMAP, {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
+    map.scrollWheelZoom.disable();
 
     var drawnItems = new L.FeatureGroup();
     map.addLayer(drawnItems);
