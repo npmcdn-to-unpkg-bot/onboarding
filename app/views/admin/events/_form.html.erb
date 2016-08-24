@@ -13,73 +13,73 @@
 
     <fieldset class="form-group row">
       <%= f.label :name, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.text_field :name, class: 'form-control' %></div>
+      <div class="col-sm-12"><%= f.text_field :name, class: 'form-control' %></div>
     </fieldset>
 
     <fieldset class="form-group row">
       <%= f.label :description, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.text_area :description, class: 'form-control' %></div>
+      <div class="col-sm-12"><%= f.text_area :description, class: 'form-control' %></div>
     </fieldset>
 
     <fieldset class="form-group row">
       <%= f.label :image, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.file_field :image, class: 'form-control' %></div>
+      <div class="col-sm-12"><%= f.file_field :image, class: 'form-control' %></div>
     </fieldset>
 
     <fieldset class="form-group row">
       <%= f.label :url, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.text_field :url, class: 'form-control' %></div>
+      <div class="col-sm-12"><%= f.text_field :url, class: 'form-control' %></div>
     </fieldset>
 
     <fieldset class="form-group row">
       <%= f.label :date, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.date_select :date, {}, {:class => 'form-control'} %></div>
+      <div class="col-sm-12"><%= f.date_select :date, {}, {:class => 'form-control'} %></div>
     </fieldset>
 
     <fieldset class="form-group row">
       <%= f.label :location, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10">
-        <%= f.text_area :location, class: 'form-control' %>
-        <%= link_to "Choose location", "#my-modal", :class => "bttn bttn-secondary", "data-toggle" => "modal" %>
+      <div class="col-sm-12">
+        <div id="map"></div>
+        <%= f.text_area :location, class: 'form-control hidden' %>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
       <%= f.label :instructions, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.text_area :instructions, class: 'form-control' %></div>
+      <div class="col-sm-12"><%= f.text_area :instructions, class: 'form-control' %></div>
     </fieldset>
 
     <fieldset class="form-group row">
       <%= f.label :contact, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.text_field :contact, class: 'form-control' %></div>
+      <div class="col-sm-12"><%= f.text_field :contact, class: 'form-control' %></div>
     </fieldset>
 
     <fieldset class="form-group row">
       <%= f.label :campaign, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.collection_select :campaign_id, Campaign.all, :id, :name, {}, {:class => 'form-control'} %></div>
+      <div class="col-sm-12"><%= f.collection_select :campaign_id, Campaign.all, :id, :name, {}, {:class => 'form-control'} %></div>
     </fieldset>
 
     <fieldset class="form-group row">
       <%= f.label :user_id, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.collection_select :user_id, User.all, :id, :email, {}, {:class => 'form-control'} %></div>
+      <div class="col-sm-12"><%= f.collection_select :user_id, User.all, :id, :email, {}, {:class => 'form-control'} %></div>
     </fieldset>
 
     <fieldset class="form-group row">
       <%= f.label :tasks, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10">
+      <div class="col-sm-12">
         <%= f.collection_select :task_ids, Task.all, :id, :name, {}, {:class => 'form-control', :multiple => true} %>
       </div>
     </fieldset>
 
     <div class="form-group row">
-      <div class="col-sm-offset-2 col-sm-10">
+      <div class="col-sm-offset-2 col-sm-12">
         <%= f.submit class: 'bttn bttn-primary' %>
         <%= link_to 'Show', admin_event_path(event), class: 'bttn bttn-secondary' unless event.id.nil? %>
         <%= link_to 'Back', admin_events_path, class: 'bttn bttn-secondary' %>
       </div>
     </div>
 
-    <div class="modal hide fade" id="my-modal" title="My modal" style="max-width: 80%;">
+    <!-- <div class="modal hide fade" id="my-modal" title="My modal" style="max-width: 80%; position: relative !important;  opacity:1;">
       <div class="modal-header">
         <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
         <h3 id="myModalLabel">Choose a location</h3>
@@ -87,7 +87,7 @@
       <div class="modal-body">
         <div id="map" style="height: 600px;"></div>
       </div>
-    </div>
+    </div> -->
 
     <script>
       const BASEMAP = 'http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png';
@@ -100,46 +100,94 @@
           attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
 
-      // Initialise the FeatureGroup to store editable layers
-      var drawnItems = new L.FeatureGroup();
-      map.addLayer(drawnItems);
+  		var drawnItems = new L.FeatureGroup();
+  		map.addLayer(drawnItems);
 
-      // Initialise the draw control and pass it the FeatureGroup of editable layers
-      var drawControl = new L.Control.Draw({
-        draw: {
-          polygon: {
-            allowIntersection: false, // Restricts shapes to simple polygons
-            drawError: {
-                color: '#e1e100', // Color the shape will turn when intersects
-                message: '<strong>Oh snap!<strong> you can\'t draw that!' // Message that will show when intersect
-            },
-            shapeOptions: {
-                color: '#bada55'
-            }
-          },
-          polyline: false,
-          rectangle: false,
-          circle: false,
-          marker: false
-        },
+      // L.geoJson(geojsonPolygon).addTo(drawnItems);
+
+  		var drawControlFull = new L.Control.Draw({
+  			position: 'topright',
+  			draw: {
+  				polygon: {
+  					shapeOptions: {
+  						color: 'purple'
+  					},
+  					allowIntersection: false,
+  					drawError: {
+  						color: 'orange',
+  						timeout: 1000
+  					},
+  					showArea: true,
+  					metric: false,
+            repeatMode: false
+  				},
+  				polyline: false,
+  				rect: false,
+  				circle: false,
+  				marker: false,
+  			},
+  			edit: {
+  				featureGroup: drawnItems
+  			}
+  		});
+
+      var drawControlEditOnly = new L.Control.Draw({
+        position: 'topright',
+        draw: false,
         edit: {
           featureGroup: drawnItems
         }
       });
-      map.addControl(drawControl);
 
-      map.on('draw:created', function (e) {
-        const type = e.layerType,
-            layer = e.layer;
+      // Load GeoJSON from form if exists
+      const init_location = document.getElementById('event_location').innerHTML;
+
+      if ( init_location !== '' ) {
+        const geoJsonPolygon = JSON.parse(init_location);
+        const geoJsonLayer = L.geoJson(geoJsonPolygon);
+        map.setView(geoJsonLayer.getBounds().getCenter());
+        map.fitBounds(geoJsonLayer.getBounds());
+        geoJsonLayer.eachLayer(
+          function(layer){
+            drawnItems.addLayer(layer);
+        });
+        map.addControl(drawControlEditOnly);
+      } else {
+        map.addControl(drawControlFull);
+      }
+
+  		map.on('draw:created', function (e) {
+  		const type = e.layerType,
+  			layer = e.layer;
+        drawControlFull.removeFrom(map);
+        drawControlEditOnly.addTo(map)
 
         const shape = layer.toGeoJSON()
         const shape_for_db = JSON.stringify(shape);
-
         const location = document.getElementById('event_location');
         location.innerHTML = shape_for_db;
 
-        // Do whatever else you need to. (save to db, add to map etc)
-        map.addLayer(layer);
+  			drawnItems.addLayer(layer);
+  		});
+
+      // On Editing Completion
+      map.on('draw:edited', function (e) {
+        var layers = e.layers;
+        layers.eachLayer(function (layer) {
+          const shape = layer.toGeoJSON()
+          const shape_for_db = JSON.stringify(shape);
+          const location = document.getElementById('event_location');
+          location.innerHTML = shape_for_db;
+        });
+      });
+
+      map.on("draw:deleted", function(e) {
+        if (drawnItems.getLayers().length === 0){
+            drawControlEditOnly.removeFrom(map);
+            drawControlFull.addTo(map);
+            const location = document.getElementById('event_location');
+            location.innerHTML = '';
+        };
       });
     </script>
 <% end %>
