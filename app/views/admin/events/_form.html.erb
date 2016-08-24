@@ -38,7 +38,10 @@
 
     <fieldset class="form-group row">
       <%= f.label :location, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= link_to "Choose location", "#my-modal", :class => "bttn bttn-secondary", "data-toggle" => "modal" %></div>
+      <div class="col-sm-10">
+        <%= f.text_area :location, class: 'form-control' %>
+        <%= link_to "Choose location", "#my-modal", :class => "bttn bttn-secondary", "data-toggle" => "modal" %>
+      </div>
     </fieldset>
 
     <fieldset class="form-group row">
@@ -126,17 +129,14 @@
       map.addControl(drawControl);
 
       map.on('draw:created', function (e) {
-        var type = e.layerType,
+        const type = e.layerType,
             layer = e.layer;
 
-        var shape = layer.toGeoJSON()
-        var shape_for_db = JSON.stringify(shape);
+        const shape = layer.toGeoJSON()
+        const shape_for_db = JSON.stringify(shape);
 
-        console.log(shape_for_db);
-
-        if (type === 'polygon') {
-            layer.bindPopup('A popup!');
-        }
+        const location = document.getElementById('event_location');
+        location.innerHTML = shape_for_db;
 
         // Do whatever else you need to. (save to db, add to map etc)
         map.addLayer(layer);

@@ -10,15 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery2
-//= require jquery_ujs
-//= require tether
-//= require bootstrap-sprockets
-//= require sortable
-//= require jquery-ui/sortable
-//= require leaflet
-//= require leaflet-draw
+// = require jquery2
+// = require jquery_ujs
+// = require tether
+// = require bootstrap-sprockets
+// = require sortable
+// = require jquery-ui/sortable
+// = require leaflet
+// = require leaflet-draw
 
-$(document).ready(function(){
-    $('*[data-role=activerecord_sortable]').activerecord_sortable();
+$(document).ready(function () {
+  $('*[data-role=activerecord_sortable]').activerecord_sortable();
 });
