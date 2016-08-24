@@ -18,6 +18,8 @@
 // = require jquery-ui/sortable
 // = require leaflet
 // = require leaflet-draw
+// = require ./location/location
+// = require bootstrap-datepicker
 
 $(document).ready(function () {
   $('*[data-role=activerecord_sortable]').activerecord_sortable();
