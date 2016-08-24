@@ -18,14 +18,14 @@
 
   <tbody>
     <% @events.each do |event| %>
-    <% locationType = JSON.parse(event.location) %>
+    <% location_type = JSON.parse(event.location || {}) %>
       <tr>
         <td><%= event.name %></td>
         <td><%= event.description %></td>
         <td><%= image_tag event.image.url(:thumb) %></td>
         <td><%= event.url %></td>
         <td><%= event.date %></td>
-        <td><%= locationType["geometry"]["type"] %></td>
+        <td><%= location_type["geometry"] && location_type["geometry"]["type"] if location_type %></td>
         <td><%= event.instructions %></td>
         <td><%= event.contact %></td>
         <td><%= event.user.email %></td>
