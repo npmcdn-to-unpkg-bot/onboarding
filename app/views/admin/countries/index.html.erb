@@ -1,0 +1,31 @@
+<h1>Countries</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>ISO</th>
+      <th>shp url</th>
+      <th>geojson url</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @countries.each do |country| %>
+      <tr>
+        <td><%= country.name %></td>
+        <td><%= country.iso %></td>
+        <td><%= country.shp_url %></td>
+        <td><%= country.geojson_url %></td>
+        <td><%= link_to 'Show', admin_country_path(country) %></td>
+        <td><%= link_to 'Edit', edit_admin_country_path(country) %></td>
+        <td><%= link_to 'Destroy', admin_country_path(country), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Country', new_admin_country_path, class: 'bttn bttn-primary' %>

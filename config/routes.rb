@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, path: 'admin'
   namespace :admin do
+    resources :countries
     resources :event_requests
     resources :tasks
     resources :events
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
       resources :events, only: [:show, :index]
       resources :campaigns, only: [:show, :index]
       resources :tasks, only: [:show, :index]
+      resources :countries, only: [:show, :index]
     end
   end
 

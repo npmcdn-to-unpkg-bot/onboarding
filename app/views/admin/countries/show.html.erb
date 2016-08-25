@@ -1,0 +1,22 @@
+<p>
+  <strong>Name:</strong>
+  <%= @country.name %>
+</p>
+
+<p>
+  <strong>ISO:</strong>
+  <%= @country.iso %>
+</p>
+
+<p>
+  <strong>Shp URL:</strong>
+  <%= @country.shp_url %>
+</p>
+
+<p>
+  <strong>GeoJSON URL:</strong>
+  <%= @country.geojson_url %>
+</p>
+
+<%= link_to 'Edit', edit_admin_country_path(@country), class: 'bttn bttn-primary' %>
+<%= link_to 'Back', admin_countries_path, class: 'bttn bttn-secondary' %>
