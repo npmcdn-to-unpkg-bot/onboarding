@@ -70,12 +70,12 @@ $(document).ready(function () {
     map.on('draw:created', function (e) {
     const type = e.layerType,
       layer = e.layer;
+
       drawControlFull.removeFrom(map);
       drawControlEditOnly.addTo(map)
 
       const shape = layer.toGeoJSON()
-      const shape_for_db = JSON.stringify(shape);
-      $('#event_location').val(shape_for_db);
+      $('#event_location').val(JSON.stringify(shape));
 
       drawnItems.addLayer(layer);
     });
@@ -83,10 +83,10 @@ $(document).ready(function () {
     // On Editing Completion update layer and form
     map.on('draw:edited', function (e) {
       var layers = e.layers;
+      
       layers.eachLayer(function (layer) {
         const shape = layer.toGeoJSON()
-        const shape_for_db = JSON.stringify(shape);
-        $('#event_location').val(shape_for_db);
+        $('#event_location').val(JSON.stringify(shape));
       });
     });
 
