@@ -17,7 +17,7 @@ class CampaignsDetailView extends React.Component {
   }
 
   componentDidMount() {
-    //Here we need to filter for events or task of a CAMPAING. Now, we are getting everything.
+    //Here we need to filter for events or task of a CAMPAIGN. Now, we are getting everything.
     this.props.setCampaignDetail(this.campaignId);
   }
 
