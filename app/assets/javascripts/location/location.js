@@ -53,7 +53,7 @@ $(document).ready(function () {
     // Load GeoJSON from form if exists and set controls
     const init_location = $('#event_location').val();
 
-    if ( init_location !== '""' ) {
+    if ( init_location.length > 0 ) {
       const geoJsonLayer = L.geoJson(JSON.parse(init_location));
       map.setView(geoJsonLayer.getBounds().getCenter());
       map.fitBounds(geoJsonLayer.getBounds());
