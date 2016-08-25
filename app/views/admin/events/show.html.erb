@@ -25,8 +25,7 @@
 
 <p>
   <strong>Location:</strong>
-  <% locationType = JSON.parse(@event.location) %>
-  <%= locationType["geometry"]["type"] %>
+  <%= @event.location["geometry"] && @event.location["geometry"]["type"] if @event.location %>
 </p>
 
 <p>

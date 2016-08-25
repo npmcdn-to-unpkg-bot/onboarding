@@ -51,11 +51,10 @@ $(document).ready(function () {
     });
 
     // Load GeoJSON from form if exists and set controls
-    const init_location = document.getElementById('event_location').innerHTML;
+    const init_location = $('#event_location').val();
 
-    if ( init_location !== '' ) {
-      const geoJsonPolygon = JSON.parse(init_location);
-      const geoJsonLayer = L.geoJson(geoJsonPolygon);
+    if ( init_location !== '""' ) {
+      const geoJsonLayer = L.geoJson(JSON.parse(init_location));
       map.setView(geoJsonLayer.getBounds().getCenter());
       map.fitBounds(geoJsonLayer.getBounds());
       geoJsonLayer.eachLayer(
@@ -76,8 +75,7 @@ $(document).ready(function () {
 
       const shape = layer.toGeoJSON()
       const shape_for_db = JSON.stringify(shape);
-      const location = document.getElementById('event_location');
-      location.innerHTML = shape_for_db;
+      $('#event_location').val(shape_for_db);
 
       drawnItems.addLayer(layer);
     });
@@ -88,18 +86,16 @@ $(document).ready(function () {
       layers.eachLayer(function (layer) {
         const shape = layer.toGeoJSON()
         const shape_for_db = JSON.stringify(shape);
-        const location = document.getElementById('event_location');
-        location.innerHTML = shape_for_db;
+        $('#event_location').val(shape_for_db);
       });
     });
 
     // On delete polygon, reset draw controls and clear form
     map.on("draw:deleted", function(e) {
       if (drawnItems.getLayers().length === 0){
-          drawControlEditOnly.removeFrom(map);
-          drawControlFull.addTo(map);
-          const location = document.getElementById('event_location');
-          location.innerHTML = '';
+        drawControlEditOnly.removeFrom(map);
+        drawControlFull.addTo(map);
+        $('#event_location').val('');
       };
     });
 
@@ -111,5 +107,11 @@ $(document).ready(function () {
 
   $(function(){
     $(".chzn-select").chosen();
+  });
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker({
+      format: 'yyyy-mm-dd',
+    });
   });
 });
