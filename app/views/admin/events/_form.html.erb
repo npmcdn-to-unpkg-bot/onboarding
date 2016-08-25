@@ -40,7 +40,7 @@
       <%= f.label :location, class: 'col-sm-2 form-control-label' %>
       <div class="col-sm-10">
         <div id="map"></div>
-        <%= f.text_area :location, value: f.object.location.try(:to_json), class: 'form-control hidden' %>
+        <%= f.text_area :location, value: f.object.location.try(:to_json), class: 'form-control hidden', id: 'location_map' %>
       </div>
     </fieldset>
 
