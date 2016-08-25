@@ -1,0 +1,41 @@
+<%= form_for([:admin, country]) do |f| %>
+  <% if country.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(country.errors.count, "error") %> prohibited this country from being saved:</h2>
+
+      <ul>
+      <% country.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset class="form-group row">
+    <%= f.label :name, class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10"><%= f.text_field :name, class: 'form-control' %></div>
+  </fieldset>
+
+  <fieldset class="form-group row">
+    <%= f.label :iso, class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10"><%= f.text_field :iso, class: 'form-control' %></div>
+  </fieldset>
+
+  <fieldset class="form-group row">
+    <%= f.label :shp_url, class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10"><%= f.text_field :shp_url, class: 'form-control' %></div>
+  </fieldset>
+
+  <fieldset class="form-group row">
+    <%= f.label :geojson_url, class: 'col-sm-2 form-control-label' %>
+    <div class="col-sm-10"><%= f.text_field :geojson_url, class: 'form-control' %></div>
+  </fieldset>
+
+  <div class="form-group row">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: 'bttn bttn-primary' %>
+      <%= link_to 'Show', admin_country_path(country), class: 'bttn bttn-secondary' unless country.id.nil? %>
+      <%= link_to 'Back', admin_countries_path, class: 'bttn bttn-secondary' %>
+    </div>
+  </div>
+<% end %>
