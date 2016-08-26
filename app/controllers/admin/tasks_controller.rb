@@ -28,7 +28,7 @@ class Admin::TasksController < AdminController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to admin_task_path(@task), notice: 'Task was successfully created.' }
+        format.html { redirect_to admin_tasks_path, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::TasksController < AdminController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to admin_task_path(@task), notice: 'Task was successfully updated.' }
+        format.html { redirect_to admin_tasks_path, notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit }

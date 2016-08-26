@@ -1,4 +1,14 @@
-<h1>Event Requests</h1>
+<div class="index-title wrap">
+  <h1>Event Requests</h1>
+  <%= link_to 'New Event Request', new_admin_event_request_path, class: 'bttn bttn-primary' %>
+</div>
+
+<div class="search wrap">
+  <input type="text" class="search-input" placeholder="Search" />
+  <svg class="icon icon-search">
+    <use xlink:href="#icon-search"></use>
+  </svg>
+</div>
 
 <table class="table table-bordered">
   <thead>
@@ -29,7 +39,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Event Request', new_admin_event_request_path, class: 'bttn bttn-primary' %>

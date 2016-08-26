@@ -129,6 +129,9 @@
 
 .text-foot {
   font-size: 15px;
+	font-weight: bold;
+	line-height: 1.2;
+	letter-spacing: 1px;
 
   @media screen and (min-width: $screen-m) {
     font-size: 18px;

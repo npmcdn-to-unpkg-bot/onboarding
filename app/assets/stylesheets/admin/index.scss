@@ -29,14 +29,37 @@
     }
   }
 
+  .bttn:hover {
+    text-decoration: none;
+  }
+
+  .bttn:focus{
+    text-decoration: none;
+  }
+
   .bttn-primary {
     padding: 15px 40px;
     border: 1px solid #ff5d33;
-    float: right;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &:focus {
+      color: #fff;
+    }
   }
 
   .bttn-secondary {
     padding: 15px 40px;
     border: 1px solid $color-3;
+
+    &:hover {
+      color: #000;
+    }
+
+    &:focus {
+      color: #000;
+    }
   }
 }

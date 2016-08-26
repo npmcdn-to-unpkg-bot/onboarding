@@ -1,61 +1,64 @@
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
+<div class="wrap">
+  <p>
+    <strong>Name:</strong>
+    <%= @event.name %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @event.description %>
+  </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @event.image.url(:medium) %>
-</p>
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag @event.image.url(:medium) %>
+  </p>
 
-<p>
-  <strong>Url:</strong>
-  <%= @event.url %>
-</p>
+  <p>
+    <strong>Url:</strong>
+    <%= @event.url %>
+  </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
+  <p>
+    <strong>Date:</strong>
+    <%= @event.date %>
+  </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @event.location["geometry"] && @event.location["geometry"]["type"] if @event.location %>
-</p>
+  <p>
+    <strong>Location:</strong>
+    <%= @event.location["geometry"] && @event.location["geometry"]["type"] if @event.location %>
+  </p>
 
-<p>
-  <strong>Instructions:</strong>
-  <%= @event.instructions %>
-</p>
+  <p>
+    <strong>Instructions:</strong>
+    <%= @event.instructions %>
+  </p>
 
-<p>
-  <strong>Contact:</strong>
-  <%= @event.contact %>
-</p>
+  <p>
+    <strong>Contact:</strong>
+    <%= @event.contact %>
+  </p>
 
-<p>
-  <strong>Campaign:</strong>
-  <%= link_to @event.campaign.name, [:admin, @event.campaign] %>
-</p>
+  <p>
+    <strong>Campaign:</strong>
+    <%= link_to @event.campaign.name, [:admin, @event.campaign] %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @event.user.email %>
-</p>
+  <p>
+    <strong>User:</strong>
+    <%= @event.user.email %>
+  </p>
 
-<p>
-  <strong>Tasks:</strong>
-  <ul>
-  <% @event.tasks.each do |task| %>
-      <li><%= link_to task.name, [:admin, task] %></li>
-  <% end %>
-  </ul>
-</p>
+  <p>
+    <strong>Tasks:</strong>
+    <ul>
+    <% @event.tasks.each do |task| %>
+        <li><%= link_to task.name, [:admin, task] %></li>
+    <% end %>
+    </ul>
+  </p>
 
-<%= link_to 'Edit', edit_admin_event_path(@event), class: 'bttn bttn-primary' %>
-<%= link_to 'Back', admin_events_path, class: 'bttn bttn-secondary' %>
+  <%= link_to 'Edit', edit_admin_event_path(@event), class: 'bttn bttn-primary' %>
+  <%= link_to 'Back', admin_events_path, class: 'bttn bttn-secondary' %>
+
+</div>

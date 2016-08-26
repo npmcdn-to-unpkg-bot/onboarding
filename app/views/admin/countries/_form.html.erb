@@ -32,10 +32,9 @@
   </fieldset>
 
   <div class="form-group row">
-    <div class="col-sm-offset-2 col-sm-10">
+    <div class="col-sm-offset-2 col-sm-10 form-control-btns">
+      <%= link_to 'Cancel', admin_countries_path, class: 'bttn bttn-secondary' %>
       <%= f.submit class: 'bttn bttn-primary' %>
-      <%= link_to 'Show', admin_country_path(country), class: 'bttn bttn-secondary' unless country.id.nil? %>
-      <%= link_to 'Back', admin_countries_path, class: 'bttn bttn-secondary' %>
     </div>
   </div>
 <% end %>

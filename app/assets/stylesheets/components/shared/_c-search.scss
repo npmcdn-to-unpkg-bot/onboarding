@@ -24,10 +24,5 @@
     width: 25px;
     height: 35px;
     fill: rgba($color-4, .3);
-
-    @media screen and (min-width: $screen-s) {
-      right: 40px;
-      width: 35px;
-    }
   }
 }
