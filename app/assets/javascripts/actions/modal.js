@@ -1,4 +1,4 @@
-'use strict';
+import React from 'react';
 
 export const SET_SHARE_MODAL = 'SET_SHARE_MODAL';
 
