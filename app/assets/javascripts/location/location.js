@@ -51,7 +51,7 @@ $(document).ready(function () {
     });
 
     // Load GeoJSON from form if exists and set controls
-    const init_location = $('#event_location').val();
+    const init_location = $('#location_map').val();
 
     if ( init_location.length > 0 ) {
       const geoJsonLayer = L.geoJson(JSON.parse(init_location));
@@ -75,7 +75,7 @@ $(document).ready(function () {
       drawControlEditOnly.addTo(map)
 
       const shape = layer.toGeoJSON()
-      $('#event_location').val(JSON.stringify(shape));
+      $('#location_map').val(JSON.stringify(shape));
 
       drawnItems.addLayer(layer);
     });
@@ -83,10 +83,10 @@ $(document).ready(function () {
     // On Editing Completion update layer and form
     map.on('draw:edited', function (e) {
       var layers = e.layers;
-      
+
       layers.eachLayer(function (layer) {
         const shape = layer.toGeoJSON()
-        $('#event_location').val(JSON.stringify(shape));
+        $('#location_map').val(JSON.stringify(shape));
       });
     });
 
@@ -95,7 +95,7 @@ $(document).ready(function () {
       if (drawnItems.getLayers().length === 0){
         drawControlEditOnly.removeFrom(map);
         drawControlFull.addTo(map);
-        $('#event_location').val('');
+        $('#location_map').val('');
       };
     });
 
