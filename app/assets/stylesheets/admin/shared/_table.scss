@@ -1,6 +1,7 @@
 
 .table {
   border: 0;
+  margin-bottom: 0;
 
   thead th {
     border: 0 !important;
@@ -19,6 +20,7 @@
     border: 0 !important;
     border-right: 1px solid #d8d8d8 !important;
     vertical-align: middle !important;
+    padding: 20px 10px;
 
     &:last-child {
       border: 0 !important;
@@ -35,6 +37,7 @@
 
   td:first-child,
   th:first-child {
+    width: 5%;
 
     @media screen and (min-width: $screen-s) {
       padding-left: $wrap-padding-tablet;
@@ -63,6 +66,7 @@
 
   td:last-child,
   th:last-child {
+    width: 5%;
 
     @media screen and (min-width: $screen-s) {
       padding-right: $wrap-padding-tablet;

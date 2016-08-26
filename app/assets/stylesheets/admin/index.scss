@@ -1,11 +1,14 @@
 
 .container-fluid {
-  padding: 40px 0;
+  padding: 30px 0 0;
   min-height: 80vh;
 
-  @media screen and ($screen-m) {
-    padding-top: 70px;
-    padding-bottom: 70px;
+  .index-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
   }
 
   .text-module-subtitle {
@@ -29,6 +32,7 @@
   .bttn-primary {
     padding: 15px 40px;
     border: 1px solid #ff5d33;
+    float: right;
   }
 
   .bttn-secondary {

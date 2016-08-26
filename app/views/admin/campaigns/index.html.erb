@@ -1,5 +1,13 @@
-<div class="wrap">
+<div class="index-title wrap">
   <h1>Campaigns</h1>
+  <%= link_to 'New Campaign', new_admin_campaign_path, class: 'bttn bttn-primary' %>
+</div>
+
+<div class="search wrap">
+  <input type="text" class="search-input" placeholder="Search" />
+  <svg class="icon icon-search">
+    <use xlink:href="#icon-search"></use>
+  </svg>
 </div>
 
 <table class="table table-bordered draggable">
@@ -7,12 +15,10 @@
   <tr>
     <th></th>
     <th>Name</th>
-    <th>Htag</th>
     <th>Description</th>
-    <th>Background image</th>
-    <th>Url</th>
-    <th>Status</th>
+    <th>Htag</th>
     <th>Start date</th>
+    <th>Status</th>
     <th colspan="3">Actions</th>
   </tr>
   </thead>
@@ -22,7 +28,15 @@
   </tbody>
 </table>
 
-<br>
-<div class="wrap">
-  <%= link_to 'New Campaign', new_admin_campaign_path, class: 'bttn bttn-primary' %>
-</div>
+<script>
+search(event) {
+  const token = event.target.value;
+
+  if (token !== '') {
+    const result = this.fuse.search(token);
+    this.setState({ data: result });
+  } else {
+    this.setState({ data: this.data });
+  }
+}
+</script>

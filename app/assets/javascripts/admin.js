@@ -21,6 +21,7 @@
 //= require ./location/location
 //= require bootstrap-datepicker
 //= require chosen
+//= require fuse.js
 
 $(document).ready(function () {
   $('*[data-role=activerecord_sortable]').activerecord_sortable();
