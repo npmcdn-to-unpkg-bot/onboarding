@@ -3,5 +3,6 @@ class CampaignsController < ApplicationController
   end
 
   def show
+    @campaign = Campaign.find(params[:id])
   end
 end

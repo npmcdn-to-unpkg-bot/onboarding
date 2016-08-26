@@ -17,15 +17,24 @@
   width: 100%;
   background-color: $color-3;
   color: $color-2;
+  min-height: 60px;
 
   @media screen and (min-width: $screen-m) {
     display: none;
   }
+
+  .navbar-toggler {
+    font-size: 1.75rem;
+  }
 }
 
 .logo {
-  width: 125px;
+  width: 90px;
   height: 100%;
+
+  @media screen and (min-width: $screen-m) {
+    width: 125px;
+  }
 }
 
 .header-container {
@@ -85,7 +94,12 @@
       padding-left: 30px;
 
       .active{
-        border-bottom: 5px solid white;
+        border-bottom: 7px solid $color-1;
+
+        @media screen and (min-width: $screen-m) {
+          margin-top: 21px;
+          padding-bottom: 21px;
+        }
       }
     }
 
