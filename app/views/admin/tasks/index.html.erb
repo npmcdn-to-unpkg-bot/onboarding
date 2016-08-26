@@ -23,7 +23,7 @@
         <td><%= task.description %></td>
         <td><%= image_tag task.image.url(:thumb) %></td>
         <td><%= task.status_humanize %></td>
-        <td><%= task.location %></td>
+        <td><%= task.location["geometry"] && task.location["geometry"]["type"] if task.location %></td>
         <td><%= link_to 'Show', admin_task_path(task) %></td>
         <td><%= link_to 'Edit', edit_admin_task_path(task) %></td>
         <td><%= link_to 'Destroy', admin_task_path(task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
