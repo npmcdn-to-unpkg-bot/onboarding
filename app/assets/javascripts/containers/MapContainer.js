@@ -67,22 +67,26 @@ class MapContainer extends React.Component {
       this.setState({
         tilesList: newList
       });
+
+      // debugger
     }
   }
 
   toggleLayerFn(selectedLayer) {
     this.state.layersList.map( (layer) => {
-      if (layer.slug === selectedLayer) {
-        layer.active = !layer.active
+      if (layer.slug === selectedLayer.slug) {
+        layer.active = !layer.active;
+        this._createLayers();
         return
       }
     })
 
-    const newLayerList = Object.assign({}, this.state.layersList);
-    this.setState.layersList = newLayerList;
+    const newLayerList = this.state.layersList;
+    this.setState({ layersList: newLayerList });
   }
 
   render() {
+    debugger
     return (
       <div>
         <Map
