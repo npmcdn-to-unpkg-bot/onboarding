@@ -22,10 +22,15 @@
 #
 
 class Event < ApplicationRecord
+
   belongs_to :user
   belongs_to :campaign
   has_and_belongs_to_many :tasks
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
+  def location= loc
+    write_attribute(:location, loc.present? ? JSON.parse(loc) : nil) if loc
+  end
 end

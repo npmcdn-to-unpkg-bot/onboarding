@@ -9,6 +9,9 @@ import reducers from './reducers';
 //HOME
 import CommunityDataContainer from './containers/home/CommunityDataContainer';
 import UsersActivityDataContainer from './containers/home/UsersActivityDataContainer';
+//SHARE
+import Modal from './containers/Modal';
+import OpenModal from './containers/OpenModal';
 //CAMPAINGS
 import CampaignsPageContainer from './containers/CampaignsPageContainer';
 import CampaignsDetailPageContainer from './containers/CampaignsDetailPageContainer';
@@ -91,6 +94,25 @@ $('#ranking').ready( function() {
       );
     });
   }
+});
+
+/* Breadcrumbs */
+$(document).ready(function () {
+  ReactDOM.render(
+    <Provider store={store}>
+      <Modal/>
+    </Provider>,
+    document.getElementById('share-modal')
+  );
+});
+
+$(window).load(function () {
+  ReactDOM.render(
+    <Provider store={store}>
+      <OpenModal/>
+    </Provider>,
+    document.getElementById('open-modal')
+  );
 });
 
 /* Campaigns index */
@@ -210,8 +232,3 @@ $('#tasksDetail').ready( function() {
     });
   }
 });
-
-
-
-
-

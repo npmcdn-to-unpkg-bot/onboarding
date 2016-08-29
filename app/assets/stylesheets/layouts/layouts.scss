@@ -28,8 +28,12 @@
 .l-intro {
   position: relative;
   max-height: 500px;
-  padding: 70px 0 300px;
+  padding: 60px 0 100px;
   background-size: cover;
+
+  @media screen and (min-width: $screen-s) {
+    padding: 70px 0 100px;
+  }
 
   &.-campaigns {
     background-image: image-url('bg1-1600.jpg');
@@ -73,23 +77,51 @@
   top: 0;
   width: 100%;
   padding: 10px 0;
-  background-color: $color-3;
-  opacity: .5;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
 
   &.-tasks {
     color: $font-color-3;
-    background-color: #dedede;
+    background-color: rgba(222, 222, 222, 0.5);
   }
 
   &.-dark {
     opacity: 1;
     color: #fff;
-    background-color: $color-3;
+    background-color: rgba(0, 0, 0, 1);
+  }
+
+  .open-modal {
+    float: right;
+    height: 20px;
+    width: 20px;
+
+    .btn {
+      padding: 0;
+      background: none;
+
+      &:focus {
+        outline: none;
+      }
+
+      .icon-share {
+        height: 20px;
+        width: 20px;
+        float: right;
+      }
+    }
   }
 }
 
 .l-table {
-  padding: 50px 0 55px;
+
+  @media screen and (min-width: $screen-s) {
+    padding: 50px 0 55px;
+  }
+
+  @media screen and (min-width: $screen-m) {
+    padding: 20px 0 25px;
+  }
 }
 
 .l-tabs {

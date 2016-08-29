@@ -30,7 +30,7 @@
 
 <p>
   <strong>Location:</strong>
-  <%= @task.location %>
+  <%= @task.location["geometry"] && @task.location["geometry"]["type"] if @task.location %>
 </p>
 
 <p>

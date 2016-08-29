@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160712212503) do
+ActiveRecord::Schema.define(version: 20160825153236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 20160712212503) do
     t.index ["task_id"], name: "index_campaigns_tasks_on_task_id", using: :btree
   end
 
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.string   "iso"
+    t.string   "shp_url"
+    t.string   "geojson_url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "event_requests", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -60,7 +69,7 @@ ActiveRecord::Schema.define(version: 20160712212503) do
     t.string   "image"
     t.string   "url"
     t.date     "date"
-    t.string   "location"
+    t.json     "location"
     t.text     "instructions"
     t.string   "contact"
     t.datetime "created_at",         null: false
@@ -88,13 +97,13 @@ ActiveRecord::Schema.define(version: 20160712212503) do
     t.text     "description"
     t.string   "image"
     t.integer  "status"
-    t.string   "location"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.json     "location"
   end
 
   create_table "users", force: :cascade do |t|
