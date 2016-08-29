@@ -2,7 +2,7 @@
 
 import React from 'react';
 import DataTableView from './../DataTableView';
-import Map from './../Map';
+import Map from './../../containers/MapContainer';
 
 class TaskView extends React.Component {
 
@@ -62,7 +62,7 @@ class TaskView extends React.Component {
             </div>
             <div className="tabs-content">
               <div className={`tabs-panel ${this.state.activeTab === "tab1" && "-is-active"}`}>
-                <Map tiles={this.props.tiles} />
+                <Map />
               </div>
               <div className="tabs-panel" className={`tabs-panel ${this.state.activeTab === "tab2" && "-is-active"}`}>
                 {taskTable}
