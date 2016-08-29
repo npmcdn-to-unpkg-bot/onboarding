@@ -18,7 +18,8 @@
 //= require jquery-ui/sortable
 //= require leaflet
 //= require leaflet-draw
-//= require ./location/location
+//= require ./admin/location
+//= require ./admin/search
 //= require bootstrap-datepicker
 //= require chosen
 

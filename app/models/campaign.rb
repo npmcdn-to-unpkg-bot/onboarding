@@ -29,4 +29,12 @@ class Campaign < ApplicationRecord
 
   has_attached_file :background_image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :background_image, content_type: /\Aimage\/.*\Z/
+
+  def self.search(search)
+    if search
+      where('lower(name) LIKE ?', "%#{search}%".downcase)
+    else
+      unscoped
+    end
+  end
 end

@@ -112,27 +112,26 @@ $(document).ready(function () {
     });
 
     // On delete polygon, reset draw controls and clear form
-    map.on("draw:deleted", function(e) {
-      if (drawnItems.getLayers().length === 0){
+    map.on("draw:deleted", function (e) {
+      if (drawnItems.getLayers().length === 0) {
         drawControlEditOnly.removeFrom(map);
         drawControlFull.addTo(map);
         $('#location_map').val('');
-      };
+      }
     });
-
   };
 
   if ($('#map').length) {
     loadMap();
   }
 
-  $(function(){
-    $(".chzn-select").chosen();
+  $(function () {
+    $('.chzn-select').chosen();
   });
 
-  $(document).ready(function(){
+  $(document).ready(function () {
     $('.datepicker').datepicker({
-      format: 'yyyy-mm-dd',
+      format: 'yyyy-mm-dd'
     });
   });
 });

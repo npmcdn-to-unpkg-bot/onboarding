@@ -3,37 +3,13 @@
   <%= link_to 'New Campaign', new_admin_campaign_path, class: 'bttn bttn-primary' %>
 </div>
 
-<div class="search wrap">
-  <input type="text" class="search-input" placeholder="Search" />
-  <svg class="icon icon-search">
-    <use xlink:href="#icon-search"></use>
-  </svg>
-</div>
-
-<%= form_tag campaigns_path, :method => 'get', :id => "campaigns_search" do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-  <div id="campaigns"><%= render 'campaigns' %></div>
+<%= form_tag admin_campaigns_path, method: 'get', id: "search_table_form" do %>
+  <div class="search wrap">
+    <%= text_field_tag :search, params[:search], class: 'search-input' %>
+    <!-- <svg class="icon icon-search">
+      <use xlink:href="#icon-search"></use>
+    </svg> -->
+    <%= submit_tag '', name: nil, class: 'icon-search' %>
+  </div>
+  <div id="search_table"><%= render 'campaign' %></div>
 <% end %>
-
-<table class="table table-bordered draggable">
-  <thead>
-    <tr>
-      <th></th>
-      <th class="sortable"><%= sortable "name" %></th>
-      <th>Description</th>
-      <th>Htag</th>
-      <th class="sortable"><%= sortable "start_date" %></th>
-      <th class="sortable"><%= sortable "status" %></th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-
-  <tbody data-role="activerecord_sortable">
-    <%= render @campaigns %>
-  </tbody>
-</table>
-
-<%= will_paginate @campaigns, :previous_label => '<', :next_label => '>' %>

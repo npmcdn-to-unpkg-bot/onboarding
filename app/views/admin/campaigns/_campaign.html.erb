@@ -1,17 +1,37 @@
-<tr data-role="campaign<%= campaign.id %>" data-move-url="<%= move_admin_campaign_url(campaign) %>" data-position="<%= campaign.position %>">
-  <td>
-    <svg class="icon icon-Row-Dragger">
-      <use xlink:href="#icon-Row-Dragger"></use>
-    </svg>
-  </td>
-  <td><%= campaign.name %></td>
-  <td><%= campaign.description %></td>
-  <td><%= campaign.htag %></td>
-  <td><%= campaign.start_date %></td>
-  <td><%= campaign.status_humanize %></td>
-  <td class="actions">
-    <%= link_to '', campaign_path(campaign), :class => "svg-bttn -show" %>
-    <%= link_to '', edit_admin_campaign_path(campaign), :class => "svg-bttn -edit" %>
-    <%= link_to '', admin_campaign_path(campaign), method: :delete, data: {confirm: 'Are you sure?'}, :class => "svg-bttn -delete"%>
-  </td>
-</tr>
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="table table-bordered draggable">
+  <thead>
+    <tr>
+      <th></th>
+      <th class="sortable"><%= sortable "name" %></th>
+      <th>Description</th>
+      <th>Htag</th>
+      <th class="sortable"><%= sortable "start_date" %></th>
+      <th class="sortable"><%= sortable "status" %></th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody data-role="activerecord_sortable">
+    <% for campaign in @campaigns %>
+      <tr data-role="campaign<%= campaign.id %>" data-move-url="<%= move_admin_campaign_url(campaign) %>" data-position="<%= campaign.position %>">
+        <td>
+          <svg class="icon icon-Row-Dragger">
+            <use xlink:href="#icon-Row-Dragger"></use>
+          </svg>
+        </td>
+        <td><%= campaign.name %></td>
+        <td><%= campaign.description %></td>
+        <td><%= campaign.htag %></td>
+        <td><%= campaign.start_date %></td>
+        <td><%= campaign.status_humanize %></td>
+        <td class="actions">
+          <%= link_to '', campaign_path(campaign), :class => "svg-bttn -show" %>
+          <%= link_to '', edit_admin_campaign_path(campaign), :class => "svg-bttn -edit" %>
+          <%= link_to '', admin_campaign_path(campaign), method: :delete, data: {confirm: 'Are you sure?'}, :class => "svg-bttn -delete"%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @campaigns, previous_label: '<', next_label: '>' %>

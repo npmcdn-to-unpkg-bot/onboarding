@@ -1,4 +1,5 @@
-<%= form_for([:admin, campaign]) do |f| %>
+<div class="form-wrap">
+  <%= form_for([:admin, campaign]) do |f| %>
     <% if campaign.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(campaign.errors.count, "error") %> prohibited this campaign from being saved:</h2>
@@ -82,4 +83,5 @@
     </div>
 
     </div>
-<% end %>
+  <% end %>
+</div>
