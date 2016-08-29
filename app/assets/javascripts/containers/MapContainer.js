@@ -17,7 +17,7 @@ const layersConfig = [
     cartoCss: '#null{polygon-fill: #FF0000;polygon-opacity: 0.5;}',
     sql: 'SELECT * FROM world_borders',
     title: 'Layer 2',
-    active: false
+    active: true
   }
 ];
 
@@ -36,7 +36,6 @@ class MapContainer extends React.Component {
   }
 
   componentDidUpdate() {
-    this._createLayers();
   }
 
   _createLayers() {

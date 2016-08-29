@@ -7,7 +7,7 @@ class LayerSwitcher extends React.Component {
 
   render() {
     let switchers = [];
-    debugger
+
     this.props.layersList.map( (layer, i) => {
       const slug = layer.slug
 
