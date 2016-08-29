@@ -8,14 +8,14 @@ const layersConfig = [
   {
     slug: 'layer1',
     cartoCss: '#null{polygon-fill: #FF6600;polygon-opacity: 0.5;}',
-    sql: 'SELECT * FROM world_borders',
+    sql: "SELECT * FROM world_borders WHERE iso3='CAN'",
     title: 'Layer 1',
-    active: false
+    active: true
   },
   {
     slug: 'layer2',
     cartoCss: '#null{polygon-fill: #FF0000;polygon-opacity: 0.5;}',
-    sql: 'SELECT * FROM world_borders',
+    sql: "SELECT * FROM world_borders WHERE iso3='USA'",
     title: 'Layer 2',
     active: true
   }
@@ -55,6 +55,17 @@ class MapContainer extends React.Component {
     });
   }
 
+  _removeLayers(layer) {
+    if (this.state.tilesList[layer.slug]) {
+      const newList = Object.assign({}, this.state.tilesList);
+      delete newList[layer.slug];
+
+      this.setState({
+        tilesList: newList
+      });
+    }
+  }
+
   componentWillReceiveProps(props) {
     this.addLayer(props.layer);
   }
@@ -67,8 +78,6 @@ class MapContainer extends React.Component {
       this.setState({
         tilesList: newList
       });
-
-      // debugger
     }
   }
 
@@ -76,7 +85,12 @@ class MapContainer extends React.Component {
     this.state.layersList.map( (layer) => {
       if (layer.slug === selectedLayer.slug) {
         layer.active = !layer.active;
-        this._createLayers();
+
+        if (layer.active) {
+          this._createLayers();
+        } else {
+          this._removeLayers(layer);
+        }
         return
       }
     })
@@ -86,7 +100,6 @@ class MapContainer extends React.Component {
   }
 
   render() {
-    debugger
     return (
       <div>
         <Map
