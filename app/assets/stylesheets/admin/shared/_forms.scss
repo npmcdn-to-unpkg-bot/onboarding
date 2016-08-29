@@ -17,11 +17,11 @@ form {
   margin: 40px 0;
 
   @media screen and (min-width: $screen-m) {
-    padding: 0 5%;
+    padding: 0 10%;
   }
 
   @media screen and (min-width: $screen-l) {
-    padding: 0 15%;
+    padding: 0 20%;
   }
 
   .form-control {
@@ -42,8 +42,52 @@ form {
     font-family: $font-family-1;
   }
 
+  .form-control-btns {
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+      margin-right: 20px;
+    }
+  }
+
   select {
+    height: 40px;
+    border-radius: 0px !important;
+  }
+
+  // styles for chosen.js plugin
+
+  .chosen-container {
     min-height: 40px;
+
+    .chosen-choices {
+      min-height: 40px;
+      line-height: 40px;
+      background-image: none;
+    }
+  }
+
+  .chosen-container-multi .chosen-choices li.search-choice {
+    position: relative;
+    margin: 4px 5px 3px 0;
+    padding: 9px 25px 9px 8px;
+    border: 0px solid #aaa;
+    max-width: 100%;
+    border-radius: 3px;
+    background-color: $color-1;
+    background-image: none;
+    box-shadow: 0;
+    color: #fff;
+    font-weight: 600;
+    line-height: 13px;
+    font-family: $font-family-1;
+    cursor: default;
+  }
+
+  .search-choice-close {
+    top: 10px !important;
+    right: 5px !important;
   }
 }
 

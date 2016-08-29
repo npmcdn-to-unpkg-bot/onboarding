@@ -1,6 +1,7 @@
 
 .table {
   border: 0;
+  margin-bottom: 0;
 
   thead th {
     border: 0 !important;
@@ -11,14 +12,15 @@
     vertical-align: middle;
 
     &:nth-child(odd) {
-      background-color: #fbfbfb;
+      background-color: rgba(235, 235, 235, 0.5)
     }
   }
 
   td {
     border: 0 !important;
-    border-right: 1px solid lightgrey !important;
+    border-right: 1px solid #d8d8d8 !important;
     vertical-align: middle !important;
+    padding: 20px 10px;
 
     &:last-child {
       border: 0 !important;
@@ -33,11 +35,88 @@
     }
   }
 
-  .actions {
-    text-align: center;
+  td:first-child,
+  th:first-child {
+    width: 5%;
 
-    a {
+    @media screen and (min-width: $screen-s) {
+      padding-left: $wrap-padding-tablet;
+    }
+
+    @media screen and (min-width: $screen-m) {
+      padding-left: $wrap-padding-desktop;
+    }
+
+    @media screen and (min-width: $screen-l) {
+      padding-left: $wrap-padding-desktop;
+    }
+
+    @media screen and (min-width: $screen-xl) {
+      padding-left: $wrap-padding-desktop-xl;
+    }
+
+    @media screen and (min-width: 1400px) {
+      padding-left: calc((100vw - 1180px)/2);
+    }
+  }
+
+  td:last-child {
+    border-right: none;
+  }
+
+  td:last-child,
+  th:last-child {
+    width: 5%;
+
+    @media screen and (min-width: $screen-s) {
+      padding-right: $wrap-padding-tablet;
+    }
+
+    @media screen and (min-width: $screen-m) {
+      padding-right: $wrap-padding-desktop;
+    }
+
+    @media screen and (min-width: $screen-l) {
+      padding-right: $wrap-padding-desktop;
+    }
+
+    @media screen and (min-width: $screen-xl) {
+      padding-right: $wrap-padding-desktop-xl;
+    }
+
+    @media screen and (min-width: 1400px) {
+      padding-right: calc((100vw - 1180px)/2);
+    }
+  }
+
+  .actions {
+    display: -webkit-inline-box;
+    padding: 25px 5px;
+
+    > .svg-bttn {
+      -webkit-transform: perspective(800px) translateZ(-300px);
+      background-repeat: no-repeat;
       display: block;
+      cursor: pointer;
+      margin-left: 5px;
+
+      &.-show {
+        background-image: url('show.svg');
+        width: 20px;
+        height: 20px;
+      }
+
+      &.-edit {
+        background-image: url('edit.svg');
+        width: 20px;
+        height: 20px;
+      }
+
+      &.-delete {
+        background-image: url('delete.svg');
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 

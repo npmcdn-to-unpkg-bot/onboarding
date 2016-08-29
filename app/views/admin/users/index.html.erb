@@ -1,29 +1,43 @@
-<h1>Users</h1>
+<div class="index-title wrap">
+  <h1>Users</h1>
+  <%= link_to 'New User', new_admin_user_path, class: 'bttn bttn-primary' %>
+</div>
 
-<table class="table table-bordered">
+<div class="search wrap">
+  <input type="text" class="search-input" placeholder="Search" />
+  <svg class="icon icon-search">
+    <use xlink:href="#icon-search"></use>
+  </svg>
+</div>
+
+<table class="table table-bordered draggable">
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Osm</th>
       <th>Email</th>
-      <th colspan="3">Actions</th>
+      <th>Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td>
+          <svg class="icon icon-Row-Dragger">
+            <use xlink:href="#icon-Row-Dragger"></use>
+          </svg>
+        </td>
         <td><%= user.name %></td>
         <td><%= user.osm_id %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Show', admin_user_path(user) %></td>
-        <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
-        <td><%= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="actions">
+          <%= link_to '', admin_user_path(user), :class => "svg-bttn -show" %>
+          <%= link_to '', edit_admin_user_path(user), :class => "svg-bttn -edit" %>
+          <%= link_to '', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, :class => "svg-bttn -delete" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New User', new_admin_user_path, class: 'bttn bttn-primary' %>
