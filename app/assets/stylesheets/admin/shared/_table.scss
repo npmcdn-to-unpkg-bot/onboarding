@@ -90,10 +90,33 @@
   }
 
   .actions {
-    text-align: center;
+    display: -webkit-inline-box;
+    padding: 25px 5px;
 
-    a {
+    > .svg-bttn {
+      -webkit-transform: perspective(800px) translateZ(-300px);
+      background-repeat: no-repeat;
       display: block;
+      cursor: pointer;
+      margin-left: 5px;
+
+      &.-show {
+        background-image: url('show.svg');
+        width: 20px;
+        height: 20px;
+      }
+
+      &.-edit {
+        background-image: url('edit.svg');
+        width: 20px;
+        height: 20px;
+      }
+
+      &.-delete {
+        background-image: url('delete.svg');
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 

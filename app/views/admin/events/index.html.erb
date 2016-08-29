@@ -34,7 +34,11 @@
         <td><%= event.description %></td>
         <td><%= event.date %></td>
         <td><%= event.contact %></td>
-        <td><%= link_to 'Show', event_path(event) %><%= link_to 'Edit', edit_admin_event_path(event) %><%= link_to 'Destroy', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="actions">
+          <%= link_to '', event_path(event), :class => "svg-bttn -show" %>
+          <%= link_to '', edit_admin_event_path(event), :class => "svg-bttn -edit" %>
+          <%= link_to '', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' }, :class => "svg-bttn -delete" %>
+        </td>
       </tr>
     <% end %>
   </tbody>

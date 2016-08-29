@@ -28,7 +28,11 @@
         <td><%= country.iso %></td>
         <td><%= country.shp_url %></td>
         <td><%= country.geojson_url %></td>
-        <td><%= link_to 'Show', admin_country_path(country) %><%= link_to 'Edit', edit_admin_country_path(country) %><%= link_to 'Destroy', admin_country_path(country), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="actions">
+          <%= link_to '', admin_country_path(country), :class => "svg-bttn -show" %>
+          <%= link_to '', edit_admin_country_path(country), :class => "svg-bttn -edit" %>
+          <%= link_to '', admin_country_path(country), method: :delete, data: { confirm: 'Are you sure?' }, :class => "svg-bttn -delete" %>
+        </td>
       </tr>
     <% end %>
   </tbody>

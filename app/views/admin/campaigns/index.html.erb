@@ -27,16 +27,3 @@
     <%= render @campaigns %>
   </tbody>
 </table>
-
-<script>
-search(event) {
-  const token = event.target.value;
-
-  if (token !== '') {
-    const result = this.fuse.search(token);
-    this.setState({ data: result });
-  } else {
-    this.setState({ data: this.data });
-  }
-}
-</script>

@@ -34,7 +34,11 @@
         <td><%= task.description %></td>
         <td><%= task.task_type_humanize %></td>
         <td><%= task.status_humanize %></td>
-        <td><%= link_to 'Show', task_path(task) %><%= link_to 'Edit', edit_admin_task_path(task) %><%= link_to 'Destroy', admin_task_path(task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="actions">
+          <%= link_to '', task_path(task), :class => "svg-bttn -show" %>
+          <%= link_to '', edit_admin_task_path(task), :class => "svg-bttn -edit" %>
+          <%= link_to '', admin_task_path(task), method: :delete, data: { confirm: 'Are you sure?' }, :class => "svg-bttn -delete" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
