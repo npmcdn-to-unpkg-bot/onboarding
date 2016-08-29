@@ -159,7 +159,6 @@ GEM
       sprockets-rails (>= 2.0.0)
     rails-assets-chosen (1.6.2)
       rails-assets-jquery (>= 1.4.4)
-    rails-assets-fuse.js (2.4.1)
     rails-assets-jquery (3.1.0)
     rails-assets-leaflet (0.7.7)
     rails-assets-leaflet-draw (0.3.2)
@@ -258,7 +257,6 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (>= 5.0.0, < 5.1)
   rails-assets-chosen!
-  rails-assets-fuse.js!
   rails-assets-leaflet!
   rails-assets-leaflet-draw!
   rails-assets-tether (>= 1.1.0)!
