@@ -10,7 +10,7 @@ const layersConfig = [
     cartoCss: '#null{polygon-fill: #FF6600;polygon-opacity: 0.5;}',
     sql: "SELECT * FROM world_borders WHERE iso3='CAN'",
     title: 'Layer 1',
-    active: true
+    active: false
   },
   {
     slug: 'layer2',

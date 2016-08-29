@@ -12,13 +12,14 @@ class LayerSwitcher extends React.Component {
       const slug = layer.slug
 
       switchers.push ( <div className="switcher" key={i}>
-        <label htmlFor={slug} >{layer.title}</label>
         <input type="checkbox" id={slug}  checked={ layer.active } onChange={ () => {this.props.toggleLayers( {slug} )} }/>
+        <label htmlFor={slug} ></label>
+        <span className="label">{layer.title}</span>
       </div>)
 
     });
     return (
-      <div>
+      <div className="c-layers-switcher">
         {switchers}
       </div>
     );
