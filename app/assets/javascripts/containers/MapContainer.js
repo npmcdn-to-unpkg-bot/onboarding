@@ -27,70 +27,80 @@ class MapContainer extends React.Component {
 
     this.state = {
       tilesList: {},
-      layersList: layersConfig,
+      layersList: layersConfig
     };
   }
 
   componentDidMount() {
-    this._createLayers();
+    // this._createLayers();
   }
 
   componentDidUpdate() {
+    this._addTasks();
   }
 
-  _createLayers() {
-    this.state.layersList.map( (layer) => {
-      if (layer.active) {
-        this.props.createLayer({
-          type: CREATE_LAYER,
-          layer: {
-            slug: layer.slug,
-            layer: {
-              sql: layer.sql,
-              cartocss: layer.cartoCss,
-            }
-          }
-        });
+  // _createLayers() {
+  //   this.state.layersList.map( (layer) => {
+  //     if (layer.active) {
+  //       this.props.createLayer({
+  //         type: CREATE_LAYER,
+  //         layer: {
+  //           slug: layer.slug,
+  //           layer: {
+  //             sql: layer.sql,
+  //             cartocss: layer.cartoCss,
+  //           }
+  //         }
+  //       });
+  //     }
+  //   });
+  // }
+
+  // _removeLayers(layer) {
+  //   if (this.state.tilesList[layer.slug]) {
+  //     const newList = Object.assign({}, this.state.tilesList);
+  //     delete newList[layer.slug];
+
+  //     this.setState({
+  //       tilesList: newList
+  //     });
+  //   }
+  // }
+
+  _addTasks() {
+    console.log(this.props.tasksList);
+
+    this.props.tasksList.map( (layer) => {
+
       }
-    });
+    )
   }
 
-  _removeLayers(layer) {
-    if (this.state.tilesList[layer.slug]) {
-      const newList = Object.assign({}, this.state.tilesList);
-      delete newList[layer.slug];
+  // componentWillReceiveProps(props) {
+  //   this.addLayer(props.layer);
+  // }
 
-      this.setState({
-        tilesList: newList
-      });
-    }
-  }
+  // addLayer(layer) {
+  //   if (!this.state.tilesList[layer.slug]) {
+  //     const newList = Object.assign({}, this.state.tilesList);
+  //     newList[layer.slug] = layer.tile;
 
-  componentWillReceiveProps(props) {
-    this.addLayer(props.layer);
-  }
-
-  addLayer(layer) {
-    if (!this.state.tilesList[layer.slug]) {
-      const newList = Object.assign({}, this.state.tilesList);
-      newList[layer.slug] = layer.tile;
-
-      this.setState({
-        tilesList: newList
-      });
-    }
-  }
+  //     this.setState({
+  //       tilesList: newList
+  //     });
+  //   }
+  // }
 
   toggleLayerFn(selectedLayer) {
     this.state.layersList.map( (layer) => {
       if (layer.slug === selectedLayer.slug) {
         layer.active = !layer.active;
 
-        if (layer.active) {
-          this._createLayers();
-        } else {
-          this._removeLayers(layer);
-        }
+        // if (layer.active) {
+        //   this._createLayers();
+        // } else {
+        //   this._removeLayers(layer);
+        // }
         return
       }
     })
@@ -104,6 +114,7 @@ class MapContainer extends React.Component {
       <div>
         <Map
           tiles={this.state.tilesList}
+          polygons={this.props.tasksList}
         />
         <LayerSwitcher
           layersList={this.state.layersList}

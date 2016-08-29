@@ -15,6 +15,10 @@ class Map extends React.Component {
     this.updateTiles(props.tiles);
   }
 
+  componentDidUpdate() {
+    this.props.polygons && this._drawPolygons();
+  }
+
   initMap() {
     const mapContainer = document.getElementById('map');
     this.map = L.map(mapContainer, {
@@ -77,6 +81,22 @@ class Map extends React.Component {
     const layer = L.tileLayer(tile, { noWrap: true });
     layer.addTo(this.map);
     this.activeTiles[slug].layer = layer;
+  }
+
+  _drawPolygons() {
+    let polygons = [];
+
+    this.props.polygons.map( (task) => {
+      const polygon = {};
+      polygon.id = task.id;
+      polygon.title = task.name;
+      polygon.geojson = task.location && L.geoJson(task.location);
+
+      polygons.push(polygon);
+
+      task.location && L.geoJson(task.location).addTo(this.map);
+      debugger
+    })
   }
 
   render() {
