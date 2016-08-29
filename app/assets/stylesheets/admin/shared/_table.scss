@@ -5,6 +5,34 @@
 
   thead th {
     border: 0 !important;
+
+    &.sortable a {
+      padding-right: 12px;
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-image: url('TriangleUp.svg'), url('TriangleDown.svg');
+      background-position: right 35%, right 75%;
+      display: inline-block;
+      width: 100%;
+
+      span {
+        color: #373a3c;
+        margin-top: -5px;
+      }
+
+      span:hover {
+        color: #373a3c;
+        text-decoration: none;
+      }
+
+      &.asc {
+        background-image: url('TriangleUpDark.svg'), url('TriangleDown.svg');
+      }
+
+      &.desc {
+        background-image: url('TriangleUp.svg'), url('TriangleDownDark.svg');
+      }
+    }
   }
 
   tbody tr {
