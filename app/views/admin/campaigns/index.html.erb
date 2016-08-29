@@ -27,3 +27,5 @@
     <%= render @campaigns %>
   </tbody>
 </table>
+
+<%= will_paginate @campaigns, :previous_label => '<', :next_label => '>' %>

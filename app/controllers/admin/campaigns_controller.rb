@@ -4,7 +4,7 @@ class Admin::CampaignsController < AdminController
   # GET /campaigns
   # GET /campaigns.json
   def index
-    @campaigns = Campaign.ordered_by_position_asc
+    @campaigns = Campaign.ordered_by_position_asc.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /campaigns/1
