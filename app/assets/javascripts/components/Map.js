@@ -15,8 +15,9 @@ class Map extends React.Component {
     this.updateTiles(props.tiles);
   }
 
-  componentDidUpdate() {
-    this.props.polygons && this._drawPolygons();
+  componentDidUpdate(newProps) {
+    this.props.polygons !== newProps.polygons && this._drawPolygons().bind(this);
+    this.props.tasksList !== newProps.tasksList && this._updatePolygons().bind(this);
   }
 
   initMap() {
@@ -83,6 +84,14 @@ class Map extends React.Component {
     this.activeTiles[slug].layer = layer;
   }
 
+  _updatePolygons() {
+    debugger
+    this.props.tasksList.map( (task) => {
+      task.location && task.active && L.geoJson(task.location).addTo(this.map);
+      task.location && !task.active && L.geoJson(task.location).addTo(this.map);
+    });
+  }
+
   _drawPolygons() {
     let polygons = [];
 
@@ -95,8 +104,9 @@ class Map extends React.Component {
       polygons.push(polygon);
 
       task.location && L.geoJson(task.location).addTo(this.map);
-      debugger
-    })
+    });
+
+    this.setState.polygonTyles = polygons;
   }
 
   render() {
