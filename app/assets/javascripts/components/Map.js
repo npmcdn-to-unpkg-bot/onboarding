@@ -11,9 +11,6 @@ class Map extends React.Component {
     this.initMap();
   }
 
-  componentWillReceiveProps(newProps) {
-  }
-
   componentDidUpdate() {
     this._drawPolygons();
   }
@@ -34,72 +31,8 @@ class Map extends React.Component {
     this.basemap.addTo(this.map);
   }
 
-  // updateTiles(tiles) {
-  //   if (tiles) {
-  //     Object.keys(tiles).forEach((slug) => {
-  //       if (!this.activeTiles[slug]) {
-  //         this.activeTiles[slug] = {
-  //           tile: tiles[slug],
-  //           layer: {}
-  //         };
-  //         this.addTile(slug, tiles[slug]);
-  //       }
-  //     });
-
-  //     this.checkRemovedTiles(tiles);
-  //   }
-  // }
-
-  // checkRemovedTiles(tiles) {
-  //   const currentTiles = new Set(Object.keys(this.activeTiles));
-  //   const newTiles = new Set(Object.keys(tiles));
-  //   const difference = new Set(
-  //     [...currentTiles].filter(x => !newTiles.has(x)));
-
-  //   if (difference.size) {
-  //     this.removeTiles(difference);
-  //   }
-  // }
-
-  // removeTiles(tiles) {
-  //   const currentList = Object.assign({}, this.activeTiles);
-  //   const newList = {};
-
-  //   Object.keys(currentList).forEach((slug) => {
-  //     if (!tiles.has(slug)) {
-  //       newList[slug] = currentList[slug];
-  //     } else {
-  //       this.map.removeLayer(this.activeTiles[slug].layer);
-  //     }
-  //   });
-
-  //   this.activeTiles = newList;
-  // }
-
-  // addTile(slug, tile) {
-  //   const layer = L.tileLayer(tile, { noWrap: true });
-  //   layer.addTo(this.map);
-  //   this.activeTiles[slug].layer = layer;
-  // }
-
-  // _updatePolygons(tasksList) {
-  //   tasksList.map( (task) => {
-  //     task.location && task.active && this._addPolygon(task)
-  //     task.location && !task.active && this._removePolygon(task);
-  //   });
-  // }
-
-  // _addPolygon(task) {
-  //   debugger
-  //   L.geoJson(task.location).addTo(this.map);
-  // }
-
-  // _removePolygon(task) {
-  //   const layerToRemove = L.geoJson(task.location);
-  //   debugger
-  // }
-
   _drawPolygons() {
+    //Create an object to manage the layers in/out the map
     this.props.layersGroups.map( (group) => {
       if (group.active) {
         this._addLayers(group.layers);
@@ -117,7 +50,6 @@ class Map extends React.Component {
 
   _removeLayers(layers) {
     layers.map( (layer) => {
-      console.log('remove')
       this.map.removeLayer(layer.geom);
     })
   }

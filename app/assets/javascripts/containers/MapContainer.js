@@ -4,7 +4,7 @@ import LayerSwitcher from './../components/LayerSwitcher';
 import { connect } from 'react-redux';
 import { createLayer, CREATE_LAYER } from '../actions/mapActions';
 
-const layersConfig = [
+const taskGroups = [
   {
     slug: 'type1',
     type: 1,
@@ -17,7 +17,7 @@ const layersConfig = [
     type: 2,
     title: 'To Manage',
     color: '#ffffff',
-    active: false
+    active: true
   }
 ];
 
@@ -26,7 +26,7 @@ class MapContainer extends React.Component {
     super(props);
 
     this.state = {
-      layersTypes: layersConfig
+      taskGroups: taskGroups
     };
   }
 
@@ -38,12 +38,13 @@ class MapContainer extends React.Component {
     //Groups layers by type to be able to switch on an off by groups.
     let groups = [];
 
-    this.state.layersTypes.map( (group) => {
+    this.state.taskGroups.map( (group) => {
       const type = group.type;
 
       let layersGroup = {};
       layersGroup.slug = group.slug;
       layersGroup.active = group.active;
+      layersGroup.type = group.type;
       layersGroup.layers = []
 
       tasksList.map( (task) => {
@@ -61,27 +62,24 @@ class MapContainer extends React.Component {
 
   toggleLayerFn(info) {
     //Handle switchers
-    this.state.layersTypes.map( (layer) => {
+    this.state.taskGroups.map( (layer) => {
       if (layer.type === info.type) {
         layer.active = info.active;
       }
     })
-
-    //Handle tasks
-    this.props.tasksList.map( (task) => {
-      if (task.task_type === info.type) {
-        task.active = info.active;
+    //Handle groups
+    this.state.layersGroups.map( (group) => {
+      if (group.type === info.type) {
+        group.active = info.active;
       }
-    })
+    });
 
-    const newLayerList = this.state.layersTypes;
-    const newTaskList = this.props.tasksList;
-
-    this.setState({ layersTypes: newLayerList, tasksList: newTaskList});
+    const newGroups = this.state.layersGroups;
+    const newLayerList = this.state.taskGroups;
+    this.setState({ layersGroups: newGroups, taskGroups: newLayerList });
   }
 
   render() {
-
     return (
       <div>
         <Map
@@ -90,7 +88,7 @@ class MapContainer extends React.Component {
           tasksList={this.state.tasksList}
         />
         <LayerSwitcher
-          layersTypes={this.state.layersTypes}
+          taskGroups={this.state.taskGroups}
           toggleLayers={(layer) => this.toggleLayerFn(layer)}
         />
       </div>
