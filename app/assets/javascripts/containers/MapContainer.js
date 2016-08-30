@@ -2,7 +2,6 @@ import React from 'react';
 import Map from './../components/Map';
 import LayerSwitcher from './../components/LayerSwitcher';
 import { connect } from 'react-redux';
-import { createLayer, CREATE_LAYER } from '../actions/mapActions';
 
 const taskGroups = [
   {
@@ -98,15 +97,11 @@ class MapContainer extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    layer: state.mapReducer.layer
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    createLayer: (action) => {
-      dispatch(createLayer(action));
-    }
   };
 }
 
