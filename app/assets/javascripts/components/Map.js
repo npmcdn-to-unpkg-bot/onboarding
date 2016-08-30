@@ -12,13 +12,10 @@ class Map extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    // this.updateTiles(newProps.tiles);
-
-    this.props.polygons !== newProps.polygons && this._drawPolygons(newProps.polygons);
-    this.props.tasksList !== newProps.tasksList && this._updatePolygons(newProps.tasksList);
   }
 
-  componentDidUpdate(newProps) {
+  componentDidUpdate() {
+    this._drawPolygons();
   }
 
   initMap() {
@@ -37,87 +34,92 @@ class Map extends React.Component {
     this.basemap.addTo(this.map);
   }
 
-  updateTiles(tiles) {
-    if (tiles) {
-      Object.keys(tiles).forEach((slug) => {
-        if (!this.activeTiles[slug]) {
-          this.activeTiles[slug] = {
-            tile: tiles[slug],
-            layer: {}
-          };
-          this.addTile(slug, tiles[slug]);
-        }
-      });
+  // updateTiles(tiles) {
+  //   if (tiles) {
+  //     Object.keys(tiles).forEach((slug) => {
+  //       if (!this.activeTiles[slug]) {
+  //         this.activeTiles[slug] = {
+  //           tile: tiles[slug],
+  //           layer: {}
+  //         };
+  //         this.addTile(slug, tiles[slug]);
+  //       }
+  //     });
 
-      this.checkRemovedTiles(tiles);
-    }
-  }
+  //     this.checkRemovedTiles(tiles);
+  //   }
+  // }
 
-  checkRemovedTiles(tiles) {
-    const currentTiles = new Set(Object.keys(this.activeTiles));
-    const newTiles = new Set(Object.keys(tiles));
-    const difference = new Set(
-      [...currentTiles].filter(x => !newTiles.has(x)));
+  // checkRemovedTiles(tiles) {
+  //   const currentTiles = new Set(Object.keys(this.activeTiles));
+  //   const newTiles = new Set(Object.keys(tiles));
+  //   const difference = new Set(
+  //     [...currentTiles].filter(x => !newTiles.has(x)));
 
-    if (difference.size) {
-      this.removeTiles(difference);
-    }
-  }
+  //   if (difference.size) {
+  //     this.removeTiles(difference);
+  //   }
+  // }
 
-  removeTiles(tiles) {
-    const currentList = Object.assign({}, this.activeTiles);
-    const newList = {};
+  // removeTiles(tiles) {
+  //   const currentList = Object.assign({}, this.activeTiles);
+  //   const newList = {};
 
-    Object.keys(currentList).forEach((slug) => {
-      if (!tiles.has(slug)) {
-        newList[slug] = currentList[slug];
+  //   Object.keys(currentList).forEach((slug) => {
+  //     if (!tiles.has(slug)) {
+  //       newList[slug] = currentList[slug];
+  //     } else {
+  //       this.map.removeLayer(this.activeTiles[slug].layer);
+  //     }
+  //   });
+
+  //   this.activeTiles = newList;
+  // }
+
+  // addTile(slug, tile) {
+  //   const layer = L.tileLayer(tile, { noWrap: true });
+  //   layer.addTo(this.map);
+  //   this.activeTiles[slug].layer = layer;
+  // }
+
+  // _updatePolygons(tasksList) {
+  //   tasksList.map( (task) => {
+  //     task.location && task.active && this._addPolygon(task)
+  //     task.location && !task.active && this._removePolygon(task);
+  //   });
+  // }
+
+  // _addPolygon(task) {
+  //   debugger
+  //   L.geoJson(task.location).addTo(this.map);
+  // }
+
+  // _removePolygon(task) {
+  //   const layerToRemove = L.geoJson(task.location);
+  //   debugger
+  // }
+
+  _drawPolygons() {
+    this.props.layersGroups.map( (group) => {
+      if (group.active) {
+        this._addLayers(group.layers);
       } else {
-        this.map.removeLayer(this.activeTiles[slug].layer);
+        this._removeLayers(group.layers);
       }
     });
-
-    this.activeTiles = newList;
   }
 
-  addTile(slug, tile) {
-    const layer = L.tileLayer(tile, { noWrap: true });
-    layer.addTo(this.map);
-    this.activeTiles[slug].layer = layer;
+  _addLayers(layers) {
+    layers.map( (layer) => {
+      layer.geom.addTo(this.map);
+    })
   }
 
-  _updatePolygons(tasksList) {
-    tasksList.map( (task) => {
-      task.location && task.active && this._addPolygon(task)
-      task.location && !task.active && this._removePolygon(task);
-    });
-  }
-
-  _addPolygon(task) {
-    debugger
-    L.geoJson(task.location).addTo(this.map);
-  }
-
-  _removePolygon(task) {
-    const layerToRemove = L.geoJson(task.location);
-    debugger
-  }
-
-  _drawPolygons(newPolygons) {
-    //Draw polygons from task for the first time.
-    let polygons = [];
-
-    newPolygons.map( (task) => {
-      let polygon = {};
-
-      polygon.geom = task.location && L.geoJson(task.location);
-      polygon.id = task.id;
-
-      polygons.push(polygon);
-
-      task.location && L.geoJson(task.location).addTo(this.map);
-    });
-
-    this.setState.polygonTyles = polygons;
+  _removeLayers(layers) {
+    layers.map( (layer) => {
+      console.log('remove')
+      this.map.removeLayer(layer.geom);
+    })
   }
 
   render() {

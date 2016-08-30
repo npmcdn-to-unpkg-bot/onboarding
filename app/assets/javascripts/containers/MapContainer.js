@@ -17,7 +17,7 @@ const layersConfig = [
     type: 2,
     title: 'To Manage',
     color: '#ffffff',
-    active: true
+    active: false
   }
 ];
 
@@ -26,8 +26,7 @@ class MapContainer extends React.Component {
     super(props);
 
     this.state = {
-      layersTypes: layersConfig,
-      layersGroups: []
+      layersTypes: layersConfig
     };
   }
 
@@ -44,6 +43,7 @@ class MapContainer extends React.Component {
 
       let layersGroup = {};
       layersGroup.slug = group.slug;
+      layersGroup.active = group.active;
       layersGroup.layers = []
 
       tasksList.map( (task) => {
@@ -56,9 +56,7 @@ class MapContainer extends React.Component {
       groups.push(layersGroup);
     });
 
-    console.log(groups);
-    debugger
-
+    this.setState({ layersGroups: groups });
   }
 
   toggleLayerFn(info) {
@@ -83,11 +81,12 @@ class MapContainer extends React.Component {
   }
 
   render() {
+
     return (
       <div>
         <Map
           tiles={this.state.tilesList}
-          polygons={this.props.tasksList}
+          layersGroups={this.state.layersGroups}
           tasksList={this.state.tasksList}
         />
         <LayerSwitcher
