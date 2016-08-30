@@ -26,19 +26,44 @@ class MapContainer extends React.Component {
     super(props);
 
     this.state = {
-      layersList: layersConfig,
+      layersTypes: layersConfig,
+      layersGroups: []
     };
   }
 
-  componentDidMount() {
+  componentWillReceiveProps(nextProps) {
+    nextProps.tasksList && this._createLayerGroups(nextProps.tasksList);
   }
 
-  componentWillUpdate() {
+  _createLayerGroups(tasksList) {
+    //Groups layers by type to be able to switch on an off by groups.
+    let groups = [];
+
+    this.state.layersTypes.map( (group) => {
+      const type = group.type;
+
+      let layersGroup = {};
+      layersGroup.slug = group.slug;
+      layersGroup.layers = []
+
+      tasksList.map( (task) => {
+        if (task.task_type === type && task.location) {
+          task.geom = L.geoJson(task.location);
+          layersGroup.layers.push(task);
+        }
+      });
+
+      groups.push(layersGroup);
+    });
+
+    console.log(groups);
+    debugger
+
   }
 
   toggleLayerFn(info) {
     //Handle switchers
-    this.state.layersList.map( (layer) => {
+    this.state.layersTypes.map( (layer) => {
       if (layer.type === info.type) {
         layer.active = info.active;
       }
@@ -51,10 +76,10 @@ class MapContainer extends React.Component {
       }
     })
 
-    const newLayerList = this.state.layersList;
+    const newLayerList = this.state.layersTypes;
     const newTaskList = this.props.tasksList;
 
-    this.setState({ layersList: newLayerList, tasksList: newTaskList});
+    this.setState({ layersTypes: newLayerList, tasksList: newTaskList});
   }
 
   render() {
@@ -66,7 +91,7 @@ class MapContainer extends React.Component {
           tasksList={this.state.tasksList}
         />
         <LayerSwitcher
-          layersList={this.state.layersList}
+          layersTypes={this.state.layersTypes}
           toggleLayers={(layer) => this.toggleLayerFn(layer)}
         />
       </div>

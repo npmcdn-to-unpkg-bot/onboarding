@@ -5,7 +5,7 @@ class Api::V1::TasksController < ApiController
     page = params[:page] ? params[:page] : 1
     sort_by = params[:sort_by] ? params[:sort_by] : 'name'
     direction = params[:direction] ? params[:direction] : 'ASC'
-    tasks = Task.paginate(:page => page, :per_page => 3).order(sort_by + ' ' + direction)
+    tasks = Task.paginate(:page => page, :per_page => 25).order(sort_by + ' ' + direction)
 
     render json: tasks
   end

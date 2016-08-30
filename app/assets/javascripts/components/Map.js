@@ -11,13 +11,14 @@ class Map extends React.Component {
     this.initMap();
   }
 
-  componentWillReceiveProps(props) {
-    this.updateTiles(props.tiles);
+  componentWillReceiveProps(newProps) {
+    // this.updateTiles(newProps.tiles);
+
+    this.props.polygons !== newProps.polygons && this._drawPolygons(newProps.polygons);
+    this.props.tasksList !== newProps.tasksList && this._updatePolygons(newProps.tasksList);
   }
 
   componentDidUpdate(newProps) {
-    this.props.polygons !== newProps.polygons && this._drawPolygons().bind(this);
-    this.props.tasksList !== newProps.tasksList && this._updatePolygons().bind(this);
   }
 
   initMap() {
@@ -84,22 +85,32 @@ class Map extends React.Component {
     this.activeTiles[slug].layer = layer;
   }
 
-  _updatePolygons() {
-    debugger
-    this.props.tasksList.map( (task) => {
-      task.location && task.active && L.geoJson(task.location).addTo(this.map);
-      task.location && !task.active && L.geoJson(task.location).addTo(this.map);
+  _updatePolygons(tasksList) {
+    tasksList.map( (task) => {
+      task.location && task.active && this._addPolygon(task)
+      task.location && !task.active && this._removePolygon(task);
     });
   }
 
-  _drawPolygons() {
+  _addPolygon(task) {
+    debugger
+    L.geoJson(task.location).addTo(this.map);
+  }
+
+  _removePolygon(task) {
+    const layerToRemove = L.geoJson(task.location);
+    debugger
+  }
+
+  _drawPolygons(newPolygons) {
+    //Draw polygons from task for the first time.
     let polygons = [];
 
-    this.props.polygons.map( (task) => {
-      const polygon = {};
+    newPolygons.map( (task) => {
+      let polygon = {};
+
+      polygon.geom = task.location && L.geoJson(task.location);
       polygon.id = task.id;
-      polygon.title = task.name;
-      polygon.geojson = task.location && L.geoJson(task.location);
 
       polygons.push(polygon);
 
