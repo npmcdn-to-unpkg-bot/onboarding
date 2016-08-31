@@ -4,7 +4,7 @@ const BASEMAP = 'http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png';
 class Map extends React.Component {
   constructor(props) {
     super(props);
-    this.activeTiles = {};
+    this.activeTiles = [];
   }
 
   componentDidMount() {
@@ -40,18 +40,33 @@ class Map extends React.Component {
         this._removeLayers(group.layers);
       }
     });
+
+    this._fitBounds();
   }
 
   _addLayers(layers) {
     layers.map( (layer) => {
       layer.geom.addTo(this.map);
+      this.activeTiles.push(layer.geom);
     })
   }
 
   _removeLayers(layers) {
     layers.map( (layer) => {
       this.map.removeLayer(layer.geom);
-    })
+
+      const index = this.activeTiles.indexOf(layer.geom);
+      if (index > -1 ) {
+        this.activeTiles.splice(index, 1)
+      }
+    });
+
+    this._fitBounds();
+  }
+
+  _fitBounds() {
+    const group = new L.FeatureGroup(this.activeTiles);
+    this.map.fitBounds(group.getBounds());
   }
 
   render() {
