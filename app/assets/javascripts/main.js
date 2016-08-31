@@ -64,21 +64,21 @@ $('#communityData').ready( function() {
   }
 });
 
-$('#latestActivity').ready( function() {
-  /* It always runs this callback, that's why we need to establish
-  a condition to avoid issues */
-  if ($('#latestActivity')[0]) {
-    /* Users activity data */
-    ['latestActivity'].map(element => {
-      ReactDOM.render(
-        <Provider store={store}>
-          <UsersActivityDataContainer data={element} />
-        </Provider>,
-        document.getElementById(element)
-      );
-    });
-  }
-});
+// $('#latestActivity').ready( function() {
+//   /* It always runs this callback, that's why we need to establish
+//   a condition to avoid issues */
+//   if ($('#latestActivity')[0]) {
+//     /* Users activity data */
+//     ['latestActivity'].map(element => {
+//       ReactDOM.render(
+//         <Provider store={store}>
+//           <UsersActivityDataContainer data={element} />
+//         </Provider>,
+//         document.getElementById(element)
+//       );
+//     });
+//   }
+// });
 
 $('#ranking').ready( function() {
   /* It always runs this callback, that's why we need to establish
