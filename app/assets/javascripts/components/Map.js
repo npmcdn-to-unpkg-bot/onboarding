@@ -18,6 +18,7 @@ class Map extends React.Component {
   initMap() {
     const mapContainer = document.getElementById('map');
     this.map = L.map(mapContainer, {
+      center: [39.950490, -40],
       zoom: 3,
       scrollWheelZoom: false,
       zoomControl: false
@@ -47,7 +48,7 @@ class Map extends React.Component {
       this.activeTiles.push(layer.geom);
     });
 
-    this._fitBounds();
+    // this._fitBounds();
   }
 
   _removeLayers(layers) {
@@ -60,7 +61,7 @@ class Map extends React.Component {
       }
     });
 
-    this._fitBounds();
+    // this._fitBounds();
   }
 
   _fitBounds() {

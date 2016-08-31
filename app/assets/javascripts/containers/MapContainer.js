@@ -11,19 +11,17 @@ const taskGroups = [
     color: '#ff5d33',
     active: true,
     style: {
-      color: '#ff5d33',
-      opacity: 0.3
+      color: '#ff5d33'
     }
   },
   {
     slug: 'type2',
     type: 2,
-    title: 'To Manage',
+    title: 'Tasking Manager tasks',
     color: '#ffffff',
     active: true,
     style: {
-      color: '#ffffff',
-      opacity: 0.3
+      color: '#ffffff'
     }
   }
 ];

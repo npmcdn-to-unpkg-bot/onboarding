@@ -6,6 +6,7 @@
 
   path {
     stroke: transparent;
+    fill-opacity: .5;
   }
 
   //Map controls
@@ -51,14 +52,14 @@
       margin-bottom: 10px;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
-      background-image: image-url('minus.svg');
+      background-image: image-url('plus.svg');
       background-size: 20px;
     }
 
     &:last-child {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-      background-image: image-url('plus.svg');
+      background-image: image-url('minus.svg');
       background-size: 20px;
     }
   }
