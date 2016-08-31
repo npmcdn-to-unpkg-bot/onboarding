@@ -1,0 +1,29 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="table">
+  <thead>
+    <tr>
+      <th class="sortable"><%= sortable "name" %></th>
+      <th>Description</th>
+      <th class="sortable"><%= sortable "date" %></th>
+      <th>Contact</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for event in @events %>
+      <tr>
+        <td class="-bold"><%= event.name %></td>
+        <td><%= event.description %></td>
+        <td><%= event.date %></td>
+        <td><%= event.contact %></td>
+        <td class="actions">
+          <%= link_to '', event_path(event), :class => "svg-bttn -show" %>
+          <%= link_to '', edit_admin_event_path(event), :class => "svg-bttn -edit" %>
+          <%= link_to '', admin_event_path(event), method: :delete, data: {confirm: 'Are you sure?'}, :class => "svg-bttn -delete"%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @events, previous_label: '<', next_label: '>' %>

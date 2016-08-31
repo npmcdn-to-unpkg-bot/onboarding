@@ -3,43 +3,13 @@
   <%= link_to 'New Event', new_admin_event_path, class: 'bttn bttn-primary' %>
 </div>
 
-<div class="search wrap">
-  <input type="text" class="search-input" placeholder="Search" />
-  <svg class="icon icon-search">
-    <use xlink:href="#icon-search"></use>
-  </svg>
-</div>
-
-<table class="table table-bordered draggable">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Date</th>
-      <th>Contact</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td>
-          <svg class="icon icon-Row-Dragger">
-            <use xlink:href="#icon-Row-Dragger"></use>
-          </svg>
-        </td>
-        <td><%= event.name %></td>
-        <td><%= event.description %></td>
-        <td><%= event.date %></td>
-        <td><%= event.contact %></td>
-        <td class="actions">
-          <%= link_to '', event_path(event), :class => "svg-bttn -show" %>
-          <%= link_to '', edit_admin_event_path(event), :class => "svg-bttn -edit" %>
-          <%= link_to '', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' }, :class => "svg-bttn -delete" %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= form_tag admin_events_path, method: 'get', id: "search-form" do %>
+  <div class="search wrap">
+    <%= text_field_tag :search, params[:search], class: 'search-input' %>
+    <svg class="icon icon-search">
+      <use xlink:href="#icon-search"></use>
+    </svg>
+    <%= submit_tag '', name: nil, class: 'hidden' %>
+  </div>
+  <div id="search-table"><%= render 'events' %></div>
+<% end %>

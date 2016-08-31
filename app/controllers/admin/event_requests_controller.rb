@@ -1,10 +1,14 @@
 class Admin::EventRequestsController < AdminController
   before_action :set_event_request, only: [:show, :edit, :update, :destroy]
-
+  helper_method :sort_column, :sort_direction
   # GET /event_requests
   # GET /event_requests.json
   def index
-    @event_requests = EventRequest.all
+    @event_requests = EventRequest.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 9)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /event_requests/1
@@ -71,4 +75,13 @@ class Admin::EventRequestsController < AdminController
   def event_request_params
     params.require(:event_request).permit(:name, :description, :location, :potential_date, :experience_level, :email)
   end
+
+  private
+    def sort_column
+      EventRequest.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
 end

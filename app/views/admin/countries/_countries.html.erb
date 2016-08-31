@@ -1,0 +1,29 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="table">
+  <thead>
+    <tr>
+      <th class="sortable"><%= sortable "name" %></th>
+      <th>ISO</th>
+      <th>shp url</th>
+      <th>geojson url</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for country in @countries %>
+      <tr>
+        <td class="-bold"><%= country.name %></td>
+        <td><%= country.iso %></td>
+        <td><%= country.shp_url %></td>
+        <td><%= country.geojson_url %></td>
+        <td class="actions">
+          <%= link_to '', admin_country_path(country), :class => "svg-bttn -show" %>
+          <%= link_to '', edit_admin_country_path(country), :class => "svg-bttn -edit" %>
+          <%= link_to '', admin_country_path(country), method: :delete, data: {confirm: 'Are you sure?'}, :class => "svg-bttn -delete"%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @countries, previous_label: '<', next_label: '>' %>

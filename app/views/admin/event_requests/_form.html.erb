@@ -1,4 +1,5 @@
-<%= form_for([:admin, event_request]) do |f| %>
+<div class="form-wrap">
+  <%= form_for([:admin, event_request]) do |f| %>
     <% if event_request.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(event_request.errors.count, "error") %> prohibited this event_request from being saved:</h2>
@@ -49,4 +50,5 @@
         <%= f.submit class: 'bttn bttn-primary' %>
       </div>
     </div>
-<% end %>
+  <% end %>
+</div>
