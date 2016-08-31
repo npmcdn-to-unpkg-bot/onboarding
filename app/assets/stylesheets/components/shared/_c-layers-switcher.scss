@@ -28,8 +28,9 @@
         width: 20px;
         height: 20px;
         border-radius: 50%;
-        background-color: $color-2;
+        background-color: inherit;
         transition: .2s ease-in;
+        border: 1px solid #000;
       }
     }
 
@@ -54,7 +55,7 @@
 
         &:after {
           left: 22px;
-          background-color: $color-2;
+          // background-color: $color-2;
         }
       }
     }
