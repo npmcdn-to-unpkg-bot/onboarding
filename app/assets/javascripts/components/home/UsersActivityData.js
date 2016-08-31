@@ -9,20 +9,23 @@ class UsersActivityData extends React.Component {
   }
 
   render() {
-    const title = this.props.data && this.props.data.split('-').join(' ');
-    const users = this.props.usersActivityData ? this.props.usersActivityData : [];
 
+    const title = this.props.data && this.props.data.split('-').join(' ');
+    const users = this.props.usersActivityData ? this.props.usersActivityData.users : {};
+    console.log()
     return (
       <div className="users-activity-element">
         <h3 className="text text-p-title -light">{title}</h3>
         <table className="activity-table">
           <tbody>
           { users.map( (user, i) => {
+            console.log(users)
+            console.log(user)
             return (
               <tr key={i}>
                 { title === "ranking" && <td className="rank text text-legend -light">{i+1}</td> }
                 <td className="user text text-legend -light">{user.name}</td>
-                <td className="road text text-legend -light">{user.roads} roads</td>
+                <td className="road text text-legend -light">{user.total} roads</td>
               </tr>
             );
           })}
