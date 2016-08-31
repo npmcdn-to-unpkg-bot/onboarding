@@ -75,13 +75,4 @@ class Admin::TasksController < AdminController
   def task_params
     params.require(:task).permit(:name, :task_manager_url, :task_type, :description, :image, :status, :location, {campaign_ids: []}, {event_ids: []})
   end
-
-  private
-    def sort_column
-      Task.column_names.include?(params[:sort]) ? params[:sort] : "name"
-    end
-
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-    end
 end

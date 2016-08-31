@@ -75,13 +75,4 @@ class Admin::EventsController < AdminController
   def event_params
     params.require(:event).permit(:name, :description, :image, :url, :date, :location, :instructions, :contact, :campaign_id, :user_id, {task_ids: []})
   end
-
-  private
-    def sort_column
-      Event.column_names.include?(params[:sort]) ? params[:sort] : "name"
-    end
-
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-    end
 end

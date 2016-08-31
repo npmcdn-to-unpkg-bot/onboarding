@@ -75,13 +75,4 @@ class Admin::EventRequestsController < AdminController
   def event_request_params
     params.require(:event_request).permit(:name, :description, :location, :potential_date, :experience_level, :email)
   end
-
-  private
-    def sort_column
-      EventRequest.column_names.include?(params[:sort]) ? params[:sort] : "name"
-    end
-
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-    end
 end
