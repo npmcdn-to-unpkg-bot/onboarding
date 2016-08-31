@@ -2,22 +2,27 @@ import React from 'react';
 import Map from './../components/Map';
 import LayerSwitcher from './../components/LayerSwitcher';
 import { connect } from 'react-redux';
-import { createLayer, CREATE_LAYER } from '../actions/mapActions';
 
-const layersConfig = [
+const taskGroups = [
   {
-    slug: 'layer1',
-    cartoCss: '#null{polygon-fill: #FF6600;polygon-opacity: 0.5;}',
-    sql: "SELECT * FROM world_borders WHERE iso3='CAN'",
-    title: 'Layer 1',
-    active: false
+    slug: 'type1',
+    type: 1,
+    title: 'To fix',
+    color: '#ff5d33',
+    active: true,
+    style: {
+      color: '#ff5d33'
+    }
   },
   {
-    slug: 'layer2',
-    cartoCss: '#null{polygon-fill: #FF0000;polygon-opacity: 0.5;}',
-    sql: "SELECT * FROM world_borders WHERE iso3='USA'",
-    title: 'Layer 2',
-    active: true
+    slug: 'type2',
+    type: 2,
+    title: 'Tasking Manager tasks',
+    color: '#ffffff',
+    active: true,
+    style: {
+      color: '#ffffff'
+    }
   }
 ];
 
@@ -26,77 +31,57 @@ class MapContainer extends React.Component {
     super(props);
 
     this.state = {
-      tilesList: {},
-      layersList: layersConfig,
+      taskGroups: taskGroups
     };
   }
 
-  componentDidMount() {
-    this._createLayers();
+  componentWillReceiveProps(nextProps) {
+    nextProps.tasksList && this._createLayerGroups(nextProps.tasksList);
   }
 
-  componentDidUpdate() {
-  }
+  _createLayerGroups(tasksList) {
+    //Groups layers by type to be able to switch on an off by groups.
+    let groups = [];
 
-  _createLayers() {
-    this.state.layersList.map( (layer) => {
-      if (layer.active) {
-        this.props.createLayer({
-          type: CREATE_LAYER,
-          layer: {
-            slug: layer.slug,
-            layer: {
-              sql: layer.sql,
-              cartocss: layer.cartoCss,
-            }
-          }
-        });
-      }
-    });
-  }
+    this.state.taskGroups.map( (group) => {
+      const type = group.type;
 
-  _removeLayers(layer) {
-    if (this.state.tilesList[layer.slug]) {
-      const newList = Object.assign({}, this.state.tilesList);
-      delete newList[layer.slug];
+      let layersGroup = {};
+      layersGroup.slug = group.slug;
+      layersGroup.active = group.active;
+      layersGroup.type = group.type;
+      layersGroup.layers = [];
 
-      this.setState({
-        tilesList: newList
-      });
-    }
-  }
-
-  componentWillReceiveProps(props) {
-    this.addLayer(props.layer);
-  }
-
-  addLayer(layer) {
-    if (!this.state.tilesList[layer.slug]) {
-      const newList = Object.assign({}, this.state.tilesList);
-      newList[layer.slug] = layer.tile;
-
-      this.setState({
-        tilesList: newList
-      });
-    }
-  }
-
-  toggleLayerFn(selectedLayer) {
-    this.state.layersList.map( (layer) => {
-      if (layer.slug === selectedLayer.slug) {
-        layer.active = !layer.active;
-
-        if (layer.active) {
-          this._createLayers();
-        } else {
-          this._removeLayers(layer);
+      tasksList.map( (task) => {
+        if (task.task_type === type && task.location) {
+          task.geom = L.geoJson(task.location, { style: group.style });
+          layersGroup.layers.push(task);
         }
-        return
+      });
+
+      groups.push(layersGroup);
+    });
+
+    this.setState({ layersGroups: groups });
+  }
+
+  toggleLayerFn(info) {
+    //Handle switchers
+    this.state.taskGroups.map( (layer) => {
+      if (layer.type === info.type) {
+        layer.active = info.active;
       }
     })
+    //Handle groups
+    this.state.layersGroups.map( (group) => {
+      if (group.type === info.type) {
+        group.active = info.active;
+      }
+    });
 
-    const newLayerList = this.state.layersList;
-    this.setState({ layersList: newLayerList });
+    const newGroups = this.state.layersGroups;
+    const newLayerList = this.state.taskGroups;
+    this.setState({ layersGroups: newGroups, taskGroups: newLayerList });
   }
 
   render() {
@@ -104,9 +89,11 @@ class MapContainer extends React.Component {
       <div>
         <Map
           tiles={this.state.tilesList}
+          layersGroups={this.state.layersGroups}
+          tasksList={this.state.tasksList}
         />
         <LayerSwitcher
-          layersList={this.state.layersList}
+          taskGroups={this.state.taskGroups}
           toggleLayers={(layer) => this.toggleLayerFn(layer)}
         />
       </div>
@@ -116,15 +103,11 @@ class MapContainer extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    layer: state.mapReducer.layer
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    createLayer: (action) => {
-      dispatch(createLayer(action));
-    }
   };
 }
 

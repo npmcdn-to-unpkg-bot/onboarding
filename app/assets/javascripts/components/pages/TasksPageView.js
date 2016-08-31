@@ -62,7 +62,9 @@ class TaskView extends React.Component {
             </div>
             <div className="tabs-content">
               <div className={`tabs-panel ${this.state.activeTab === "tab1" && "-is-active"}`}>
-                <Map />
+                <Map
+                  tasksList={this.props.tasksList}
+                />
               </div>
               <div className="tabs-panel" className={`tabs-panel ${this.state.activeTab === "tab2" && "-is-active"}`}>
                 {taskTable}

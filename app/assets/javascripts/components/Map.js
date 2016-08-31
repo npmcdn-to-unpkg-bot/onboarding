@@ -4,21 +4,21 @@ const BASEMAP = 'http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png';
 class Map extends React.Component {
   constructor(props) {
     super(props);
-    this.activeTiles = {};
+    this.activeTiles = [];
   }
 
   componentDidMount() {
     this.initMap();
   }
 
-  componentWillReceiveProps(props) {
-    this.updateTiles(props.tiles);
+  componentDidUpdate() {
+    this._drawPolygons();
   }
 
   initMap() {
     const mapContainer = document.getElementById('map');
     this.map = L.map(mapContainer, {
-      center: [39.950490, -98.746077],
+      center: [39.950490, -40],
       zoom: 3,
       scrollWheelZoom: false,
       zoomControl: false
@@ -31,52 +31,42 @@ class Map extends React.Component {
     this.basemap.addTo(this.map);
   }
 
-  updateTiles(tiles) {
-    if (tiles) {
-      Object.keys(tiles).forEach((slug) => {
-        if (!this.activeTiles[slug]) {
-          this.activeTiles[slug] = {
-            tile: tiles[slug],
-            layer: {}
-          };
-          this.addTile(slug, tiles[slug]);
-        }
-      });
-
-      this.checkRemovedTiles(tiles);
-    }
-  }
-
-  checkRemovedTiles(tiles) {
-    const currentTiles = new Set(Object.keys(this.activeTiles));
-    const newTiles = new Set(Object.keys(tiles));
-    const difference = new Set(
-      [...currentTiles].filter(x => !newTiles.has(x)));
-
-    if (difference.size) {
-      this.removeTiles(difference);
-    }
-  }
-
-  removeTiles(tiles) {
-    const currentList = Object.assign({}, this.activeTiles);
-    const newList = {};
-
-    Object.keys(currentList).forEach((slug) => {
-      if (!tiles.has(slug)) {
-        newList[slug] = currentList[slug];
+  _drawPolygons() {
+    //Create an object to manage the layers in/out the map
+    this.props.layersGroups.map( (group) => {
+      if (group.active) {
+        this._addLayers(group.layers);
       } else {
-        this.map.removeLayer(this.activeTiles[slug].layer);
+        this._removeLayers(group.layers);
+      }
+    });
+  }
+
+  _addLayers(layers) {
+    layers.map( (layer) => {
+      layer.geom.addTo(this.map);
+      this.activeTiles.push(layer.geom);
+    });
+
+    // this._fitBounds();
+  }
+
+  _removeLayers(layers) {
+    layers.map( (layer) => {
+      this.map.removeLayer(layer.geom);
+
+      const index = this.activeTiles.indexOf(layer.geom);
+      if (index > -1 ) {
+        this.activeTiles.splice(index, 1)
       }
     });
 
-    this.activeTiles = newList;
+    // this._fitBounds();
   }
 
-  addTile(slug, tile) {
-    const layer = L.tileLayer(tile, { noWrap: true });
-    layer.addTo(this.map);
-    this.activeTiles[slug].layer = layer;
+  _fitBounds() {
+    const group = new L.FeatureGroup(this.activeTiles);
+    this.map.fitBounds(group.getBounds());
   }
 
   render() {
