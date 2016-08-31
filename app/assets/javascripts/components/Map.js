@@ -40,15 +40,15 @@ class Map extends React.Component {
         this._removeLayers(group.layers);
       }
     });
-
-    this._fitBounds();
   }
 
   _addLayers(layers) {
     layers.map( (layer) => {
       layer.geom.addTo(this.map);
       this.activeTiles.push(layer.geom);
-    })
+    });
+
+    this._fitBounds();
   }
 
   _removeLayers(layers) {
