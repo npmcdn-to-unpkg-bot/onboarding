@@ -3,13 +3,13 @@
   <%= link_to 'New Campaign', new_admin_campaign_path, class: 'bttn bttn-primary' %>
 </div>
 
-<%= form_tag admin_campaigns_path, method: 'get', id: "search_table_form" do %>
+<%= form_tag admin_campaigns_path, method: 'get', id: "search-form" do %>
   <div class="search wrap">
     <%= text_field_tag :search, params[:search], class: 'search-input' %>
-    <!-- <svg class="icon icon-search">
+    <svg class="icon icon-search">
       <use xlink:href="#icon-search"></use>
-    </svg> -->
-    <%= submit_tag '', name: nil, class: 'icon-search' %>
+    </svg>
+    <%= submit_tag '', name: nil, class: 'hidden' %>
   </div>
-  <div id="search_table"><%= render 'campaign' %></div>
+  <div id="search-table"><%= render 'campaign' %></div>
 <% end %>

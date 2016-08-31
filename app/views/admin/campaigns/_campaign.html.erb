@@ -1,9 +1,8 @@
 <%= hidden_field_tag :direction, params[:direction] %>
 <%= hidden_field_tag :sort, params[:sort] %>
-<table class="table table-bordered draggable">
+<table class="table">
   <thead>
     <tr>
-      <th></th>
       <th class="sortable"><%= sortable "name" %></th>
       <th>Description</th>
       <th>Htag</th>
@@ -12,15 +11,10 @@
       <th>Actions</th>
     </tr>
   </thead>
-  <tbody data-role="activerecord_sortable">
+  <tbody>
     <% for campaign in @campaigns %>
-      <tr data-role="campaign<%= campaign.id %>" data-move-url="<%= move_admin_campaign_url(campaign) %>" data-position="<%= campaign.position %>">
-        <td>
-          <svg class="icon icon-Row-Dragger">
-            <use xlink:href="#icon-Row-Dragger"></use>
-          </svg>
-        </td>
-        <td><%= campaign.name %></td>
+      <tr>
+        <td class="-bold"><%= campaign.name %></td>
         <td><%= campaign.description %></td>
         <td><%= campaign.htag %></td>
         <td><%= campaign.start_date %></td>
