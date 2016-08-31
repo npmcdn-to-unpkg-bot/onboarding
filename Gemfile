@@ -27,6 +27,7 @@ gem 'rails-assets-leaflet', source: 'https://rails-assets.org'
 gem 'rails-assets-leaflet-draw', source: 'https://rails-assets.org'
 gem 'bootstrap-datepicker-rails'
 gem 'rails-assets-chosen', source: 'https://rails-assets.org'
+gem 'will_paginate', '~> 3.1.0'
 
 gem 'activerecord-sortable'
 gem 'jquery-ui-rails'

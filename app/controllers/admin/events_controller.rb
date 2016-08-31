@@ -1,10 +1,14 @@
 class Admin::EventsController < AdminController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+  helper_method :sort_column, :sort_direction
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.search(params[:search]).order(sort_column + " " + sort_direction).paginate(page: params[:page], per_page: 9)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /events/1

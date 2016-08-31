@@ -3,43 +3,13 @@
   <%= link_to 'New Task', new_admin_task_path, class: 'bttn bttn-primary' %>
 </div>
 
-<div class="search wrap">
-  <input type="text" class="search-input" placeholder="Search" />
-  <svg class="icon icon-search">
-    <use xlink:href="#icon-search"></use>
-  </svg>
-</div>
-
-<table class="table table-bordered draggable">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Task type</th>
-      <th>Status</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td>
-          <svg class="icon icon-Row-Dragger">
-            <use xlink:href="#icon-Row-Dragger"></use>
-          </svg>
-        </td>
-        <td><%= task.name %></td>
-        <td><%= task.description %></td>
-        <td><%= task.task_type_humanize %></td>
-        <td><%= task.status_humanize %></td>
-        <td class="actions">
-          <%= link_to '', task_path(task), :class => "svg-bttn -show" %>
-          <%= link_to '', edit_admin_task_path(task), :class => "svg-bttn -edit" %>
-          <%= link_to '', admin_task_path(task), method: :delete, data: { confirm: 'Are you sure?' }, :class => "svg-bttn -delete" %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= form_tag admin_tasks_path, method: 'get', id: "search-form" do %>
+  <div class="search wrap">
+    <%= text_field_tag :search, params[:search], class: 'search-input' %>
+    <svg class="icon icon-search">
+      <use xlink:href="#icon-search"></use>
+    </svg>
+    <%= submit_tag '', name: nil, class: 'hidden' %>
+  </div>
+  <div id="search-table"><%= render 'tasks' %></div>
+<% end %>

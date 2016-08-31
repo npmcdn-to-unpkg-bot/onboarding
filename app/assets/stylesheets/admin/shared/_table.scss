@@ -2,9 +2,43 @@
 .table {
   border: 0;
   margin-bottom: 0;
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
 
   thead th {
     border: 0 !important;
+    padding: 15px 10px;
+
+    &.sortable a {
+      padding-right: 12px;
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-image: url('TriangleUp.svg'), url('TriangleDown.svg');
+      background-position: right 35%, right 75%;
+      display: inline-block;
+      width: 100%;
+
+      span {
+        color: #373a3c;
+        margin-top: -5px;
+      }
+
+      span:hover {
+        color: #373a3c;
+        text-decoration: none;
+      }
+
+      &.asc {
+        background-image: url('TriangleUpDark.svg'), url('TriangleDown.svg');
+      }
+
+      &.desc {
+        background-image: url('TriangleUp.svg'), url('TriangleDownDark.svg');
+      }
+    }
   }
 
   tbody tr {
@@ -33,11 +67,15 @@
         opacity: .5;
       }
     }
+
+    &.-bold {
+      font-weight: 600;
+      color: #000;
+    }
   }
 
   td:first-child,
   th:first-child {
-    width: 5%;
 
     @media screen and (min-width: $screen-s) {
       padding-left: $wrap-padding-tablet;
@@ -99,23 +137,36 @@
       display: block;
       cursor: pointer;
       margin-left: 5px;
+      opacity: 1;
 
       &.-show {
         background-image: url('show.svg');
         width: 20px;
         height: 20px;
+
+        &:hover {
+          background-image: url('showDark.svg');
+        }
       }
 
       &.-edit {
         background-image: url('edit.svg');
         width: 20px;
         height: 20px;
+
+        &:hover {
+          background-image: url('editDark.svg');
+        }
       }
 
       &.-delete {
         background-image: url('delete.svg');
         width: 20px;
         height: 20px;
+
+        &:hover {
+          background-image: url('deleteDark.svg');
+        }
       }
     }
   }

@@ -3,27 +3,13 @@
   <%= link_to 'New Campaign', new_admin_campaign_path, class: 'bttn bttn-primary' %>
 </div>
 
-<div class="search wrap">
-  <input type="text" class="search-input" placeholder="Search" />
-  <svg class="icon icon-search">
-    <use xlink:href="#icon-search"></use>
-  </svg>
-</div>
-
-<table class="table table-bordered draggable">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Htag</th>
-      <th>Start date</th>
-      <th>Status</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-
-  <tbody data-role="activerecord_sortable">
-    <%= render @campaigns %>
-  </tbody>
-</table>
+<%= form_tag admin_campaigns_path, method: 'get', id: "search-form" do %>
+  <div class="search wrap">
+    <%= text_field_tag :search, params[:search], class: 'search-input' %>
+    <svg class="icon icon-search">
+      <use xlink:href="#icon-search"></use>
+    </svg>
+    <%= submit_tag '', name: nil, class: 'hidden' %>
+  </div>
+  <div id="search-table"><%= render 'campaigns' %></div>
+<% end %>

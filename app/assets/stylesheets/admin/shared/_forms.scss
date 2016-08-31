@@ -13,16 +13,19 @@ h1 {
   font-family: $font-family-2;
 }
 
-form {
-  margin: 40px 0;
+.form-wrap {
+  padding: 20px 10px;
 
   @media screen and (min-width: $screen-m) {
-    padding: 0 10%;
+    padding: 40px 15%;
   }
 
   @media screen and (min-width: $screen-l) {
-    padding: 0 20%;
+    padding: 40px 25%;
   }
+}
+
+form {
 
   .form-control {
 	  min-height: 40px;

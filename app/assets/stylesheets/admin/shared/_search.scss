@@ -11,8 +11,8 @@
     font-family: $font-family-1;
 
     @media screen and (min-width: $screen-s) {
-      padding: 10px 25px;
-      margin: 10px 0;
+      padding: 15px 25px;
+      margin: 20px 0;
     }
 
     &:focus {
@@ -24,9 +24,9 @@
     @extend %centery;
     position: absolute;
     margin-right: $wrap-padding-desktop-xl;
-    right: 30px;
+    right: 25px;
     width: 25px;
-    height: 35px;
-    fill: rgba($color-4, .3);
+    height: 25px;
+    fill: #dedede;
   }
 }
