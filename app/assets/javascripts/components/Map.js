@@ -18,7 +18,6 @@ class Map extends React.Component {
   initMap() {
     const mapContainer = document.getElementById('map');
     this.map = L.map(mapContainer, {
-      center: [39.950490, -98.746077],
       zoom: 3,
       scrollWheelZoom: false,
       zoomControl: false
