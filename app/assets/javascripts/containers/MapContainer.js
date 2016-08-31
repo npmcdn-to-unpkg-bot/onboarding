@@ -9,14 +9,22 @@ const taskGroups = [
     type: 1,
     title: 'To fix',
     color: '#ff5d33',
-    active: true
+    active: true,
+    style: {
+      color: '#ff5d33',
+      opacity: 0.3
+    }
   },
   {
     slug: 'type2',
     type: 2,
     title: 'To Manage',
     color: '#ffffff',
-    active: true
+    active: true,
+    style: {
+      color: '#ffffff',
+      opacity: 0.3
+    }
   }
 ];
 
@@ -44,11 +52,11 @@ class MapContainer extends React.Component {
       layersGroup.slug = group.slug;
       layersGroup.active = group.active;
       layersGroup.type = group.type;
-      layersGroup.layers = []
+      layersGroup.layers = [];
 
       tasksList.map( (task) => {
         if (task.task_type === type && task.location) {
-          task.geom = L.geoJson(task.location);
+          task.geom = L.geoJson(task.location, { style: group.style });
           layersGroup.layers.push(task);
         }
       });

@@ -10,9 +10,9 @@ class LayerSwitcher extends React.Component {
 
     this.props.taskGroups.map( (layer, i) => {
 
-      switchers.push ( <div className="switcher" key={i}>
+      switchers.push ( <div className={`switcher ${layer.slug}`} key={i}>
         <input type="checkbox" id={layer.slug} checked={ layer.active } onChange={ () => {this.props.toggleLayers( {type:layer.type, active: !layer.active} )} }/>
-        <label htmlFor={layer.slug} style={{backgroundColor: layer.color }}></label>
+        <label htmlFor={layer.slug}></label>
         <span className="label">{layer.title}</span>
       </div>)
 
