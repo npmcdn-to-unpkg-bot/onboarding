@@ -1,0 +1,40 @@
+.pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 600px;
+  margin: auto;
+  padding: 60px 0;
+
+  .current, a,  .previous_page, .next_page{
+    font-family: $font-family-1;
+    font-size: 18px;
+    font-weight: 600;
+    width: 30px;
+    height: 30px;
+    color: #000;
+    font-style: normal;
+    cursor: pointer;
+    text-align: center;
+    line-height: 30px;
+
+    &:active, &:focus {
+      text-decoration: none;
+    }
+  }
+
+  a {
+
+    &:hover {
+      color: #000;
+      text-decoration: none;
+    }
+  }
+
+  .current {
+    background-color: $color-1;
+    border-radius: 50%;
+    color: white;
+  }
+}

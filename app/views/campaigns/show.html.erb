@@ -9,7 +9,7 @@
               <!-- Paths to set -->
               <li class="route">Participate</li>
               <li class="route"><%= link_to 'Campaigns', campaigns_path, {:class => 'route-link'} %></li>
-              <li class="route">Campaign name</li>
+              <li class="route"><%= @campaign.name %></li>
             </ul>
             <div id="open-modal" class="open-modal"></div>
           </div>
@@ -20,13 +20,13 @@
       <div class="row">
         <div class="col-sm-12 col-md-5">
           <div class="c-section-intro">
-            <h1 class="title text text-module-subtitle -light">Campaign Name</h1>
+            <h1 class="title text text-module-subtitle -light"><%= @campaign.name %></h1>
             <ul class="tags-list text text-tag -light">
               <li class="c-tag -primary">Tag 1</li>
               <li class="c-tag -primary">Tag 2</li>
               <li class="c-tag -primary">Tag 3</li>
             </ul>
-            <p class="text text-desc -light">Description vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer pio posuere erat a ante venenatis dapi, ctetur, sed do. </p>
+            <p class="text text-desc -light"><%= @campaign.description %></p>
           </div>
         </div>
       </div>

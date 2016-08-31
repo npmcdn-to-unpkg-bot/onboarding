@@ -103,7 +103,7 @@
     }
 
     &:nth-child(odd) {
-      background-color: rgba(#ebebeb, .3);
+      background-color: rgba(#ebebeb, .5);
     }
 
     td:first-child {
@@ -177,11 +177,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    min-height: 55px;
 
     @media screen and (min-width: $screen-s) {
       border: 0;
-      border-right: 1px solid lightgrey;
-      padding: 20px 10px 17px;
+      border-right: 1px solid #d8d8d8;
+      padding: 25px 10px 22px;
     }
 
     span {
@@ -209,12 +210,17 @@
   .text-menu {
     text-transform: capitalize;
     text-align: left;
+    font-size: 20px;
   }
 
   .-bold {
     font-family: $font-family-1;
     font-weight: 700;
     font-size: 20px;
+
+    @media screen and (min-width: $screen-s) {
+      font-size: 15px;
+    }
   }
 
   .actions {

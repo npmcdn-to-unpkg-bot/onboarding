@@ -1,6 +1,7 @@
 import React from 'react';
 
 export const CREATE_LAYER = 'CREATE_LAYER';
+export const TOGGLE_LAYER = 'TOGGLE_LAYER';
 export const LOADING_MAP = 'LOADING_MAP';
 export const ENDPOINT_TILES = 'https://geriux.cartodb.com/api/v1/map/';
 export const CARTODB_USER = 'geriux';

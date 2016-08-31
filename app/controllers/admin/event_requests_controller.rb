@@ -1,10 +1,14 @@
 class Admin::EventRequestsController < AdminController
   before_action :set_event_request, only: [:show, :edit, :update, :destroy]
-
+  helper_method :sort_column, :sort_direction
   # GET /event_requests
   # GET /event_requests.json
   def index
-    @event_requests = EventRequest.all
+    @event_requests = EventRequest.search(params[:search]).order(sort_column + " " + sort_direction).paginate(page: params[:page], per_page: 9)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /event_requests/1
@@ -28,7 +32,7 @@ class Admin::EventRequestsController < AdminController
 
     respond_to do |format|
       if @event_request.save
-        format.html { redirect_to admin_event_request_path(@event_request), notice: 'Event request was successfully created.' }
+        format.html { redirect_to admin_events_request_path, notice: 'Event request was successfully created.' }
         format.json { render :show, status: :created, location: @event_request }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class Admin::EventRequestsController < AdminController
   def update
     respond_to do |format|
       if @event_request.update(event_request_params)
-        format.html { redirect_to admin_event_request_path(@event_request), notice: 'Event request was successfully updated.' }
+        format.html { redirect_to admin_events_request_path, notice: 'Event request was successfully updated.' }
         format.json { render :show, status: :ok, location: @event_request }
       else
         format.html { render :edit }

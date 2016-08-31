@@ -1,10 +1,14 @@
 class Admin::TasksController < AdminController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  helper_method :sort_column, :sort_direction
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.search(params[:search]).order(sort_column + " " + sort_direction).paginate(page: params[:page], per_page: 9)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /tasks/1
@@ -28,7 +32,7 @@ class Admin::TasksController < AdminController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to admin_task_path(@task), notice: 'Task was successfully created.' }
+        format.html { redirect_to admin_tasks_path, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class Admin::TasksController < AdminController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to admin_task_path(@task), notice: 'Task was successfully updated.' }
+        format.html { redirect_to admin_tasks_path, notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit }

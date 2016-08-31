@@ -20,8 +20,12 @@ $(document).ready(function () {
       position: 'topright',
       draw: {
         polygon: {
+          selectedPathOptions: {
+            maintainColor: true,
+            opacity: 0.3
+          },
           shapeOptions: {
-            color: 'purple'
+            color: '#ff5349'
           },
           allowIntersection: false,
           drawError: {
@@ -33,9 +37,25 @@ $(document).ready(function () {
           repeatMode: false
         },
         polyline: false,
-        rect: false,
+        rectangle: {
+          selectedPathOptions: {
+            maintainColor: true,
+            opacity: 0.3
+          },
+          shapeOptions: {
+            color: '#ff5349'
+          },
+          allowIntersection: false,
+          drawError: {
+            color: 'orange',
+            timeout: 1000
+          },
+          showArea: true,
+          metric: false,
+          repeatMode: false
+        },
         circle: false,
-        marker: false,
+        marker: false
       },
       edit: {
         featureGroup: drawnItems
@@ -55,6 +75,7 @@ $(document).ready(function () {
 
     if ( init_location.length > 0 ) {
       const geoJsonLayer = L.geoJson(JSON.parse(init_location));
+      geoJsonLayer.setStyle({color: '#ff5349'});
       map.setView(geoJsonLayer.getBounds().getCenter());
       map.fitBounds(geoJsonLayer.getBounds());
       geoJsonLayer.eachLayer(
@@ -91,27 +112,26 @@ $(document).ready(function () {
     });
 
     // On delete polygon, reset draw controls and clear form
-    map.on("draw:deleted", function(e) {
-      if (drawnItems.getLayers().length === 0){
+    map.on("draw:deleted", function (e) {
+      if (drawnItems.getLayers().length === 0) {
         drawControlEditOnly.removeFrom(map);
         drawControlFull.addTo(map);
         $('#location_map').val('');
-      };
+      }
     });
-
   };
 
   if ($('#map').length) {
     loadMap();
   }
 
-  $(function(){
-    $(".chzn-select").chosen();
+  $(function () {
+    $('.chzn-select').chosen();
   });
 
-  $(document).ready(function(){
+  $(document).ready(function () {
     $('.datepicker').datepicker({
-      format: 'yyyy-mm-dd',
+      format: 'yyyy-mm-dd'
     });
   });
 });

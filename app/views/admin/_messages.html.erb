@@ -7,8 +7,10 @@
           key = 'success'
       end
     %>
-    <div class="alert alert-<%= key %>">
-      <a href="#" data-dismiss="alert" class="close">×</a>
-      <%= value %>
+    <div class="wrap">
+      <div class="alert alert-<%= key %>">
+        <a href="#" data-dismiss="alert" class="close">×</a>
+        <%= value %>
+      </div>
     </div>
 <% end %>

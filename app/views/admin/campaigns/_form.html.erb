@@ -1,4 +1,5 @@
-<%= form_for([:admin, campaign]) do |f| %>
+<div class="form-wrap">
+  <%= form_for([:admin, campaign]) do |f| %>
     <% if campaign.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(campaign.errors.count, "error") %> prohibited this campaign from being saved:</h2>
@@ -63,24 +64,24 @@
     <fieldset class="form-group row">
       <%= f.label :user_id, class: 'col-sm-2 form-control-label' %>
       <div class="col-sm-10">
-        <%= f.collection_select :user_id, User.all, :id, :email, {}, {:class => 'form-control'} %>
+        <%= f.collection_select :user_id, User.all, :id, :email, {}, {class: 'form-control'} %>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
       <%= f.label :tasks, class: 'col-sm-2 form-control-label' %>
       <div class="col-sm-10">
-        <%= f.collection_select :task_ids, Task.all, :id, :name, {}, {:class => 'form-control chzn-select', :multiple => true} %>
+        <%= f.collection_select :task_ids, Task.all, :id, :name, {}, {class: 'form-control chzn-select', multiple: true} %>
       </div>
     </fieldset>
 
     <div class="form-group row">
-      <div class="col-sm-offset-2 col-sm-10">
+      <div class="col-sm-offset-2 col-sm-10 form-control-btns">
+        <%= link_to 'Cancel', admin_campaigns_path, class: 'bttn bttn-secondary' %>
         <%= f.submit class: 'bttn bttn-primary' %>
-        <%= link_to 'Show', admin_campaign_path(campaign), class: 'bttn bttn-secondary' unless campaign.id.nil? %>
-        <%= link_to 'Back', admin_campaigns_path, class: 'bttn bttn-secondary' %>
       </div>
     </div>
 
     </div>
-<% end %>
+  <% end %>
+</div>
