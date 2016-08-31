@@ -11,18 +11,27 @@ class UsersActivityData extends React.Component {
   render() {
     const title = this.props.data && this.props.data.split('-').join(' ');
     const users = this.props.usersActivityData ? this.props.usersActivityData.users : {};
-    console.log()
+
+    var sortable = [];
+    for (var user in users)
+      sortable.push(users[user])
+      sortable.sort(
+      function(a, b) {
+        return a.total - b.total
+      }
+    )
+
     return (
       <div className="users-activity-element">
         <h3 className="text text-p-title -light">{title}</h3>
         <table className="activity-table">
           <tbody>
-          { Object.keys(users).map( (user, i) => {
+          { sortable.reverse().map( (user, i) => {
             return (
               <tr key={i}>
                 { title === "ranking" && <td className="rank text text-legend -light">{i+1}</td> }
-                <td className="user text text-legend -light">{users[user].name}</td>
-                <td className="road text text-legend -light">{users[user].total} roads</td>
+                <td className="user text text-legend -light">{user.name}</td>
+                <td className="road text text-legend -light">{user.total} roads</td>
               </tr>
             );
           })}
