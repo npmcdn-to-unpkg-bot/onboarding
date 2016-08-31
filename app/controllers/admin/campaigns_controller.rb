@@ -4,7 +4,7 @@ class Admin::CampaignsController < AdminController
   # GET /campaigns
   # GET /campaigns.json
   def index
-    @campaigns = Campaign.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 9)
+    @campaigns = Campaign.search(params[:search]).order(sort_column + " " + sort_direction).paginate(page: params[:page], per_page: 9)
     respond_to do |format|
       format.html
       format.js
@@ -79,15 +79,5 @@ class Admin::CampaignsController < AdminController
   # Never trust parameters from the scary internet, only allow the white list through.
   def campaign_params
     params.require(:campaign).permit(:name, :htag, :description, :background_image, :url, :status, :start_date, :user_id, {task_ids: []})
-  end
-
-  private
-
-  def sort_column
-    Campaign.column_names.include?(params[:sort]) ? params[:sort] : "name"
-  end
-
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

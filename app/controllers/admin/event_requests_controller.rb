@@ -4,7 +4,7 @@ class Admin::EventRequestsController < AdminController
   # GET /event_requests
   # GET /event_requests.json
   def index
-    @event_requests = EventRequest.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 9)
+    @event_requests = EventRequest.search(params[:search]).order(sort_column + " " + sort_direction).paginate(page: params[:page], per_page: 9)
     respond_to do |format|
       format.html
       format.js

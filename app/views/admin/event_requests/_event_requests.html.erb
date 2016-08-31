@@ -22,9 +22,9 @@
         <td><%= event_request.experience_level %></td>
         <td><%= event_request.email %></td>
         <td class="actions">
-          <%= link_to '', admin_event_request_path(event_request), :class => "svg-bttn -show" %>
-          <%= link_to '', edit_admin_event_request_path(event_request), :class => "svg-bttn -edit" %>
-          <%= link_to '', admin_event_request_path(event_request), method: :delete, data: {confirm: 'Are you sure?'}, :class => "svg-bttn -delete"%>
+          <%= link_to '', admin_event_request_path(event_request), class: "svg-bttn -show" %>
+          <%= link_to '', edit_admin_event_request_path(event_request), class: "svg-bttn -edit" %>
+          <%= link_to '', admin_event_request_path(event_request), method: :delete, data: {confirm: 'Are you sure?'}, class: "svg-bttn -delete"%>
         </td>
       </tr>
     <% end %>
