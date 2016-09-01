@@ -69,6 +69,36 @@ form {
     border-radius: 0px !important;
   }
 
+  .upload-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .file-upload {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin-top: 10px;
+
+    span {
+      cursor: pointer;
+    }
+  }
+
+  .file-upload input.upload {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 0;
+      padding: 0;
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0;
+      filter: alpha(opacity=0);
+  }
+
   // styles for chosen.js plugin
 
   .chosen-container {
@@ -87,10 +117,10 @@ form {
     padding: 9px 25px 9px 8px;
     border: 0px solid #aaa;
     max-width: 100%;
-    border-radius: 3px;
+    border-radius: 20px;
     background-color: $color-1;
     background-image: none;
-    box-shadow: 0;
+    box-shadow: 0 0 0px white inset, 0 0px 0 rgba(0, 0, 0, 0.05);
     color: #fff;
     font-weight: 600;
     line-height: 13px;
@@ -101,6 +131,29 @@ form {
   .search-choice-close {
     top: 10px !important;
     right: 5px !important;
+    background-image: url("close.svg");
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+
+  .chosen-container .chosen-drop {
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  .chosen-container .chosen-results li {
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+
+    &:hover {
+      background: $color-1;
+    }
+
+    &.highlighted {
+      background: $color-1;
+    }
   }
 }
 
