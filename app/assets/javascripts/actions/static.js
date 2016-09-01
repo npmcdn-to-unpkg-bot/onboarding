@@ -18,25 +18,14 @@ export function setCommunityData() {
 }
 
 export function setUsersActivityData(data) {
-  // const url = 'http://stats.loggingroads.org/users';
-  // return function(dispatch) {
-  //   $.get(url).then(function(communityData){
-  //     dispatch({
-  //       type: SET_COMMUNITY_DATA,
-  //       communityData
-  //     });
-  //   })
-  // };
-
-  return {
-    type: SET_USERS_ACTIVITY_DATA,
-    usersActivityData: [
-      {name: 'Pepi', roads: 33},
-      {name: 'Pepi', roads: 33},
-      {name: 'Pepi', roads: 33},
-      {name: 'Pepi', roads: 33},
-      {name: 'Pepi', roads: 33}
-    ]
+  const url = 'http://stats.loggingroads.org/hashtags/logging-roads';
+  return function(dispatch) {
+    $.get(url).then(function(usersActivityData){
+      dispatch({
+        type:  SET_USERS_ACTIVITY_DATA,
+        usersActivityData
+      });
+    })
   };
 }
 
