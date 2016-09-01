@@ -27,16 +27,5 @@ export function setUsersActivityData(data) {
       });
     })
   };
-
-  // return {
-  //   type: SET_USERS_ACTIVITY_DATA,
-  //   usersActivityData: [
-  //     {name: 'Pepi', roads: 33},
-  //     {name: 'Pepi', roads: 33},
-  //     {name: 'Pepi', roads: 33},
-  //     {name: 'Pepi', roads: 33},
-  //     {name: 'Pepi', roads: 33}
-  //   ]
-  // };
 }
 
