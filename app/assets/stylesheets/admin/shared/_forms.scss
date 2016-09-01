@@ -48,9 +48,19 @@ form {
   .form-control-btns {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 
     a {
       margin-right: 20px;
+    }
+
+    label {
+      padding: 0 20px 0 5px;
+      margin-bottom: 0;
+    }
+
+    .devise-links {
+      align-self: flex-start;
     }
   }
 
