@@ -12,10 +12,10 @@ class UsersActivityData extends React.Component {
     const title = this.props.data && this.props.data.split('-').join(' ');
     const users = this.props.usersActivityData ? this.props.usersActivityData.users : {};
 
-    var sortable = [];
+    var usersSorted = [];
     for (var user in users)
-      sortable.push(users[user])
-      sortable.sort(
+      usersSorted.push(users[user])
+      usersSorted.sort(
       function(a, b) {
         return a.total - b.total
       }
@@ -26,7 +26,7 @@ class UsersActivityData extends React.Component {
         <h3 className="text text-p-title -light">{title}</h3>
         <table className="activity-table">
           <tbody>
-          { sortable.reverse().map( (user, i) => {
+          { usersSorted.reverse().map( (user, i) => {
             return (
               <tr key={i}>
                 { title === "ranking" && <td className="rank text text-legend -light">{i+1}</td> }
