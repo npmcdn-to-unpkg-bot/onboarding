@@ -17,7 +17,9 @@ class CommunityData extends React.Component {
 
         return(<div className="community-element" key={i}>
           <h3 className="text text-legend -primary">{key}</h3>
-          <p className="text text-numeric-m -darker">{Math.round(data[key])}</p>
+          <p className="text text-numeric-m -darker">{
+            data[key] % 1 !== 0 ? data[key].toFixed(2) : data[key]
+          }</p>
         </div>)
       }
     )
