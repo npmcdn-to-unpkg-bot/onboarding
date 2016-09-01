@@ -64,6 +64,10 @@ $('#communityData').ready( function() {
   }
 });
 
+/*
+  Please, keep this code here. We will need it in the near future, once
+  we will know wich endpoint should we show here.
+ */
 // $('#latestActivity').ready( function() {
 //   /* It always runs this callback, that's why we need to establish
 //   a condition to avoid issues */
