@@ -29,4 +29,10 @@ class Campaign < ApplicationRecord
 
   has_attached_file :background_image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :background_image, content_type: /\Aimage\/.*\Z/
+
+  acts_as_taggable_on :htag
+
+  def name_with_status
+    "#{name} (#{status_humanize})"
+  end
 end
