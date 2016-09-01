@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :admin, only: [:index]
+  resources :tags, only: [:index, :show]
 
   namespace :api do
     namespace :v1 do
