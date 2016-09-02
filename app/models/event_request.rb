@@ -5,6 +5,7 @@
 #  id               :integer          not null, primary key
 #  name             :string
 #  description      :text
+#  location_name    :string
 #  location         :string
 #  potential_date   :date
 #  experience_level :string
