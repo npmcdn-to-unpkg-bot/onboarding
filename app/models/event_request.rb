@@ -15,4 +15,7 @@
 #
 
 class EventRequest < ApplicationRecord
+  def location= loc
+    write_attribute(:location, loc.present? ? JSON.parse(loc) : nil) if loc
+  end
 end
