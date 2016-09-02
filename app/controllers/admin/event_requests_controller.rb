@@ -32,7 +32,7 @@ class Admin::EventRequestsController < AdminController
 
     respond_to do |format|
       if @event_request.save
-        format.html { redirect_to admin_events_request_path, notice: 'Event request was successfully created.' }
+        format.html { redirect_to admin_event_requests_path, notice: 'Event request was successfully created.' }
         format.json { render :show, status: :created, location: @event_request }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class Admin::EventRequestsController < AdminController
   def update
     respond_to do |format|
       if @event_request.update(event_request_params)
-        format.html { redirect_to admin_events_request_path, notice: 'Event request was successfully updated.' }
+        format.html { redirect_to admin_event_requests_path, notice: 'Event request was successfully updated.' }
         format.json { render :show, status: :ok, location: @event_request }
       else
         format.html { render :edit }
@@ -73,6 +73,6 @@ class Admin::EventRequestsController < AdminController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_request_params
-    params.require(:event_request).permit(:name, :description, :location, :potential_date, :experience_level, :email)
+    params.require(:event_request).permit(:name, :description, :location_name, :location, :potential_date, :experience_level, :email)
   end
 end
