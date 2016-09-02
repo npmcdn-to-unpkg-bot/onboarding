@@ -4,19 +4,28 @@ $(document).ready(function () {
     const BASEMAP = 'http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png';
 
     // create a map in the "map" div, set the view to a given place and zoom
-    var map = L.map('map').setView([39.950490, -98.746077], 5);
+    const map = L.map('map').setView([39.950490, -98.746077], 5);
 
     // add an OpenStreetMap tile layer
     L.tileLayer(BASEMAP, {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     map.scrollWheelZoom.disable();
 
-    var drawnItems = new L.FeatureGroup();
+    const drawnItems = new L.FeatureGroup();
     map.addLayer(drawnItems);
 
+    const Marker = L.Icon.extend({
+      options: {
+        shadowUrl: null,
+        iconAnchor: new L.Point(12, 12),
+        iconSize: new L.Point(24, 24),
+        iconUrl: 'marker-icon.png'
+      }
+    });
+
     // Create two sets of controls to prevent multiple polygons
-    var drawControlFull = new L.Control.Draw({
+    const drawControlFull = new L.Control.Draw({
       position: 'topright',
       draw: {
         polygon: {
@@ -55,14 +64,16 @@ $(document).ready(function () {
           repeatMode: false
         },
         circle: false,
-        marker: false
+        marker: {
+          icon: new Marker()
+        }
       },
       edit: {
         featureGroup: drawnItems
       }
     });
 
-    var drawControlEditOnly = new L.Control.Draw({
+    const drawControlEditOnly = new L.Control.Draw({
       position: 'topright',
       draw: false,
       edit: {
@@ -71,17 +82,22 @@ $(document).ready(function () {
     });
 
     // Load GeoJSON from form if exists and set controls
-    const init_location = $('#location_map').val();
+    const initLocation = $('#location_map').val();
 
-    if ( init_location.length > 0 ) {
-      const geoJsonLayer = L.geoJson(JSON.parse(init_location));
-      geoJsonLayer.setStyle({color: '#ff5349'});
-      map.setView(geoJsonLayer.getBounds().getCenter());
-      map.fitBounds(geoJsonLayer.getBounds());
-      geoJsonLayer.eachLayer(
-        function(layer){
+    if ( initLocation.length > 0 ) {
+      const initLocationParsed = JSON.parse(initLocation);
+      if (initLocationParsed.geometry.type === "Marker") {
+        marker = L.marker(initLocationParsed.geometry.coordinates);
+        drawnItems.addLayer(marker);
+      } else {
+        const geoJsonLayer = L.geoJson(initLocationParsed);
+        geoJsonLayer.setStyle({color: '#ff5349'});
+        map.setView(geoJsonLayer.getBounds().getCenter());
+        map.fitBounds(geoJsonLayer.getBounds());
+        geoJsonLayer.eachLayer(function (layer) {
           drawnItems.addLayer(layer);
-      });
+        });
+      }
       map.addControl(drawControlEditOnly);
     } else {
       map.addControl(drawControlFull);
@@ -95,19 +111,45 @@ $(document).ready(function () {
       drawControlFull.removeFrom(map);
       drawControlEditOnly.addTo(map)
 
-      const shape = layer.toGeoJSON()
-      $('#location_map').val(JSON.stringify(shape));
+      if (type === 'marker') {
+        const markerLat = layer._latlng.lat;
+        const markerLng = layer._latlng.lng;
+        const shape = {
+          "type":"Feature",
+          "properties":{},
+          "geometry":{
+            "type":"Marker",
+            "coordinates":[markerLat, markerLng]
+          }
+        };
+        $('#location_map').val(JSON.stringify(shape));
+      } else {
+        const shape = layer.toGeoJSON();
+        $('#location_map').val(JSON.stringify(shape));
+      }
 
       drawnItems.addLayer(layer);
     });
 
     // On Editing Completion update layer and form
     map.on('draw:edited', function (e) {
-      var layers = e.layers;
+      const layers = e.layers;
 
       layers.eachLayer(function (layer) {
-        const shape = layer.toGeoJSON()
-        $('#location_map').val(JSON.stringify(shape));
+        if (layer instanceof L.Marker){
+          const markerLat = layer._latlng.lat;
+          const markerLng = layer._latlng.lng;
+          const shape = {
+            "geometry": {
+              "type": "Marker",
+              "coordinates": [ markerLat, markerLng ]
+            }
+          };
+          $('#location_map').val(JSON.stringify(shape));
+        } else {
+          const shape = layer.toGeoJSON()
+          $('#location_map').val(JSON.stringify(shape));
+        }
       });
     });
 
