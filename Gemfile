@@ -28,7 +28,7 @@ gem 'rails-assets-leaflet-draw', source: 'https://rails-assets.org'
 gem 'bootstrap-datepicker-rails'
 gem 'rails-assets-chosen', source: 'https://rails-assets.org'
 gem 'acts-as-taggable-on', '~> 4.0'
-gem 'bootstrap-tagsinput-rails'
+gem 'tagsinput-rails'
 
 gem 'activerecord-sortable'
 gem 'jquery-ui-rails'
