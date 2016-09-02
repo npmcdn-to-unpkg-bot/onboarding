@@ -123,18 +123,17 @@ form {
     box-shadow: 0 0 0px white inset, 0 0px 0 rgba(0, 0, 0, 0.05);
     color: #fff;
     font-weight: 600;
-    line-height: 13px;
+    line-height: 15px;
     font-family: $font-family-1;
     cursor: default;
   }
 
   .search-choice-close {
-    top: 10px !important;
-    right: 5px !important;
-    background-image: url("close.svg");
-    background-repeat: no-repeat;
-    width: 20px;
-    height: 20px;
+    top: 11px !important;
+    right: 7px !important;
+    background: url("close.png") no-repeat !important;
+    width: 12px;
+    height: 12px;
     display: block;
   }
 
@@ -144,7 +143,7 @@ form {
 
   .chosen-container .chosen-results li {
     color: black;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
 
     &:hover {
@@ -153,6 +152,32 @@ form {
 
     &.highlighted {
       background: $color-1;
+    }
+  }
+
+  // styles for tags input plugin
+
+  div.tagsinput {
+    border: 1px solid #b8b8b8;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 40px !important;
+
+    span.tag {
+      border: 0;
+      border-radius: 20px;
+      padding: 5px 10px;
+      text-decoration: none;
+      background: $color-1;
+      color: $color-2;
+      font-size: 15px;
+      font-family: $font-family-1;
+      font-weight: 600;
+
+      a {
+        color: white;
+        font-size: 14px;
+      }
     }
   }
 }

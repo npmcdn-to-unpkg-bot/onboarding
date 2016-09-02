@@ -23,7 +23,7 @@
 //= require ./admin/forms
 //= require bootstrap-datepicker
 //= require chosen
-//= require bootstrap-tagsinput
+//= require jquery.tagsinput
 
 $(document).ready(function () {
   $('*[data-role=activerecord_sortable]').activerecord_sortable();
