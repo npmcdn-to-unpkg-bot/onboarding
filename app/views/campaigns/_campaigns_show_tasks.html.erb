@@ -1,0 +1,21 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="table">
+  <thead>
+    <tr>
+      <th class="sortable"><%= sortable "date" %></th>
+      <th class="sortable"><%= sortable "name" %></th>
+      <th class="sortable"><%= sortable "description" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for event in @events %>
+      <tr>
+        <td><%= event.date %>/<%= event.end_date %></td>
+        <td class="-bold"><%= link_to event.name, event_path(event) %></td>
+        <td><%= event.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @events, previous_label: '<', next_label: '>' %>

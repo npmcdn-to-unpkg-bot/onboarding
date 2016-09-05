@@ -22,9 +22,9 @@
           <div class="c-section-intro">
             <h1 class="title text text-module-subtitle -light"><%= @campaign.name %></h1>
             <ul class="tags-list text text-tag -light">
-              <li class="c-tag -primary">Tag 1</li>
-              <li class="c-tag -primary">Tag 2</li>
-              <li class="c-tag -primary">Tag 3</li>
+              <% @campaign.htag_list.to_s.split(",").each do |tag| %>
+                <li class="c-tag -primary"><%= tag %></li>
+              <% end %>
             </ul>
             <p class="text text-desc -light"><%= @campaign.description %></p>
           </div>

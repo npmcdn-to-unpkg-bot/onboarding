@@ -140,101 +140,101 @@ $(document).ready(function () {
 //   }
 // });
 //
-// /* Campaigns detail */
-// $('#campaignsDetail').ready( function() {
-//   /* It always runs this callback, that's why we need to establish
-//   a condition to avoid issues */
-//   if ($('#campaignsDetail')[0]) {
-//     /* Campaigns data */
-//     ['campaignsDetail'].map( element => {
-//       $('#' + element).ready( function() {
-//         ReactDOM.render(
-//           <Provider store={store}>
-//             <CampaignsDetailPageContainer data={{}} />
-//           </Provider>,
-//           document.getElementById('data-table-view')
-//         );
-//       });
-//     });
-//   }
-// });
-//
-// /* Mapathon page */
-// $('#eventsIndex').ready( function() {
-//   /* It always runs this callback, that's why we need to establish
-//   a condition to avoid issues */
-//   if ($('#eventsIndex')[0]) {
-//
-//     /* Campaigns data */
-//     ['eventsIndex'].map( element => {
-//       $('#' + element).ready( function() {
-//         ReactDOM.render(
-//           <Provider store={store}>
-//             <EventsPageContainer data={{}} />
-//           </Provider>,
-//           document.getElementById('data-table-view')
-//         );
-//       });
-//     });
-//   }
-// });
-//
-// /* Events detail */
-// $('#eventsDetail').ready( function() {
-//   /* It always runs this callback, that's why we need to establish
-//   a condition to avoid issues */
-//   if ($('#eventsDetail')[0]) {
-//
-//     /* Campaigns data */
-//     ['eventsIndex'].map( element => {
-//       $('#' + element).ready( function() {
-//         ReactDOM.render(
-//           <Provider store={store}>
-//             <EventsDetailPageContainer data={{}} />
-//           </Provider>,
-//           document.getElementById('data-table-view')
-//         );
-//       });
-//     });
-//   }
-// });
-//
-// /* Tasks page */
-// $('#tasksIndex').ready( function() {
-//   /* It always runs this callback, that's why we need to establish
-//   a condition to avoid issues */
-//   if ($('#tasksIndex')[0]) {
-//
-//     /* Campaigns data */
-//     ['tasksIndex'].map( element => {
-//       $('#' + element).ready( function() {
-//         ReactDOM.render(
-//           <Provider store={store}>
-//             <TasksPageContainer data={{}} />
-//           </Provider>,
-//           document.getElementById('data-table-view')
-//         );
-//       });
-//     });
-//   }
-// });
-//
-// /* Tasks detail */
-// $('#tasksDetail').ready( function() {
-//   /* It always runs this callback, that's why we need to establish
-//   a condition to avoid issues */
-//   if ($('#tasksDetail')[0]) {
-//
-//     /* Campaigns data */
-//     ['tasksDetail'].map( element => {
-//       $('#' + element).ready( function() {
-//         ReactDOM.render(
-//           <Provider store={store}>
-//             <TasksPageDetailContainer data={{}} />
-//           </Provider>,
-//           document.getElementById('data-table-view')
-//         );
-//       });
-//     });
-//   }
-// });
+/* Campaigns detail */
+$('#campaignsDetail').ready( function() {
+  /* It always runs this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#campaignsDetail')[0]) {
+    /* Campaigns data */
+    ['campaignsDetail'].map( element => {
+      $('#' + element).ready( function() {
+        ReactDOM.render(
+          <Provider store={store}>
+            <CampaignsDetailPageContainer data={{}} />
+          </Provider>,
+          document.getElementById('data-table-view')
+        );
+      });
+    });
+  }
+});
+
+/* Mapathon page */
+$('#eventsIndex').ready( function() {
+  /* It always runs this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#eventsIndex')[0]) {
+
+    /* Campaigns data */
+    ['eventsIndex'].map( element => {
+      $('#' + element).ready( function() {
+        ReactDOM.render(
+          <Provider store={store}>
+            <EventsPageContainer data={{}} />
+          </Provider>,
+          document.getElementById('data-table-view')
+        );
+      });
+    });
+  }
+});
+
+/* Events detail */
+$('#eventsDetail').ready( function() {
+  /* It always runs this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#eventsDetail')[0]) {
+
+    /* Campaigns data */
+    ['eventsIndex'].map( element => {
+      $('#' + element).ready( function() {
+        ReactDOM.render(
+          <Provider store={store}>
+            <EventsDetailPageContainer data={{}} />
+          </Provider>,
+          document.getElementById('data-table-view')
+        );
+      });
+    });
+  }
+});
+
+/* Tasks page */
+$('#tasksIndex').ready( function() {
+  /* It always runs this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#tasksIndex')[0]) {
+
+    /* Campaigns data */
+    ['tasksIndex'].map( element => {
+      $('#' + element).ready( function() {
+        ReactDOM.render(
+          <Provider store={store}>
+            <TasksPageContainer data={{}} />
+          </Provider>,
+          document.getElementById('data-table-view')
+        );
+      });
+    });
+  }
+});
+
+/* Tasks detail */
+$('#tasksDetail').ready( function() {
+  /* It always runs this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#tasksDetail')[0]) {
+
+    /* Campaigns data */
+    ['tasksDetail'].map( element => {
+      $('#' + element).ready( function() {
+        ReactDOM.render(
+          <Provider store={store}>
+            <TasksPageDetailContainer data={{}} />
+          </Provider>,
+          document.getElementById('data-table-view')
+        );
+      });
+    });
+  }
+});
