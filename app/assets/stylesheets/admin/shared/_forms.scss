@@ -104,6 +104,7 @@ form {
       border-radius: 0;
       padding: 0;
       margin: 0;
+      max-height: 250px;
 
       li {
         padding: 10px 20px;
@@ -238,7 +239,7 @@ form {
 
 .datepicker-dropdown {
   z-index: 1001 !important;
-  margin-left: 20px;
+  margin-left: 10px;
 
 }
 
