@@ -88,6 +88,7 @@ $(document).ready(function () {
       const initLocationParsed = JSON.parse(initLocation);
       if (initLocationParsed.geometry.type === "Marker") {
         marker = L.marker(initLocationParsed.geometry.coordinates, {icon: new Marker()});
+        map.setView(initLocationParsed.geometry.coordinates, 7);
         drawnItems.addLayer(marker);
       } else {
         const geoJsonLayer = L.geoJson(initLocationParsed);
