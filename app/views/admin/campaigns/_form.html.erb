@@ -35,8 +35,8 @@
 
     <fieldset class="form-group row">
       <%= f.label :background_image, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10">
-        <%= image_tag @campaign.background_image(:medium) %>
+      <div class="col-sm-10 img_upload">
+        <%= image_tag @campaign.background_image %>
         <%= f.file_field :background_image, class: 'form-control upload' %>
       </div>
     </fieldset>
@@ -51,7 +51,7 @@
     <fieldset class="form-group row">
       <%= f.label :status, class: 'col-sm-2 form-control-label' %>
       <div class="col-sm-10">
-        <%= f.select :status, CampaignStatus.to_a, {}, {:class => 'form-control'} %>
+        <%= f.select :status, CampaignStatus.to_a, {}, {:class => 'form-control chzn-select'} %>
       </div>
     </fieldset>
 

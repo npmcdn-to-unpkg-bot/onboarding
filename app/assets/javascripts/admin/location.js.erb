@@ -20,7 +20,7 @@ $(document).ready(function () {
         shadowUrl: null,
         iconAnchor: new L.Point(12, 12),
         iconSize: new L.Point(24, 24),
-        iconUrl: 'marker-icon.png'
+        iconUrl: '<%= asset_path('marker.png') %>'
       }
     });
 
@@ -87,7 +87,7 @@ $(document).ready(function () {
     if ( initLocation.length > 0 ) {
       const initLocationParsed = JSON.parse(initLocation);
       if (initLocationParsed.geometry.type === "Marker") {
-        marker = L.marker(initLocationParsed.geometry.coordinates);
+        marker = L.marker(initLocationParsed.geometry.coordinates, {icon: new Marker()});
         drawnItems.addLayer(marker);
       } else {
         const geoJsonLayer = L.geoJson(initLocationParsed);
