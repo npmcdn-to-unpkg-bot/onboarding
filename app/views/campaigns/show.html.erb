@@ -27,6 +27,9 @@
               <% end %>
             </ul>
             <p class="text text-desc -light"><%= @campaign.description %></p>
+            <% if @campaign.url.present? %>
+              <a class="bttn bttn-primary" href="<%= @campaign.url %>" target="_blank">Participate</a>
+            <% end %>
           </div>
         </div>
       </div>
