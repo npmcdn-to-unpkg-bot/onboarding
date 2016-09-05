@@ -12,4 +12,10 @@
 #
 
 class Country < ApplicationRecord
+  validates :name, :iso, :shp_url, :geojson_url, :presence => true
+  validates :iso, :uniqueness => { case_sensitive: false }
+
+  def iso=(val)
+    write_attribute :iso, val.upcase
+  end
 end
