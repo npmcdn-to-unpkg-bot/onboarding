@@ -26,6 +26,7 @@ class Campaign < ApplicationRecord
   has_and_belongs_to_many :tasks
   has_enumeration_for :status, with: CampaignStatus
   acts_as_sortable
+  validates :name, :description, :htag, :start_date, :status, presence: true
 
   has_attached_file :background_image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :background_image, content_type: /\Aimage\/.*\Z/
