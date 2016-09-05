@@ -12,7 +12,7 @@
         </div>
     <% end %>
 
-    <fieldset class="form-group row">
+    <fieldset class="form-group row required">
       <%= f.label :name, class: 'col-sm-3 form-control-label' %>
       <div class="col-sm-9"><%= f.text_field :name, class: 'form-control' %></div>
     </fieldset>
@@ -22,12 +22,12 @@
       <div class="col-sm-9"><%= f.text_field :task_manager_url, class: 'form-control' %></div>
     </fieldset>
 
-    <fieldset class="form-group row">
+    <fieldset class="form-group row required">
       <%= f.label :task_type, class: 'col-sm-3 form-control-label' %>
       <div class="col-sm-9"><%= f.select :task_type, TaskTypes.to_a, {}, class: 'form-control chzn-select' %></div>
     </fieldset>
 
-    <fieldset class="form-group row">
+    <fieldset class="form-group row required">
       <%= f.label :description, class: 'col-sm-3 form-control-label' %>
       <div class="col-sm-9">
         <%= f.text_area :description, class: 'form-control' %>
@@ -42,7 +42,7 @@
       </div>
     </fieldset>
 
-    <fieldset class="form-group row">
+    <fieldset class="form-group row required">
       <%= f.label :status, class: 'col-sm-3 form-control-label' %>
       <div class="col-sm-9"><%= f.select :status, TaskStatus.to_a, {}, {class: 'form-control chzn-select'} %></div>
     </fieldset>
