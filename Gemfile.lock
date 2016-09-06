@@ -111,6 +111,9 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-slick-rails (1.6.0.2)
       railties (>= 3.1)
+    jquery-turbolinks (2.1.0)
+      railties (>= 3.1.0)
+      turbolinks
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
     json (1.8.3)
@@ -217,6 +220,9 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    turbolinks (5.0.1)
+      turbolinks-source (~> 5)
+    turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (3.0.0)
@@ -255,6 +261,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-slick-rails (~> 1.5, >= 1.5.9.1)
+  jquery-turbolinks
   jquery-ui-rails
   listen (~> 3.0.5)
   paperclip

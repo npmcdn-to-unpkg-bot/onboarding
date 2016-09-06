@@ -1,5 +1,6 @@
-$(function () {
-  $("#search-table .table th a, #search-table .pagination a").on("click", function () {
+$(document).on('page:load ready', function () {
+  $('body').on('click', '#search-table .table th a, #search-table .pagination a', function () {
+    jQuery.ajaxSetup({cache: true});
     $.getScript(this.href);
     return false;
   });

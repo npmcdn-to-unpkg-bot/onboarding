@@ -29,6 +29,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'rails-assets-chosen', source: 'https://rails-assets.org'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'tagsinput-rails'
+gem 'jquery-turbolinks'
 
 gem 'activerecord-sortable'
 gem 'jquery-ui-rails'
