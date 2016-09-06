@@ -38,5 +38,42 @@
 
   <article class="l-main-content">
     <div id="data-table-view"></div>
+    <!-- <div class="l-tabs">
+      <div class="c-tabs">
+        <div class="wrap">
+          <ul class="tabs">
+            <li class="tab -is-active" data-tab="tab-1">Mapathon</li>
+            <li class="tab" data-tab="tab-2">Task</li>
+          </ul>
+        </div>
+        <div class="tabs-content">
+          <div id="tab-1" class="tabs-panel -is-active">
+            <%= form_tag events_path, method: 'get', id: "search-form" do %>
+              <div class="search wrap">
+                <%= text_field_tag :search, params[:search], class: 'search-input' %>
+                <svg class="icon icon-search">
+                  <use xlink:href="#icon-search"></use>
+                </svg>
+                <%= submit_tag '', name: nil, class: 'hidden' %>
+              </div>
+              <div id="search-table-events"><%= render 'campaigns_show_events' %></div>
+            <% end %>
+          </div>
+          <div id="tab-2" class="tabs-panel">
+            <%= form_tag tasks_path, method: 'get', id: "search-form" do %>
+              <div class="search wrap">
+                <%= text_field_tag :search, params[:search], class: 'search-input' %>
+                <svg class="icon icon-search">
+                  <use xlink:href="#icon-search"></use>
+                </svg>
+                <%= submit_tag '', name: nil, class: 'hidden' %>
+              </div>
+              <div id="search-table-tasks"><%= render 'campaigns_show_tasks' %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div> -->
   </article>
+
 </section>

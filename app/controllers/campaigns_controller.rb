@@ -16,7 +16,7 @@ class CampaignsController < ApplicationController
       format.html
       format.js
     end
-    @tasks = Task.search(params[:search]).order(sort_column + " " + sort_direction).paginate(page: params[:page], per_page: 9)
+    @tasks = Task.search(params[:search]).order(sort_column + " " + sort_direction).paginate(page: params[:page], per_page: 9).where(status: 3)
     respond_to do |format|
       format.html
       format.js
