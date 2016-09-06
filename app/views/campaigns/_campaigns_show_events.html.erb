@@ -11,7 +11,7 @@
   <tbody>
     <% for event in @events %>
       <tr>
-        <td><%= event.date %> / <%= event.end_date %></td>
+        <td><%= event.date %></td>
         <td class="-bold"><%= link_to event.name, event_path(event) %></td>
         <td><%= event.location_name %></td>
       </tr>

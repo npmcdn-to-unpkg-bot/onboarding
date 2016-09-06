@@ -19,7 +19,6 @@
 //= require jquery.slick
 //= require_tree .
 //= require main
-//= require ./application/campaign
 
 $(document).on('page:load ready', function () {
   $('body').on('click', '#search-table-index .table th a, #search-table-index .pagination a', function () {
