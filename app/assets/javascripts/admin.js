@@ -19,13 +19,10 @@
 //= require jquery-ui/sortable
 //= require leaflet
 //= require leaflet-draw
-//= require ./admin/location
 //= require ./admin/search
+//= require ./admin/location
 //= require ./admin/forms
 //= require bootstrap-datepicker
 //= require chosen
 //= require jquery.tagsinput
 
-$(document).ready(function () {
-  $('*[data-role=activerecord_sortable]').activerecord_sortable();
-});

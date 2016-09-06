@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Fuse from 'fuse.js';
-import ReactPaginate from 'react-paginate';
 import $ from 'jquery';
 
 class DataTableView extends React.Component {

@@ -61,9 +61,4 @@ $(document).ready(function(){
     // window.history.replaceState({}, "", baseUrl + params);
   })
 
-
-
-
-
-
 });

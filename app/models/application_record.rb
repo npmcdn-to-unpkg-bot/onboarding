@@ -5,7 +5,7 @@ class ApplicationRecord < ActiveRecord::Base
     if search
       where('lower(name) LIKE ?', "%#{search}%".downcase)
     else
-      unscoped
+      all
     end
   end
 end
