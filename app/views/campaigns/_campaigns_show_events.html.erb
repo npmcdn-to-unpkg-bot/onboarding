@@ -5,15 +5,15 @@
     <tr>
       <th class="sortable"><%= sortable "date" %></th>
       <th class="sortable"><%= sortable "name" %></th>
-      <th class="sortable"><%= sortable "description" %></th>
+      <th class="sortable"><%= sortable "location_name" %></th>
     </tr>
   </thead>
   <tbody>
     <% for event in @events %>
       <tr>
-        <td><%= event.date %>/<%= event.end_date %></td>
+        <td><%= event.date %> / <%= event.end_date %></td>
         <td class="-bold"><%= link_to event.name, event_path(event) %></td>
-        <td><%= event.description %></td>
+        <td><%= event.location_name %></td>
       </tr>
     <% end %>
   </tbody>

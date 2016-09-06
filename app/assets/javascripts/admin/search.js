@@ -4,8 +4,9 @@ $(document).on('page:load ready', function () {
     $.getScript(this.href);
     return false;
   });
-  $('#search-form input').keyup(function () {
-    $.get($('#search-form').attr('action'), $('#search-form').serialize(), null, 'script');
+  $('#search-form-events input, #search-form-tasks input').keyup(function () {
+    $.get($('#search-form-events').attr('action'), $('#search-form-events').serialize(), null, 'script');
+    $.get($('#search-form-tasks').attr('action'), $('#search-form-tasks').serialize(), null, 'script');
     return false;
   });
 });
