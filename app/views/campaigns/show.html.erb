@@ -67,7 +67,7 @@
                 </svg>
                 <%= submit_tag '', name: nil, class: 'hidden' %>
               </div>
-              <div id="search-table-tasks"><%= render 'campaigns_show_tasks' %></div>
+              <div id="search-table-tasks"><%= render 'tasks/tasks', tasks: @tasks %></div>
             <% end %>
           </div>
         </div>
