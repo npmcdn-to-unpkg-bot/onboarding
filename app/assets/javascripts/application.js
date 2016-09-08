@@ -21,7 +21,7 @@
 //= require main
 
 $(document).on('page:load ready', function () {
-  $('body').on('click', '#search-table-index .table th a, #search-table-index .pagination a', function () {
+  $('body').on('click', '#search-table-campaigns .table th a, #search-table-campaigns .pagination a', function () {
     jQuery.ajaxSetup({cache: true});
     $.getScript(this.href);
     return false;
@@ -37,8 +37,8 @@ $(document).on('page:load ready', function () {
     return false;
   });
 
-  $('#search-form input').keyup(function () {
-    $.get($('#search-form').attr('action'), $('#search-form').serialize(), null, 'script');
+  $('#search-form-campaigns input').keyup(function () {
+    $.get($('#search-form-campaigns').attr('action'), $('#search-form-campaigns').serialize(), null, 'script');
     return false;
   });
   $('#search-form-events input').keyup(function () {
@@ -61,23 +61,5 @@ $(document).ready(function(){
 
     $(this).addClass('-is-active');
     $("#"+tab_id).addClass('-is-active');
-
-    // var baseUrl = [location.protocol, '//', location.host, location.pathname].join(''),
-    //     urlQueryString = document.location.search,
-    //     newParam = 'tab' + '=' + tab_id,
-    //     params = '?' + newParam;
-    //
-    // // // If the "search" string exists, then build params from it
-    // if (urlQueryString) {
-    //     keyRegex = new RegExp('([\?&])' + 'tab' + '[^&]*');
-    //
-    //     // If param exists already, update it
-    //     if (urlQueryString.match(keyRegex) !== null) {
-    //         params = urlQueryString.replace(keyRegex, "$1" + newParam);
-    //     } else { // Otherwise, add it to end of query string
-    //         params = urlQueryString + '&' + newParam;
-    //     }
-    // }
-    // window.history.replaceState({}, "", baseUrl + params);
   })
 });

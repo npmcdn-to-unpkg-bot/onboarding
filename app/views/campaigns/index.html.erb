@@ -28,7 +28,7 @@
   </article>
 
   <article class="l-main-content">
-    <%= form_tag campaigns_path, method: 'get', id: "search-form" do %>
+    <%= form_tag campaigns_path, method: 'get', id: "search-form-campaigns" do %>
       <div class="search wrap">
         <%= text_field_tag :search, params[:search], class: 'search-input' %>
         <svg class="icon icon-search">
@@ -36,7 +36,7 @@
         </svg>
         <%= submit_tag '', name: nil, class: 'hidden' %>
       </div>
-      <div id="search-table-index"><%= render 'campaigns_index' %></div>
+      <div id="search-table-campaigns"><%= render 'campaigns' %></div>
     <% end %>
   </article>
 </section>

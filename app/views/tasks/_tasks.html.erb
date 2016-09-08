@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <% for task in @tasks %>
+    <% for task in tasks %>
       <tr>
         <td><%= task.task_type_humanize %></td>
         <td class="-bold"><%= link_to task.name, task_path(task) %></td>
@@ -18,4 +18,4 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @tasks, previous_label: '<', next_label: '>' %>
+<%= will_paginate tasks, previous_label: '<', next_label: '>' %>
