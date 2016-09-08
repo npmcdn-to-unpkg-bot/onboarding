@@ -3,9 +3,10 @@
 <table class="table">
   <thead>
     <tr>
-      <th class="sortable"><%= sortable "task_type" %></th>
-      <th class="sortable"><%= sortable "name" %></th>
-      <th class="sortable"><%= sortable "description" %></th>
+      <% nested_path = controller_name == 'campaigns' ? params.merge({ controller: 'tasks', action: 'index', campaign_id: @campaign.id}) :nil %>
+      <th class="sortable"><%= sortable "task_type", nil, nested_path %></th>
+      <th class="sortable"><%= sortable "name", nil, nested_path %></th>
+      <th class="sortable"><%= sortable "description", nil, nested_path %></th>
     </tr>
   </thead>
   <tbody>

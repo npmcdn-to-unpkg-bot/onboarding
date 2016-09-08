@@ -1,6 +1,5 @@
 class CampaignsController < ApplicationController
 
-
   def index
     @campaigns = Campaign.search(params[:search]).order(sort_column + " " + sort_direction).
       paginate(page: params[:page], per_page: 9).where(status: CampaignStatus::LIVE)
