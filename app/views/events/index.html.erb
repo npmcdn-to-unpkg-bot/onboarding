@@ -33,6 +33,15 @@
   </article>
 
   <article class="l-main-content">
-    <div id="data-table-view"></div>
+    <%= form_tag events_path, method: 'get', id: "search-form-events" do %>
+      <div class="search wrap">
+        <%= text_field_tag :search_events, params[:search_events], class: 'search-input' %>
+        <svg class="icon icon-search">
+          <use xlink:href="#icon-search"></use>
+        </svg>
+        <%= submit_tag '', name: nil, class: 'hidden' %>
+      </div>
+      <div id="search-table-events"><%= render 'events/events', events: @events %></div>
+    <% end %>
   </article>
 </section>

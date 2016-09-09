@@ -4,6 +4,8 @@ class TasksController < ApplicationController
   def index
     if params[:campaign_id]
       @tasks = Campaign.find(params[:campaign_id]).tasks
+    elsif params[:event_id]
+      @tasks = Event.find(params[:event_id]).tasks
     else
       @tasks = Task.all
     end

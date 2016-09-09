@@ -159,25 +159,25 @@ $(document).ready(function () {
 //   }
 // });
 
-/* Mapathon page */
-$('#eventsIndex').ready( function() {
-  /* It always runs this callback, that's why we need to establish
-  a condition to avoid issues */
-  if ($('#eventsIndex')[0]) {
-
-    /* Campaigns data */
-    ['eventsIndex'].map( element => {
-      $('#' + element).ready( function() {
-        ReactDOM.render(
-          <Provider store={store}>
-            <EventsPageContainer data={{}} />
-          </Provider>,
-          document.getElementById('data-table-view')
-        );
-      });
-    });
-  }
-});
+// /* Mapathon page */
+// $('#eventsIndex').ready( function() {
+//   /* It always runs this callback, that's why we need to establish
+//   a condition to avoid issues */
+//   if ($('#eventsIndex')[0]) {
+//
+//     /* Campaigns data */
+//     ['eventsIndex'].map( element => {
+//       $('#' + element).ready( function() {
+//         ReactDOM.render(
+//           <Provider store={store}>
+//             <EventsPageContainer data={{}} />
+//           </Provider>,
+//           document.getElementById('data-table-view')
+//         );
+//       });
+//     });
+//   }
+// });
 
 /* Events detail */
 $('#eventsDetail').ready( function() {
