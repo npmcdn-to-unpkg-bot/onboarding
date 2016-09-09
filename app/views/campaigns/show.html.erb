@@ -1,4 +1,4 @@
-<section class="l-campaigns -detail" id="campaignsDetail">
+<section class="l-vert-wrap l-campaigns -detail" id="campaignsDetail">
 
   <article class="l-intro -campaigns-detail">
     <div class="l-routes">
@@ -22,11 +22,14 @@
           <div class="c-section-intro">
             <h1 class="title text text-module-subtitle -light"><%= @campaign.name %></h1>
             <ul class="tags-list text text-tag -light">
-              <li class="c-tag -primary">Tag 1</li>
-              <li class="c-tag -primary">Tag 2</li>
-              <li class="c-tag -primary">Tag 3</li>
+              <% @campaign.htag_list.to_s.split(",").each do |tag| %>
+                <li class="c-tag -primary"><%= tag %></li>
+              <% end %>
             </ul>
             <p class="text text-desc -light"><%= @campaign.description %></p>
+            <% if @campaign.url.present? %>
+              <a class="bttn bttn-primary" href="<%= @campaign.url %>" target="_blank">Participate</a>
+            <% end %>
           </div>
         </div>
       </div>
@@ -34,6 +37,41 @@
   </article>
 
   <article class="l-main-content">
-    <div id="data-table-view"></div>
+     <div class="l-tabs">
+      <div class="c-tabs">
+        <div class="wrap">
+          <ul class="tabs">
+            <li class="tab -is-active" data-tab="tab-1">Mapathon</li>
+            <li class="tab" data-tab="tab-2">Task</li>
+          </ul>
+        </div>
+        <div class="tabs-content">
+          <div id="tab-1" class="tabs-panel -is-active">
+            <%= form_tag campaign_events_path(@campaign), method: 'get', id: "search-form-events" do %>
+              <div class="search wrap">
+                <%= text_field_tag :search_events, params[:search_events], class: 'search-input' %>
+                <svg class="icon icon-search">
+                  <use xlink:href="#icon-search"></use>
+                </svg>
+                <%= submit_tag '', name: nil, class: 'hidden' %>
+              </div>
+              <div id="search-table-events"><%= render 'events/events', events: @events %></div>
+            <% end %>
+          </div>
+          <div id="tab-2" class="tabs-panel">
+            <%= form_tag campaign_tasks_path(@campaign), method: 'get', id: "search-form-tasks" do %>
+              <div class="search wrap">
+                <%= text_field_tag :search_tasks, params[:search_tasks], class: 'search-input' %>
+                <svg class="icon icon-search">
+                  <use xlink:href="#icon-search"></use>
+                </svg>
+                <%= submit_tag '', name: nil, class: 'hidden' %>
+              </div>
+              <div id="search-table-tasks"><%= render 'tasks/tasks', tasks: @tasks %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </article>
 </section>

@@ -104,7 +104,6 @@
 
   td:last-child,
   th:last-child {
-    width: 5%;
 
     @media screen and (min-width: $screen-s) {
       padding-right: $wrap-padding-tablet;
@@ -125,6 +124,11 @@
     @media screen and (min-width: 1400px) {
       padding-right: calc((100vw - 1180px)/2);
     }
+  }
+
+  .tags-list {
+    display: flex;
+    flex-direction: row;
   }
 
   .actions {

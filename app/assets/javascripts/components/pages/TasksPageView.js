@@ -49,29 +49,9 @@ class TaskView extends React.Component {
 
     return (
       <div>
-        <div className="l-switcher">
-          <div className={`c-switcher ${this.state.activeTab === "tab2" && "-light"}`}>
-            <div className="switcher-header">
-              <div className="wrap">
-                <h2>Tasks</h2>
-                <ul className="tabs">
-                  <li className={`tab ${this.state.activeTab === "tab1" && "-is-active"}`} onClick={this.changeTab.bind(this, "tab1")}>Map View</li>
-                  <li className={`tab ${this.state.activeTab === "tab2" && "-is-active"}`} onClick={this.changeTab.bind(this, "tab2")}>List View</li>
-                </ul>
-              </div>
-            </div>
-            <div className="tabs-content">
-              <div className={`tabs-panel ${this.state.activeTab === "tab1" && "-is-active"}`}>
-                <Map
-                  tasksList={this.props.tasksList}
-                />
-              </div>
-              <div className="tabs-panel" className={`tabs-panel ${this.state.activeTab === "tab2" && "-is-active"}`}>
-                {taskTable}
-              </div>
-            </div>
-          </div>
-        </div>
+        <Map
+          tasksList={this.props.tasksList}
+        />
       </div>
     );
   }

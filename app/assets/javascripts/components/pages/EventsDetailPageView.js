@@ -46,29 +46,7 @@ class EventsDetailView extends React.Component {
 
     return (
       <div>
-        <div className="l-switcher">
-          <div className="c-switcher">
-            <div className="switcher-header">
-              <div className="wrap">
-                <h2>Tasks</h2>
-                <ul className="tabs">
-                  <li className={`tab ${this.state.activeTab === "tab1" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab1")}>Map View</li>
-                  <li className={`tab ${this.state.activeTab === "tab2" ? "-is-active" : ""}`} onClick={this.changeTab.bind(this, "tab2")}>List View</li>
-                </ul>
-              </div>
-            </div>
-            <div className="tabs-content">
-              <div className={`tabs-panel ${this.state.activeTab === "tab1" ? "-is-active" : ""}`}>
-                <Map
-                  tasksList={this.props.eventDetail && this.props.eventDetail.tasks}
-                />
-              </div>
-              <div className="tabs-panel" className={`tabs-panel ${this.state.activeTab === "tab2" ? "-is-active" : ""}`}>
-                {taskTable}
-              </div>
-            </div>
-          </div>
-        </div>
+        <Map tiles={this.props.tiles} />
       </div>
     );
   }
