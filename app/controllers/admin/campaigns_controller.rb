@@ -78,6 +78,6 @@ class Admin::CampaignsController < AdminController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def campaign_params
-    params.require(:campaign).permit(:name, :htag, :description, :background_image, :url, :status, :start_date, :user_id, {task_ids: []})
+    params.require(:campaign).permit(:name, :htag_list, :description, :background_image, :url, :status, :start_date, :user_id, {task_ids: []})
   end
 end

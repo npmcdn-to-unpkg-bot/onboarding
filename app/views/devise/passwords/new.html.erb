@@ -1,0 +1,28 @@
+<div class="index-title wrap">
+  <h1>Forgot your password?</h1>
+</div>
+
+<div class="form-wrap">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="form-group row">
+      <%= f.label :email, class: 'col-sm-4 form-control-label' %>
+      <div class="col-sm-8">
+        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-offset-4 col-sm-8 form-control-btns">
+        <%= f.submit "Send me reset password instructions", class: 'bttn bttn-primary' %>
+      </div>
+    </div>
+
+  <% end %>
+
+  <div class="col-sm-offset-4 devise-links">
+    <%= render "devise/shared/links" %>
+  </div>
+
+</div>

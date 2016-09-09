@@ -5,6 +5,7 @@
 #  id               :integer          not null, primary key
 #  name             :string
 #  description      :text
+#  location_name    :string
 #  location         :string
 #  potential_date   :date
 #  experience_level :string
@@ -14,4 +15,9 @@
 #
 
 class EventRequest < ApplicationRecord
+  validates :name, :location, :potential_date, :email, presence: true
+
+  def location= loc
+    write_attribute(:location, loc.present? ? JSON.parse(loc) : nil) if loc
+  end
 end
