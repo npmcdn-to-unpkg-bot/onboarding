@@ -1,0 +1,24 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="table">
+  <thead>
+    <tr>
+      <% nested_path = controller_name == 'campaigns' ?
+        params.merge({ controller: 'tasks', action: 'index', campaign_id: @campaign.id}) :
+        nil %>
+      <th class="sortable"><%= sortable "task_type", nil, nested_path %></th>
+      <th class="sortable"><%= sortable "name", nil, nested_path %></th>
+      <th class="sortable"><%= sortable "description", nil, nested_path %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for task in tasks %>
+      <tr>
+        <td><%= task.task_type_humanize %></td>
+        <td class="-bold"><%= link_to task.name, task_path(task) %></td>
+        <td><%= task.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate tasks, previous_label: '<', next_label: '>' %>

@@ -1,0 +1,43 @@
+<div class="index-title wrap">
+  <h1>Sign up</h1>
+</div>
+
+<div class="form-wrap">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="form-group row">
+      <%= f.label :email, class: 'col-sm-4 form-control-label' %>
+      <div class="col-sm-8">
+        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :password, class: 'col-sm-4 form-control-label' %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <div class="col-sm-8">
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :password_confirmation, class: 'col-sm-4 form-control-label' %>
+      <div class="col-sm-8">
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-offset-4 col-sm-8 form-control-btns">
+        <%= f.submit "Sign up", class: 'bttn bttn-primary'  %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="col-sm-offset-4 devise-links">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

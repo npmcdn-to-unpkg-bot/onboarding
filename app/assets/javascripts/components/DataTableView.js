@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Fuse from 'fuse.js';
+import $ from 'jquery';
 
 class DataTableView extends React.Component {
 
@@ -10,7 +11,8 @@ class DataTableView extends React.Component {
     this.state = {
       data: [],
       direction: 0,
-      keySorted: 'date'
+      keySorted: 'date',
+      offset: 0
     };
     this.keySorted = 'date';
   }
@@ -74,6 +76,7 @@ class DataTableView extends React.Component {
 
   render() {
     const data = this.state.data;
+    console.log(data)
     return (
       <div className="l-table">
         <div className="wrap">
@@ -103,6 +106,7 @@ class DataTableView extends React.Component {
             </tr>
           </thead>
           <tbody>
+
             { data.map((element, i) =>
               <tr key={i} className="text text-desc -dark">
                   { this.props.columns && this.props.columns.map((column, i) => {

@@ -44,7 +44,7 @@
  @import "components/shared/c-table";
  @import "components/shared/c-tag";
  @import "components/shared/c-tabs";
-  @import "components/shared/c-modal";
+ @import "components/shared/c-modal";
 
  @import "components/home/about";
  @import "components/home/activity";
@@ -54,6 +54,10 @@
  @import "components/home/home-intro";
  @import "components/home/participate";
  @import "components/home/slider";
+
+ @import "admin/shared/search";
+ @import "admin/shared/pagination";
+ @import "admin/shared/table";
 
  @import "static";
 

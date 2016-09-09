@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :admin, only: [:index]
+  resources :tags, only: [:index, :show]
 
   namespace :api do
     namespace :v1 do
@@ -24,8 +25,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :campaigns, only: [:show, :index]
-  resources :events, only: [:show, :index]
+  resources :campaigns, only: [:show, :index] do
+    resources :events, only: [:index]
+    resources :tasks, only: [:index]
+  end
+  resources :events, only: [:show, :index] do
+    resources :tasks, only: [:index]
+  end
+  
   resources :tasks, only: [:show, :index]
 
   root 'home#index'

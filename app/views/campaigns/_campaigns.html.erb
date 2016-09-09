@@ -1,0 +1,27 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="table">
+  <thead>
+    <tr>
+      <th class="sortable"><%= sortable "start_date" %></th>
+      <th class="sortable"><%= sortable "name" %></th>
+      <th class="sortable"><%= sortable "htag" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for campaign in @campaigns %>
+      <tr>
+        <td><%= campaign.start_date %></td>
+        <td class="-bold"><%= link_to campaign.name, campaign_path(campaign) %></td>
+        <td>
+          <ul class="tags-list text text-tag -light">
+            <% campaign.htag_list.to_s.split(",").each do |tag| %>
+              <li class="c-tag"><%= tag %></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @campaigns, previous_label: '<', next_label: '>' %>

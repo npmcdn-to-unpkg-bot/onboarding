@@ -25,6 +25,10 @@
   }
 }
 
+.l-vert-wrap {
+  min-height: calc(100vh - 160px);
+}
+
 .l-intro {
   position: relative;
   max-height: 500px;

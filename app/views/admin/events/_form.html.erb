@@ -2,7 +2,7 @@
   <%= form_for([:admin, event]) do |f| %>
     <% if event.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+          <h3><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h3>
 
           <ul>
             <% event.errors.full_messages.each do |message| %>
@@ -12,68 +12,73 @@
         </div>
     <% end %>
 
-    <fieldset class="form-group row">
-      <%= f.label :name, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.text_field :name, class: 'form-control' %></div>
+    <fieldset class="form-group row required">
+      <%= f.label :name, class: 'col-sm-3 form-control-label' %>
+      <div class="col-sm-9"><%= f.text_field :name, class: 'form-control' %></div>
+    </fieldset>
+
+    <fieldset class="form-group row required">
+      <%= f.label :description, class: 'col-sm-3 form-control-label' %>
+      <div class="col-sm-9"><%= f.text_area :description, class: 'form-control' %></div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= f.label :description, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.text_area :description, class: 'form-control' %></div>
+      <%= f.label :image, class: 'col-sm-3 form-control-label' %>
+      <div class="col-sm-9 img_upload">
+        <%= image_tag @event.image %>
+        <%= f.file_field :image, class: 'form-control upload' %>
+      </div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= f.label :image, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.file_field :image, class: 'form-control' %></div>
+      <%= f.label :url, class: 'col-sm-3 form-control-label' %>
+      <div class="col-sm-9"><%= f.text_field :url, class: 'form-control' %></div>
+    </fieldset>
+
+    <fieldset class="form-group row required">
+      <%= f.label :date, "Start/end date", class: 'col-sm-3 form-control-label' %>
+      <div class="col-sm-4"><%= f.text_field :date, {class: 'form-control datepicker'} %></div>
+      <div class="col-sm-1 date-separator">-</div>
+      <div class="col-sm-4"><%= f.text_field :end_date, {class: 'form-control datepicker'} %></div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= f.label :url, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.text_field :url, class: 'form-control' %></div>
+      <%= f.label :location_name, "Location name", class: 'col-sm-3 form-control-label' %>
+      <div class="col-sm-9"><%= f.text_field :location_name, class: 'form-control', class: 'form-control' %></div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= f.label :date, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.text_field :date, {class: 'form-control datepicker'} %></div>
-    </fieldset>
-
-    <fieldset class="form-group row">
-      <%= f.label :location, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :location, "Choose location", class: 'col-sm-3 form-control-label' %>
+      <div class="col-sm-9">
         <div id="map"></div>
         <%= f.text_area :location, value: f.object.location.try(:to_json), class: 'form-control hidden', id: 'location_map' %>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= f.label :instructions, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.text_area :instructions, class: 'form-control' %></div>
+      <%= f.label :campaign, class: 'col-sm-3 form-control-label' %>
+      <div class="col-sm-9"><%= f.collection_select :campaign_id, Campaign.order(:name), :id, :name_with_status, {}, {class: 'form-control chzn-select'} %></div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= f.label :contact, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.text_field :contact, class: 'form-control' %></div>
-    </fieldset>
-
-    <fieldset class="form-group row">
-      <%= f.label :campaign, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.collection_select :campaign_id, Campaign.all, :id, :name, {}, {class: 'form-control chzn-select'} %></div>
-    </fieldset>
-
-    <fieldset class="form-group row">
-      <%= f.label :user_id, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10"><%= f.collection_select :user_id, User.all, :id, :email, {}, {class: 'form-control chzn-select'} %></div>
-    </fieldset>
-
-    <fieldset class="form-group row">
-      <%= f.label :tasks, class: 'col-sm-2 form-control-label' %>
-      <div class="col-sm-10">
-        <%= f.collection_select :task_ids, Task.all, :id, :name, {}, {class: 'form-control chzn-select', multiple: true} %>
+      <%= f.label :tasks, class: 'col-sm-3 form-control-label' %>
+      <div class="col-sm-9">
+        <%= f.collection_select :task_ids, Task.order(:name), :id, :name, {}, {class: 'form-control chzn-select', multiple: true} %>
       </div>
     </fieldset>
 
+    <fieldset class="form-group row">
+      <%= f.label :instructions, class: 'col-sm-3 form-control-label' %>
+      <div class="col-sm-9"><%= f.text_area :instructions, class: 'form-control' %></div>
+    </fieldset>
+
+    <fieldset class="form-group row required">
+      <%= f.label :contact, class: 'col-sm-3 form-control-label' %>
+      <div class="col-sm-9"><%= f.text_field :contact, class: 'form-control' %></div>
+    </fieldset>
+
     <div class="form-group row">
-      <div class="col-sm-offset-2 col-sm-10 form-control-btns">
+      <div class="col-sm-offset-3 col-sm-9 form-control-btns">
         <%= link_to 'Cancel', admin_events_path, class: 'bttn bttn-secondary' %>
         <%= f.submit class: 'bttn bttn-primary' %>
       </div>
