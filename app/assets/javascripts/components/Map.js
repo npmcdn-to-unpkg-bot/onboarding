@@ -5,6 +5,8 @@ class Map extends React.Component {
   constructor(props) {
     super(props);
     this.activeTiles = [];
+
+    this.firstLayersRender = true;
   }
 
   componentDidMount() {
@@ -33,7 +35,7 @@ class Map extends React.Component {
 
   _drawPolygons() {
     //Create an object to manage the layers in/out the map
-    this.props.layersGroups.map( (group) => {
+    this.props.layersGroups && this.props.layersGroups.map( (group) => {
       if (group.active) {
         this._addLayers(group.layers);
       } else {
@@ -48,7 +50,11 @@ class Map extends React.Component {
       this.activeTiles.push(layer.geom);
     });
 
-    // this._fitBounds();
+    if (this.firstLayersRender) {
+      this._fitBounds();
+      this.firstLayersRender = false;
+    }
+
   }
 
   _removeLayers(layers) {
@@ -60,8 +66,6 @@ class Map extends React.Component {
         this.activeTiles.splice(index, 1)
       }
     });
-
-    // this._fitBounds();
   }
 
   _fitBounds() {

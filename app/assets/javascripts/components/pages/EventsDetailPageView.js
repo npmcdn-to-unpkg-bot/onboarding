@@ -2,7 +2,7 @@
 
 import React from 'react';
 import DataTableView from './../DataTableView';
-import Map from './../Map';
+import Map from './../../containers/MapContainer';
 
 class EventsDetailView extends React.Component {
 

@@ -65,35 +65,41 @@ $(document).ready(function () {
         });
       }
     });
-    $('#latestActivity').ready( function() {
-      /* It always runs this callback, that's why we need to establish
-      a condition to avoid issues */
-      if ($('#latestActivity')[0]) {
-        /* Users activity data */
-        ['latestActivity'].map(element => {
-          ReactDOM.render(
-            <Provider store={store}>
-              <UsersActivityDataContainer data={element} />
-            </Provider>,
-            document.getElementById(element)
-          );
-        });
-      }
-    });
-    $('#ranking').ready( function() {
-      /* It always runs this callback, that's why we need to establish
-      a condition to avoid issues */
-      if ($('#ranking')[0]) {
-        /* Users activity data */
-        ['ranking'].map(element => {
-          ReactDOM.render(
-            <Provider store={store}>
-              <UsersActivityDataContainer data={element} />
-            </Provider>,
-            document.getElementById(element)
-          );
-        });
-      }
+  }
+});
+
+/*
+  Please, keep this code here. We will need it in the near future, once
+  we will know wich endpoint should we show here.
+ */
+// $('#latestActivity').ready( function() {
+//   /* It always runs this callback, that's why we need to establish
+//   a condition to avoid issues */
+//   if ($('#latestActivity')[0]) {
+//     /* Users activity data */
+//     ['latestActivity'].map(element => {
+//       ReactDOM.render(
+//         <Provider store={store}>
+//           <UsersActivityDataContainer data={element} />
+//         </Provider>,
+//         document.getElementById(element)
+//       );
+//     });
+//   }
+// });
+
+$('#ranking').ready( function() {
+  /* It always runs this callback, that's why we need to establish
+  a condition to avoid issues */
+  if ($('#ranking')[0]) {
+    /* Users activity data */
+    ['ranking'].map(element => {
+      ReactDOM.render(
+        <Provider store={store}>
+          <UsersActivityDataContainer data={element} />
+        </Provider>,
+        document.getElementById(element)
+      );
     });
   }
 });

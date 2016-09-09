@@ -29,7 +29,10 @@ Rails.application.routes.draw do
     resources :events, only: [:index]
     resources :tasks, only: [:index]
   end
-  resources :events, only: [:show, :index]
+  resources :events, only: [:show, :index] do
+    resources :tasks, only: [:index]
+  end
+  
   resources :tasks, only: [:show, :index]
 
   root 'home#index'

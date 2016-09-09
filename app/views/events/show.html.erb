@@ -46,7 +46,7 @@
             <div id="data-table-view"></div>
           </div>
           <div id="tab-2" class="tabs-panel">
-            <%= form_tag event_path(@event), method: 'get', id: "search-form-tasks" do %>
+            <%= form_tag campaign_tasks_path(@event), method: 'get', id: "search-form-tasks" do %>
               <div class="search wrap transparent-padding">
                 <%= text_field_tag :search_tasks, params[:search_tasks], class: 'search-input' %>
                 <svg class="icon icon-search">
